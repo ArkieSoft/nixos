@@ -86,6 +86,9 @@
     libsForQt5.ark
     steam
     swww
+    nextcloud-client
+    obs-studio
+    pavucontrol
   
 
 

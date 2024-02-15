@@ -67,7 +67,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, W, exec, firefox"
-        "$mod, Return, exec, kitty"
+        "$mod, Return, exec, alacritty"
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, D, exec, rofi -show drun"
