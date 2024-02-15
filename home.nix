@@ -25,6 +25,12 @@
   programs.waybar = import ./waybar.nix;
   services.dunst = import ./dunst.nix;
   programs.rofi = import ./rofi.nix;
+  programs.git = {
+    enable = true;
+    userEmail = "wyatt@arkannon.com";
+    userName = "ArkieSoft@Github";
+  };
+
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -50,7 +56,40 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    git
+    gh
+    firefox
+    ranger
+    lutris
+    protonup-qt
+    wl-clipboard
+    oh-my-posh
+    alacritty
+    neofetch
+    gimp
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+    thunderbird
+    vesktop
+    nicotine-plus
+    chromium
+    nwg-look
+    wdisplays
+    btop
+    signal-desktop
+    vlc
+    curl
+    llvmPackages.bintools
+    rustup
+    libsForQt5.ark
+    steam
+    swww
+  
+
+
+
 # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

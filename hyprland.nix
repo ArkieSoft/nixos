@@ -5,8 +5,8 @@
 
     settings = {
       exec-once = [
-        "/home/arkannon/.config/hypr/swwwchange.sh"
-        "/home/arkannon/.config/hypr/autostart.sh"
+        "/etc/nixos/swwwchange.sh"
+        "/etc/nixos/autostart.sh"
       ];
 
       input = {

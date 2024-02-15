@@ -104,45 +104,6 @@
     description = "Arkannon";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	git
-	gh
-  git-credential-manager  
-	rofi
-  github-desktop
-  firefox
-	ranger
-	lutris
-	protonup-qt
-  wl-clipboard
-	#r2modman
-	oh-my-posh
-	alacritty
-	neofetch
-	gimp
-	xfce.thunar
-	xfce.thunar-volman
-	xfce.thunar-archive-plugin
-	thunderbird
-	#obs-studio
-	vesktop
-	nicotine-plus
-	chromium
-	nwg-look
-	wdisplays
-	btop
-	signal-desktop
-	vlc
-	waybar
-	curl
-	clang
-	llvmPackages.bintools
-	rustup
-	libsForQt5.ark
-  steam
-	kitty
-	qogir-icon-theme
-	qogir-theme
-	oreo-cursors-plus
 	];
   };
 
@@ -154,11 +115,9 @@
   environment.systemPackages = with pkgs; [
 	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 	wget
-	hyprland
-	swww
-	xdg-desktop-portal-gtk
-	xdg-desktop-portal-hyprland
-	xwayland
+  mesa
+  dxvk
+
   ];
 
   environment.sessionVariables = {
