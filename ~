@@ -40,7 +40,6 @@
   	xwayland.enable = true;
   };
   
-  programs.steam.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -49,22 +48,20 @@
     pinentryFlavor = "gnome3";
   };
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
-  };
-
   services.gnome.gnome-keyring.enable = true;
 
   programs.ssh.startAgent = false;
 
   security.polkit.enable = true;
   services.dbus.enable = true;
+  xdg.portal = {
+	enable = true;
+	wlr.enable  = true;
+	extraPortals = [
+		pkgs.xdg-desktop-portal-hyprland
+    pkgs.xdg-desktop-portal-gtk
+	];
+  };
 
   users.defaultUserShell = pkgs.bash;
 
@@ -100,8 +97,6 @@
 	enable = true;
 	defaultEditor  = true;
   };
-  
-  hardware.opengl.driSupport32Bit = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

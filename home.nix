@@ -31,7 +31,6 @@
     userName = "ArkieSoft@Github";
   };
 
-
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.oreo-cursors-plus;
@@ -49,16 +48,19 @@
       name = "Qogir-dark";
     };
     cursorTheme = {
-      package = pkgs.oreo-cursors-plus;
-      name = "Oreo Spark Pink Cursors";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
     };
   };
+
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     git
     gh
+    gcc
+    git-credential-manager
     firefox
     ranger
     lutris
@@ -77,18 +79,26 @@
     chromium
     nwg-look
     wdisplays
+    hyprpaper
     btop
     signal-desktop
     vlc
     curl
-    llvmPackages.bintools
+    #llvmPackages.bintools
     rustup
     libsForQt5.ark
-    steam
     swww
+    bottles
     nextcloud-client
     obs-studio
     pavucontrol
+    winetricks
+    wine-staging
+    wine
+    slurp
+    grim
+    wl-clipboard
+
   
 
 

@@ -11,7 +11,7 @@
     in
     {
       nixosConfigurations = {
-        ArkieLaptop = nixpkgs.lib.nixosSystem {
+        arkannon = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
             ./configuration.nix
@@ -28,7 +28,7 @@
       };
 
       homeConfigurations = {
-        "arkannon@ArkieLaptop" = home-manager.lib.homeManagerConfiguration {
+        "arkannon@arkannon" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ./home.nix

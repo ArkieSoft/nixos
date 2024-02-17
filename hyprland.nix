@@ -7,6 +7,7 @@
       exec-once = [
         "/etc/nixos/swwwchange.sh"
         "/etc/nixos/autostart.sh"
+        "hyprctl setcursor Bibata-Modern-Classic 24"
       ];
 
       input = {
@@ -73,7 +74,7 @@
         "$mod, D, exec, rofi -show drun"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
-        "$mod, S, exec, hyprshot -m region"
+        "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         "$mod, F, fullscreen"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
@@ -88,7 +89,6 @@
         "$mod, 7, workspace, 7"
         "$mod, 8, workspace, 8"
         "$mod, 9, workspace, 9"
-        "$mod, 10, workspace, 10"
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
@@ -98,7 +98,6 @@
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 10, movetoworkspace, 10"
       ];
 
       bindm = [

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$HOME/Pictures/Wallpapers/
+DIR=/etc/nixos/wallpapers
 PICS=($(ls ${DIR}))
 
 

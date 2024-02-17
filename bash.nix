@@ -19,7 +19,7 @@ alias arkannon.com='ssh wyatt@arkannon.com'
 alias sl='ls'
 alias grep='grep --color=auto'
 alias size='du -cha --max-depth=1 . | grep -E \"M|G\"'
-alias nixconfig='sudo nvim /etc/nixos/configuration.nix'
+alias nixconfig='cd /etc/nixos && nvim'
 alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch'
 PS1='[\u@\h \W]\$ '
 
