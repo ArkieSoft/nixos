@@ -37,6 +37,7 @@
     name = "Oreo Spark Pink Cursors";
   };
 
+
   gtk = {
     enable = true;
     theme = {
@@ -59,8 +60,11 @@
   home.packages = with pkgs; [
     git
     gh
+    steam-tui
+    steamcmd
     gcc
     git-credential-manager
+    discord
     firefox
     ranger
     lutris
@@ -72,11 +76,12 @@
     gimp
     xfce.thunar
     xfce.thunar-volman
+    appimage-run
     xfce.thunar-archive-plugin
     thunderbird
     vesktop
     nicotine-plus
-    chromium
+    #chromium
     nwg-look
     wdisplays
     hyprpaper
@@ -95,9 +100,8 @@
     winetricks
     wine-staging
     wine
-    slurp
-    grim
     wl-clipboard
+    grimblast
 
   
 

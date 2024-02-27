@@ -74,7 +74,7 @@
         "$mod, D, exec, rofi -show drun"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
-        "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+        "$mod, S, exec, grimblast --freeze copysave area"
         "$mod, F, fullscreen"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
@@ -108,6 +108,11 @@
       decoration = {
 
       };
+
+      windowrulev2 = [
+        "stayfocused, title:^()$,class:^(steam)$"
+        "minsize 1 1, title:^()$,class:^(steam)$"
+      ];
 
     };
 }

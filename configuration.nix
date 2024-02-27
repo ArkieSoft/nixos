@@ -13,6 +13,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
 
   networking.hostName = "arkannon"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -25,6 +27,9 @@
   networking.networkmanager.enable = true;
 
   security.rtkit.enable = true;
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   services.pipewire = {
   	enable = true;
@@ -59,7 +64,13 @@
     config.common.default = "*";
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  xdg.mime.defaultApplications = {
+    "text/html" = "firefox";
+    "x-scheme-handler/http" = "firefox";
+    "x-scheme-handler/https" = "firefox";
+  };
+
+  #services.gnome.gnome-keyring.enable = true;
 
   programs.ssh.startAgent = false;
 
@@ -109,7 +120,7 @@
   users.users.arkannon = {
     isNormalUser = true;
     description = "arkannon";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
 	];
   };
@@ -145,8 +156,8 @@
 	services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  #networking.firewall.allowedTCPPorts = [ 2300 2301 2303 ];
+  #networking.firewall.allowedUDPPorts = [ 2300 2301 2303 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
