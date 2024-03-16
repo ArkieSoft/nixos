@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -30,12 +30,8 @@
     userEmail = "wyatt@arkannon.com";
     userName = "ArkieSoft@Github";
   };
+  #xsession.windowManager.i3 = import ./i3.nix;
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.oreo-cursors-plus;
-    name = "Oreo Spark Pink Cursors";
-  };
 
 
   gtk = {
@@ -60,16 +56,28 @@
   home.packages = with pkgs; [
     git
     gh
+    inputs.nix-citizen.packages.${system}.lug-helper
+    inputs.nix-citizen.packages.${system}.star-citizen-helper
+    inputs.nix-citizen.packages.${system}.star-citizen
     steam-tui
+    parsec-bin
+    libsForQt5.dolphin
     steamcmd
+    gnumake
+    python311Packages.pip
+    nodejs_21
+    audacity
+    ripgrep
+    python3
     gcc
     git-credential-manager
     discord
-    firefox
     ranger
     lutris
+    steam-run
     protonup-qt
     wl-clipboard
+    protonvpn-cli
     oh-my-posh
     alacritty
     neofetch

@@ -2,19 +2,30 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
+{ config, pkgs, inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+  
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
-
+  boot.kernelParams = [ "amd_iommu=on" ];
+  boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
+  boot.kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+  #boot.extraModprobeConfig = "options vfio-pci ids=10de:1b06,10de:10ef";
+  
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 arkannon qemu-libvirtd -"
+  ];
 
   networking.hostName = "arkannon"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -28,7 +39,9 @@
 
   security.rtkit.enable = true;
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+  }; 
   programs.virt-manager.enable = true;
 
   services.pipewire = {
@@ -51,7 +64,7 @@
     enableSSHSupport = true;
     enableBrowserSocket = true;
     enableExtraSocket = true;
-    pinentryFlavor = "gnome3";
+    #pinentryFlavor = "qt";
   };
 
   xdg.portal = {
@@ -68,6 +81,13 @@
     "text/html" = "firefox";
     "x-scheme-handler/http" = "firefox";
     "x-scheme-handler/https" = "firefox";
+  };
+
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+    };
   };
 
   #services.gnome.gnome-keyring.enable = true;
@@ -97,10 +117,20 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  environment.pathsToLink = [ "/libexec" ];#for i3
+
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    enable = true;
+    displayManager = {
+      sddm.enable = false;
+    };
+    xkb = {
+      variant = "";
+      layout = "us";
+    };
+    #layout = "us";
+    #xkbVariant = "";
   };
 
   fonts.packages = with pkgs; [
@@ -112,7 +142,14 @@
 	defaultEditor  = true;
   };
   
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -120,13 +157,12 @@
   users.users.arkannon = {
     isNormalUser = true;
     description = "arkannon";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
     packages = with pkgs; [
 	];
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -135,8 +171,8 @@
 	wget
   mesa
   dxvk
-
-  ];
+  libsForQt5.polkit-kde-agent
+   ];
 
   environment.sessionVariables = {
 	NIXOS_OZONE_WL = "1";
@@ -159,7 +195,7 @@
   #networking.firewall.allowedTCPPorts = [ 2300 2301 2303 ];
   #networking.firewall.allowedUDPPorts = [ 2300 2301 2303 ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+   networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -175,6 +175,7 @@ window#waybar.hidden {
 	color: #161320;
 	background: #F8BD96;
 }
+
 #clock {
 	margin-top: 6px;
 	margin-left: 8px;
@@ -185,8 +186,35 @@ window#waybar.hidden {
 	transition: none;
 	color: #b5e8e0;
 	background: #9a348e;
-	/*background: #1A1826;*/
 }
+
+
+/*
+#clock {
+	margin-top: 6px;
+	margin-left: -12px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #b5e8e0;
+	background: #9a348e;
+}
+
+
+#tray {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #b5e8e0;
+	background: #9a348e;
+}
+*/
 
 #memory {
 	margin-top: 6px;
@@ -211,7 +239,6 @@ window#waybar.hidden {
 	color: #161320;
 	background: #96CDFB;
 }
-
 #tray {
 	margin-top: 6px;
 	margin-left: 8px;
@@ -223,7 +250,6 @@ window#waybar.hidden {
 	color: #B5E8E0;
 	background: #869ef4;
 }
-
 #custom-launcher {
 	font-size: 24px;
 	margin-top: 6px;
