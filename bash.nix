@@ -21,7 +21,10 @@ alias grep='grep --color=auto'
 alias size='du -cha --max-depth=1 . | grep -E \"M|G\"'
 alias nixconfig='cd /etc/nixos && nvim'
 alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch'
+alias vmstart='LIBVIRT_DEFAULT_URI=qemu:///system virsh start WindowsVM'
+alias vmstop='LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown WindowsVM'
 PS1='[\u@\h \W]\$ '
+
 
 export VISUAL=nvim
 

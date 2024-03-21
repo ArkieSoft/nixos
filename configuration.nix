@@ -15,133 +15,143 @@
 
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelParams = [ "amd_iommu=on" ];
-  boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
-  boot.kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
-  #boot.extraModprobeConfig = "options vfio-pci ids=10de:1b06,10de:10ef";
-  
-  systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 arkannon qemu-libvirtd -"
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_zen;
+    kernelParams = [ "amd_iommu=on" ]; # Enables PCI-Passthrough
+    blacklistedKernelModules = [ "nvidia" "nouveau" ];  #Turns off Nvidia drivers
+    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" "v4l2loopback" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
+    extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef 
+      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+      ''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
+    kernel.sysctl = { "vm.max_map_count" = 16777216; }; #For Star Citizen
+    extraModulePackages = with config.boot.kernelPackages; [
+      v4l2loopback
+    ];
+  };
+
+  swapDevices = [ { 
+      device = "/var/lib/swapfile";
+      size = 16*1024;
+    } 
   ];
 
-  networking.hostName = "arkannon"; # Define your hostname.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  security.rtkit.enable = true;
-
-  virtualisation.libvirtd = {
-    enable = true;
-  }; 
-  programs.virt-manager.enable = true;
-
-  services.pipewire = {
-  	enable = true;
-  	alsa.enable = true;
-  	alsa.support32Bit = true;
-  	pulse.enable = true;
-  };
-  
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-  programs.hyprland = {
-  	enable = true;
-  	xwayland.enable = true;
-  };
-  
-  programs.steam.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    enableBrowserSocket = true;
-    enableExtraSocket = true;
-    #pinentryFlavor = "qt";
+  networking = {
+    hostName = "arkannon"; # Define your hostname.
+    networkmanager.enable = true;
+    firewall.enable = false;
   };
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = "*";
-  };
-
-  xdg.mime.defaultApplications = {
-    "text/html" = "firefox";
-    "x-scheme-handler/http" = "firefox";
-    "x-scheme-handler/https" = "firefox";
-  };
-
-  programs.firefox = {
-    enable = true;
-    preferences = {
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    pam.services.arkannon = {
+      enableGnomeKeyring = true;
     };
   };
 
-  #services.gnome.gnome-keyring.enable = true;
+  virtualisation = { #Allows virt-manager to work with QEMU backend
+    spiceUSBRedirection.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
 
-  programs.ssh.startAgent = false;
+    };
+  };
+  programs = {
+    virt-manager.enable = true;
+    steam.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      enableBrowserSocket = true;
+      enableExtraSocket = true;
+      pinentryFlavor = "gnome3";
+    };
+    hyprland = {
+  	  enable = true;
+  	  xwayland.enable = true;
+    };
+    firefox = {
+      enable = true;
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+    };    
+    ssh.startAgent = false;
+    neovim = {
+	    enable = true;
+	    defaultEditor  = true;
+    };
+  }; 
 
-  security.polkit.enable = true;
-  services.dbus.enable = true;
+  services = {
+    gnome.gnome-keyring.enable = true;
+    pipewire = {
+  	  enable = true;
+  	  alsa.enable = true;
+  	  alsa.support32Bit = true;
+  	  pulse.enable = true;
+      wireplumber.enable = true;
+    };
+    gvfs.enable = true; #For Thunar auto-mount
+    tumbler.enable = true;
+	  openssh.enable = true;
+    dbus.enable = true;
+    xserver = {
+      enable = true;
+      xrandrHeads = [ { output = "DP-2"; primary = true; } ];
+      xkb = {
+        variant = "";
+        layout = "us";
+      };
+    };
 
-  users.defaultUserShell = pkgs.bash;
-
+  };
+  
+  xdg = {
+    portal = {
+      wlr.enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-gtk
+      ];
+      config.common.default = "*";
+    };
+    mime.defaultApplications = {
+      "text/html" = "firefox";
+      "x-scheme-handler/http" = "firefox";
+      "x-scheme-handler/https" = "firefox";
+    };
+  };
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  environment.pathsToLink = [ "/libexec" ];#for i3
-
-  # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      sddm.enable = false;
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
     };
-    xkb = {
-      variant = "";
-      layout = "us";
-    };
-    #layout = "us";
-    #xkbVariant = "";
-  };
-
-  fonts.packages = with pkgs; [
-	nerdfonts
-  ];
-
-  programs.neovim = {
-	enable = true;
-	defaultEditor  = true;
   };
   
+  fonts.packages = with pkgs; [
+	  nerdfonts
+  ];
+
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
@@ -154,48 +164,34 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.arkannon = {
-    isNormalUser = true;
-    description = "arkannon";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
-    packages = with pkgs; [
-	];
+  users = {
+    defaultUserShell = pkgs.bash;
+    users.arkannon = {
+      isNormalUser = true;
+      description = "arkannon";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
+      packages =  [
+	    ];
+    };
   };
-
-  # Allow unfree packages
-
-  # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	wget
-  mesa
-  dxvk
-  libsForQt5.polkit-kde-agent
-   ];
-
-  environment.sessionVariables = {
-	NIXOS_OZONE_WL = "1";
+  environment = {
+    systemPackages = with pkgs; [
+	    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+	    wget
+      mesa
+      dxvk
+    ];
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-	services.openssh.enable = true;
 
   # Open ports in the firewall.
   #networking.firewall.allowedTCPPorts = [ 2300 2301 2303 ];
   #networking.firewall.allowedUDPPorts = [ 2300 2301 2303 ];
   # Or disable the firewall altogether.
-   networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

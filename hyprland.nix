@@ -8,6 +8,8 @@
         "/etc/nixos/swwwchange.sh"
         "/etc/nixos/autostart.sh"
         "hyprctl setcursor Bibata-Modern-Classic 24"
+        "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
       ];
 
       input = {
