@@ -1,7 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    home-manager = { url = "github:nix-community/home-manager/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-citizen.url = "github:LovingMelody/nix-citizen";
@@ -13,6 +14,8 @@
     with inputs;
     let
       specialArgs = { inherit inputs self; };
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
+      eachSystem = inputs.nixpkgs.lib.genAttrs systems;
     in
     {
       nixosConfigurations = {
@@ -41,5 +44,11 @@
           ];
         };
       };
+      formatter = eachSystem (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        pkgs.nixpkgs-fmt
+      );
     };
 }

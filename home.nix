@@ -27,6 +27,13 @@
       userName = "ArkieSoft@Github";
     };
     home-manager.enable = true;
+    kitty = {
+      enable = true;
+      settings = {
+        background = "#181818";
+        confirm_os_window_close = 0;
+      };
+    };
   };
 
   services.dunst = import ./dunst.nix;
@@ -56,6 +63,8 @@
     };
 
     packages = with pkgs; [
+      rofi-wayland
+      hollywood
       git
       gh
       inputs.nix-citizen.packages.${system}.lug-helper
@@ -78,6 +87,7 @@
       webcord
       lutris
       steam-run
+      hyprcursor
       protonup-qt
       wl-clipboard
       protonvpn-cli

@@ -69,7 +69,7 @@
       enableSSHSupport = true;
       enableBrowserSocket = true;
       enableExtraSocket = true;
-      pinentryFlavor = "gnome3";
+      #pinentryFlavor = "gnome3";
     };
     hyprland = {
   	  enable = true;
@@ -128,7 +128,7 @@
       "x-scheme-handler/https" = "firefox";
     };
   };
-  # Set your time zone.
+  # Set your time zone./
   time.timeZone = "America/Los_Angeles";
 
   # Select internationalisation properties.
@@ -161,7 +161,13 @@
     ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
+      #auto-optimize-store = true;
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {

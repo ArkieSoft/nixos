@@ -3,7 +3,7 @@
   settings = {
     global = {
       monitor = 0;
-      follow  = "none";
+      follow = "none";
       width = 300;
       height = 300;
       origin = "top_right";
@@ -80,7 +80,7 @@
       frame_color = "#ff0000";
       timeout = 0;
     };
-    
+
   };
 
 }

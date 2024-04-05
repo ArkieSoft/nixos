@@ -2,17 +2,27 @@
   enable = true;
   bashrcExtra = "
 
+A=$(shuf -i 1-4 -n 1)
 
+if [ $A -eq 1 ]; then
+  neofetch
+elif [ $A -eq 2 ]; then
+  neofetch --kitty /etc/nixos/fetchart/2b.png --size 15%
+elif [ $A -eq 3 ]; then
+  neofetch --kitty /etc/nixos/fetchart/2b2.jpg --size 15%
+else
+  neofetch --ascii /etc/nixos/fetchart/Pentag
+fi
 
 [[ $- != *i* ]] && return
 
-neofetch --ascii /etc/nixos/Pentag
 
 eval \"$(oh-my-posh init bash --config /etc/nixos/M365Princess.omp.json)\"
 
 alias passwds='nvim /home/arkannon/Documents/passwords'
 #alias pac='pacseek'
-alias orphanstomper='nix store gc'
+alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage'
+alias oldstomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old'
 #alias updoot='sudo zyppe
 alias arkiemail.com='ssh root@arkiemail.com'
 alias arkannon.com='ssh wyatt@arkannon.com'

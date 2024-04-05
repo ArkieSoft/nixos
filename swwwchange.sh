@@ -8,7 +8,7 @@ if [[ $(pidof swaybg) ]]; then
   pkill swaybg
 fi
 
-swww query || swww init
+swww query || swww-daemon
 
 INTERVAL=300
 #change-wallpaper using swww
