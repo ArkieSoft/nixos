@@ -7,7 +7,11 @@
     };
     nix-citizen.url = "github:LovingMelody/nix-citizen";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    stable.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -23,8 +27,8 @@
           inherit specialArgs;
           modules = [
             ./configuration.nix
+            nixos-cosmic.nixosModules.default
             home-manager.nixosModules.home-manager
-
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

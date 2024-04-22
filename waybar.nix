@@ -67,7 +67,8 @@
     	font-size: 4px;
     	margin-bottom: 0px;
     	border-radius: 10px;
-    	background: #ff99e6;
+    	/*background: #ff99e6;*/
+    	background: #FF7F50;
       border-color: #9a348e;
     	transition: none;
     }
@@ -248,7 +249,8 @@
     	border-radius: 10px;
     	transition: none;
     	color: #B5E8E0;
-    	background: #869ef4;
+    	/*background: #869ef4;*/
+    	background: #00FFFF;
     }
     #custom-launcher {
     	font-size: 24px;

@@ -89,6 +89,7 @@
   }; 
 
   services = {
+   # desktopManager.cosmic.enable = true;
     gnome.gnome-keyring.enable = true;
     pipewire = {
   	  enable = true;
@@ -103,6 +104,7 @@
     dbus.enable = true;
     xserver = {
       enable = true;
+      displayManager.lightdm.enable = false;
       xrandrHeads = [ { output = "DP-2"; primary = true; } ];
       xkb = {
         variant = "";
@@ -187,10 +189,57 @@
 	    wget
       mesa
       dxvk
+      gparted
+     # cosmic-bg
+     # cosmic-osd
+     # cosmic-term
+     # cosmic-edit
+     # cosmic-comp
+     # cosmic-store
+     # cosmic-randr
+     ## cosmic-panel
+     # cosmic-icons
+     # cosmic-files
+     # cosmic-session
+     # cosmic-greeter
+     # cosmic-applets
+     # cosmic-settings
+     # cosmic-launcher
+     # cosmic-protocols
+     # cosmic-screenshot
+     # cosmic-applibrary
+     # cosmic-notifications
+     # cosmic-settings-daemon
+     # cosmic-workspaces-epoch
+     # cosmic-design-demo
+     # xdg-desktop-portal-cosmic
+
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };
+  };
+
+  fileSystems."/vms" = {
+    device = "/dev/disk/by-uuid/dd7864ff-40e8-4df3-8482-74828ce62690";
+    fsType = "ext4";
+    options = [
+      "users"
+      "nofail"
+      "auto"
+      "rw"
+    ];
+  };
+  fileSystems."/home/arkannon" = {
+    device = "/dev/disk/by-uuid/2a2ce087-44f3-40c6-93d4-f7224e344c22";
+    fsType = "ext4";
+    options = [
+      "users"
+      "nofail"
+      "auto"
+      "exec"
+      "rw"
+    ];
   };
 
 

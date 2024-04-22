@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ... }:
-
+let
+  swww = inputs.stable.legacyPackages.x86_64-linux.swww;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -34,6 +36,19 @@
         confirm_os_window_close = 0;
       };
     };
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.wlrobs
+        obs-studio-plugins.obs-webkitgtk
+        obs-studio-plugins.obs-vkcapture
+        
+      ];
+    };
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+    };
   };
 
   services.dunst = import ./dunst.nix;
@@ -64,33 +79,27 @@
 
     packages = with pkgs; [
       rofi-wayland
-      hollywood
+      helvum
+      gomuks
       git
       gh
+      vesktop
       inputs.nix-citizen.packages.${system}.lug-helper
       inputs.nix-citizen.packages.${system}.star-citizen-helper
       inputs.nix-citizen.packages.${system}.star-citizen
-      steam-tui
       parsec-bin
-      libsForQt5.dolphin
-      steamcmd
       gnumake
       python311Packages.pip
       nodejs_21
-      audacity
       ripgrep
       python3
       gcc
       git-credential-manager
-      discord
       ranger
-      webcord
       lutris
-      steam-run
-      hyprcursor
+      steam
       protonup-qt
       wl-clipboard
-      protonvpn-cli
       oh-my-posh
       alacritty
       neofetch
@@ -100,28 +109,22 @@
       appimage-run
       xfce.thunar-archive-plugin
       thunderbird
-      #vesktop
       nicotine-plus
       #chromium
       nwg-look
       wdisplays
-      hyprpaper
       btop
       signal-desktop
       vlc
       curl
-      #llvmPackages.bintools
       rustup
       libsForQt5.ark
       swww
-      bottles
       nextcloud-client
-      obs-studio
       pavucontrol
       winetricks
       wine-staging
       wine
-      wl-clipboard
       grimblast
     ];
   };

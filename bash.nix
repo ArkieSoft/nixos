@@ -20,19 +20,21 @@ fi
 eval \"$(oh-my-posh init bash --config /etc/nixos/M365Princess.omp.json)\"
 
 alias passwds='nvim /home/arkannon/Documents/passwords'
-#alias pac='pacseek'
 alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage'
 alias oldstomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old'
-#alias updoot='sudo zyppe
-alias arkiemail.com='ssh root@arkiemail.com'
+alias matrix='gomuks'
+alias arkiemail.com='ssh root@mail.arkannon.com'
 alias arkannon.com='ssh wyatt@arkannon.com'
 alias sl='ls'
 alias grep='grep --color=auto'
 alias size='du -cha --max-depth=1 . | grep -E \"M|G\"'
 alias nixconfig='cd /etc/nixos && nvim'
+alias updoot='cd /etc/nixos/ && git add . && sudo nix flake update && sudo nixos-rebuild switch'
 alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch'
 alias vmstart='LIBVIRT_DEFAULT_URI=qemu:///system virsh start WindowsVM'
 alias vmstop='LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown WindowsVM'
+alias v='nvim'
+alias cd='z'
 PS1='[\u@\h \W]\$ '
 
 

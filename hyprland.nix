@@ -5,7 +5,7 @@
 
   settings = {
     exec-once = [
-      "/etc/nixos/swwwchange.sh"
+      "/etc/nixos/swwwchange.sh /etc/nixos/wallpapers"
       "/etc/nixos/autostart.sh"
       "hyprctl setcursor Bibata-Modern-Classic 24"
       "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
@@ -22,7 +22,8 @@
       #gaps_out = 10;
       gaps_out = 0;
       border_size = 3;
-      "col.active_border" = "rgba(ff99e694) rgba(869ef4cf) 45deg";
+      #"col.active_border" = "rgba(ff99e694) rgba(869ef4cf) 45deg";
+      "col.active_border" = "rgba(FF7F50FF) rgba(00FFFFFF) 45deg";
       "col.inactive_border" = "rgba(595959aa)";
       layout = "dwindle";
     };
@@ -66,27 +67,31 @@
 
     monitor = [
       "DP-2, 2560x1440@144, 0x1080, 1"
-      "DP-1, 2560x1440@144, 2560x1080, 1"
-      "HDMI-A-1, 1920x1080@60, 2560x0, 1"
+        "DP-1, 2560x1440@144, 2560x1080, 1"
+        "HDMI-A-1, 1920x1080@60, 2560x0, 1"
     ];
 
     "$mod" = "SUPER";
     bind = [
       "$mod, W, exec, firefox"
-      "$mod, Return, exec, kitty"
-      "$mod, Q, killactive"
-      "$mod, V, togglefloating"
-      "$mod, D, exec, rofi -show drun -config /etc/nixos/rofidmenu.rasi"
-      "$mod, P, pseudo"
-      "$mod, J, togglesplit"
-      "$mod, S, exec, grimblast --freeze copysave area"
-      "$mod, F, fullscreen"
-      "$mod, left, movefocus, l"
-      "$mod, right, movefocus, r"
-      "$mod, up, movefocus, u"
-      "$mod, down, movefocus, d"
-      "$mod, 1, workspace, 1"
-      "$mod, 2, workspace, 2"
+        "$mod, Return, exec, kitty"
+        "$mod, Q, killactive"
+        "$mod, V, togglefloating"
+        "$mod, D, exec, rofi -show drun -config /etc/nixos/rofidmenu.rasi"
+        "$mod, P, pseudo"
+        "$mod, J, togglesplit"
+        "$mod, S, exec, grimblast --freeze copysave area"
+        "$mod, F, fullscreen"
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "CTRL, left, swapwindow, l"
+        "CTRL, right, swapwindow, r"
+        "CTRL, up, swapwindow, u"
+        "CTRL, down, swapwindow, d"
+        "$mod, 1, workspace, 1"
+        "$mod, 2, workspace, 2"
       "$mod, 3, workspace, 3"
       "$mod, 4, workspace, 4"
       "$mod, 5, workspace, 5"
