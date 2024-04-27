@@ -2,7 +2,7 @@
 {wayland.windowManager.sway =
 {
   enable = true;
-  package = pkgs.swayfx;
+  package = pkgs.swayfx-unwrapped;
   xwayland = true;
   config = {
     modifier = "Mod4";
@@ -174,6 +174,13 @@
         };
       }
     ];
-  };
+     };
+    extraConfig = "
+      blur enable
+      blur_passes 6
+      blur_radius 6
+      shadows enable
+      shadows 30
+    ";
 };
 }

@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+{wayland.windowManager.hyprland =
 {
   enable = true;
   xwayland.enable = true;
@@ -131,4 +133,5 @@
       "4,monitor:DP-2,default:false,persistent:true"
     ];
   };
+};
 }
