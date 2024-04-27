@@ -3,6 +3,7 @@
 
   settings = [{
     layer = "top";
+    position = "top";
     modules-left = [ "hyprland/workspaces" ];
     modules-right = [ "battery" "tray" "clock" ];
     "hyprland/workspaces" = {

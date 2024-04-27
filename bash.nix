@@ -22,6 +22,7 @@ eval \"$(oh-my-posh init bash --config /etc/nixos/M365Princess.omp.json)\"
 alias passwds='nvim /home/arkannon/Documents/passwords'
 alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage'
 alias oldstomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old'
+alias cls='clear'
 alias matrix='gomuks'
 alias arkiemail.com='ssh root@mail.arkannon.com'
 alias arkannon.com='ssh wyatt@arkannon.com'

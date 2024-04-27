@@ -82,14 +82,11 @@
       };
     };    
     ssh.startAgent = false;
-    neovim = {
-	    enable = true;
-	    defaultEditor  = true;
-    };
   }; 
 
   services = {
-   # desktopManager.cosmic.enable = true;
+    #desktopManager.cosmic.enable = true;
+    #displayManager.cosmic-greeter.enable = true;
     gnome.gnome-keyring.enable = true;
     pipewire = {
   	  enable = true;

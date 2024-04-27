@@ -14,9 +14,11 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
+  imports = [ ./sway.nix ];
   
-  wayland.windowManager.hyprland = import ./hyprland.nix;
+  wayland.windowManager = {
+    hyprland = import ./hyprland.nix;
+  };
 
   programs = {
     bash = import ./bash.nix;
@@ -49,6 +51,10 @@ in
       enable = true;
       enableBashIntegration = true;
     };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
 
   services.dunst = import ./dunst.nix;
@@ -73,7 +79,7 @@ in
     username = "arkannon";
     homeDirectory = "/home/arkannon";
     sessionVariables = {
-      EDITOR = "neovim";
+      EDITOR = "nvim";
       BROWSER = "firefox";
     };
 
@@ -90,7 +96,6 @@ in
       parsec-bin
       gnumake
       python311Packages.pip
-      nodejs_21
       ripgrep
       python3
       gcc
