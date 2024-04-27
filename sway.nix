@@ -26,16 +26,16 @@
         "${modifier}+Return" = "exec alacritty";
         "${modifier}+Tab" = "workspace next";
         "${modifier}+Shift+Tab" = "workspace prev";
-        "${modifier}+1" = "workspace $ws1";
-        "${modifier}+2" = "workspace $ws2"; 
-        "${modifier}+3" = "workspace $ws3";
-        "${modifier}+4" = "workspace $ws4";
-        "${modifier}+5" = "workspace $ws5";
-        "${modifier}+6" = "workspace $ws6";
-        "${modifier}+7" = "workspace $ws7";
-        "${modifier}+8" = "workspace $ws8";
-        "${modifier}+9" = "workspace $ws9";
-        "${modifier}+0" = "workspace $ws10";
+        "${modifier}+1" = "workspace 1";
+        "${modifier}+2" = "workspace 2"; 
+        "${modifier}+3" = "workspace 3";
+        "${modifier}+4" = "workspace 4";
+        "${modifier}+5" = "workspace 5";
+        "${modifier}+6" = "workspace 6";
+        "${modifier}+7" = "workspace 7";
+        "${modifier}+8" = "workspace 8";
+        "${modifier}+9" = "workspace 9";
+        "${modifier}+0" = "workspace 10";
         "${modifier}+Shift+1" = "move container to workspace $ws1";
         "${modifier}+Shift+2" = "move container to workspace $ws2";
         "${modifier}+Shift+3" = "move container to workspace $ws3";
@@ -52,16 +52,17 @@
         "${modifier}+Down" = "focus down";
         "${modifier}+Up" = "focus up";
         "${modifier}+Right" = "focus right";
-        "${modifier}+Shift+Left" = "move left";
-        "${modifier}+Shift+Down" = "move down";
-        "${modifier}+Shift+Up" = "move up";
-        "${modifier}+Shift+Right" = "move right";
+        "Ctrl+Left" = "move left";
+        "Ctrl+Down" = "move down";
+        "Ctrl+Up" = "move up";
+        "Ctrl+Right" = "move right";
         "${modifier}+h" = "split h";
         "${modifier}+b" = "split v";
         "${modifier}+f" = "fullscreen toggle";
         "${modifier}+v" = "floating toggle";
         "${modifier}+w" = "exec firefox";
         "${modifier}+d" = "exec rofi -show drun -config /etc/nixos/rofidmenu.rasi";
+        "${modifier}+s" = "exec grimblast --freeze copysave area";
     };
     workspaceOutputAssign = [
       { workspace = "1"; output = "DP-2"; }
@@ -74,10 +75,16 @@
     terminal = "alacritty";
     startup = [
       { command = "/etc/nixos/swwwchange.sh /etc/nixos/wallpapers"; }
-      { command = "/etc/nixos/autostart.sh"; }
       { command = "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"; }
       { command = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"; }
+      { command = "swaymsg output HDMI-A-1 mode 1920x1080 position 2560 0"; always = true; }
+      { command = "swaymsg output DP-1 mode 2560x1440 position 2560 1080"; always = true; }
+      { command = "swaymsg output DP-2 mode 2560x1440 position 0 1080"; always = true; }
     ];
+    window = {
+      titlebar = false;
+    };
+    floating.titlebar = false;
     colors =  let
         darkblue = "#08052b";
         lightblue = "#5294e2";
@@ -95,24 +102,28 @@
         border = lightblue;
         childBorder = mediumgrey;
         text = white;
+        indicator = mediumgrey;
       };
       unfocused = {
         background = darkblue;
         border = darkblue;
         childBorder = darkgrey;
         text = grey;
+        indicator = darkgrey;
       };
       focusedInactive = {
         background = darkblue;
         border = darkblue;
         childBorder = black;
         text = grey;
+        indicator = black;
       };
       urgent = {
         background = urgentred;
         border = urgentred;
         childBorder = yellowbrown;
         text = white;
+        indicator = yellowbrown;
       };
     };
     bars = let
