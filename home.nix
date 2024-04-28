@@ -20,7 +20,6 @@ in
     bash = import ./bash.nix;
 #  programs.oh-my-posh = import ./posh.nix;
     waybar = import ./waybar.nix;
-    rofi = import ./rofi.nix;
     git = {
       enable = true;
       userEmail = "wyatt@arkannon.com";
