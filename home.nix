@@ -103,6 +103,7 @@ in
       oh-my-posh
       alacritty
       neofetch
+      lazygit
       gimp
       xfce.thunar
       xfce.thunar-volman
