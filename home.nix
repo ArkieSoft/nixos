@@ -14,12 +14,15 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-  imports = [ ./sway.nix ./hyprland.nix ];
+  imports = [ 
+    ./sway.nix
+    ./hyprland.nix
+    ./bash.nix 
+    ./dunst.nix
+    ./waybar.nix
+  ];
 
   programs = {
-    bash = import ./bash.nix;
-#  programs.oh-my-posh = import ./posh.nix;
-    waybar = import ./waybar.nix;
     git = {
       enable = true;
       userEmail = "wyatt@arkannon.com";
@@ -52,8 +55,6 @@ in
     };
   };
 
-  services.dunst = import ./dunst.nix;
-
   gtk = {
     enable = true;
     theme = {
@@ -82,7 +83,6 @@ in
       rofi-wayland
       helvum
       gomuks
-      git
       gh
       vesktop
       inputs.nix-citizen.packages.${system}.lug-helper
@@ -92,10 +92,8 @@ in
       gnumake
       python311Packages.pip
       ripgrep
-      weechat
       python3
       gcc
-      ranger
       lutris
       steam
       protonup-qt
@@ -110,7 +108,6 @@ in
       xfce.thunar-archive-plugin
       thunderbird
       nicotine-plus
-      #chromium
       nwg-look
       wdisplays
       btop

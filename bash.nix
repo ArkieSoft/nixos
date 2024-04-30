@@ -1,3 +1,6 @@
+{ pkgs, ... }:
+{
+  programs.bash =
 {
   enable = true;
   bashrcExtra = "
@@ -46,4 +49,5 @@ export PATH=\"/bin/systemctl/:$PATH\"
 ";
 
 
+};
 }
