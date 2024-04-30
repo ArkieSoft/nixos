@@ -92,16 +92,15 @@ in
       gnumake
       python311Packages.pip
       ripgrep
+      weechat
       python3
       gcc
-      git-credential-manager
       ranger
       lutris
       steam
       protonup-qt
       wl-clipboard
       oh-my-posh
-      alacritty
       neofetch
       lazygit
       gimp

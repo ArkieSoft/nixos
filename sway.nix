@@ -23,7 +23,7 @@
       let
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
-        "${modifier}+Return" = "exec alacritty";
+        "${modifier}+Return" = "exec kitty";
         "${modifier}+Tab" = "workspace next";
         "${modifier}+Shift+Tab" = "workspace prev";
         "${modifier}+1" = "workspace 1";
@@ -36,16 +36,16 @@
         "${modifier}+8" = "workspace 8";
         "${modifier}+9" = "workspace 9";
         "${modifier}+0" = "workspace 10";
-        "${modifier}+Shift+1" = "move container to workspace $ws1";
-        "${modifier}+Shift+2" = "move container to workspace $ws2";
-        "${modifier}+Shift+3" = "move container to workspace $ws3";
-        "${modifier}+Shift+4" = "move container to workspace $ws4";
-        "${modifier}+Shift+5" = "move container to workspace $ws5";
-        "${modifier}+Shift+6" = "move container to workspace $ws6";
-        "${modifier}+Shift+7" = "move container to workspace $ws7";
-        "${modifier}+Shift+8" = "move container to workspace $ws8";
-        "${modifier}+Shift+9" = "move container to workspace $ws9";
-        "${modifier}+Shift+0" = "move container to workspace $ws10";
+        "${modifier}+Shift+1" = "move container to workspace 1";
+        "${modifier}+Shift+2" = "move container to workspace 2";
+        "${modifier}+Shift+3" = "move container to workspace 3";
+        "${modifier}+Shift+4" = "move container to workspace 4";
+        "${modifier}+Shift+5" = "move container to workspace 5";
+        "${modifier}+Shift+6" = "move container to workspace 6";
+        "${modifier}+Shift+7" = "move container to workspace 7";
+        "${modifier}+Shift+8" = "move container to workspace 8";
+        "${modifier}+Shift+9" = "move container to workspace 9";
+        "${modifier}+Shift+0" = "move container to workspace 10";
         "${modifier}+q" = "kill";
         "${modifier}+Shift+r" = "reload";
         "${modifier}+Left" = "focus left";

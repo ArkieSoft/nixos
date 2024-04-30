@@ -66,7 +66,7 @@
     steam.enable = true;
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
+      enableSSHSupport = false;
       enableBrowserSocket = true;
       enableExtraSocket = true;
       #pinentryFlavor = "gnome3";
@@ -81,7 +81,10 @@
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
     };    
-    ssh.startAgent = false;
+    ssh = {
+      startAgent = false;
+      enableAskPassword = false;
+    };
   }; 
 
   services = {
@@ -97,7 +100,11 @@
     };
     gvfs.enable = true; #For Thunar auto-mount
     tumbler.enable = true;
-	  openssh.enable = true;
+	  openssh = {
+      enable = true;
+      ports = [ 230 ];
+      settings.PasswordAuthentication = true;
+    };
     dbus.enable = true;
     xserver = {
       enable = true;
@@ -107,6 +114,9 @@
         variant = "";
         layout = "us";
       };
+      excludePackages = with pkgs; [
+        xterm
+      ];
     };
 
   };
