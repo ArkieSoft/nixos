@@ -1,6 +1,6 @@
 #!/bin/sh
 
-waybar & disown waybar
+nwg-panel & disown nwg-panel
 thunar --daemon & disown thunar
 xrandr --output DP-2 --primary
 LIBVIRT_DEFAULT_URI=qemu:///system virsh net-start default

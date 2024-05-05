@@ -5,10 +5,11 @@
 { config, pkgs, inputs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -22,7 +23,7 @@
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "amd_iommu=on" ]; # Enables PCI-Passthrough
-    blacklistedKernelModules = [ "nvidia" "nouveau" ];  #Turns off Nvidia drivers
+    blacklistedKernelModules = [ "nvidia" "nouveau" ]; #Turns off Nvidia drivers
     kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" "v4l2loopback" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
     extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef 
       options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
@@ -33,11 +34,10 @@
     ];
   };
 
-  swapDevices = [ { 
-      device = "/var/lib/swapfile";
-      size = 16*1024;
-    } 
-  ];
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16 * 1024;
+  }];
 
   networking = {
     hostName = "arkannon"; # Define your hostname.
@@ -53,7 +53,8 @@
     };
   };
 
-  virtualisation = { #Allows virt-manager to work with QEMU backend
+  virtualisation = {
+    #Allows virt-manager to work with QEMU backend
     spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
@@ -62,6 +63,7 @@
     };
   };
   programs = {
+    adb.enable = true;
     virt-manager.enable = true;
     steam.enable = true;
     gnupg.agent = {
@@ -72,35 +74,35 @@
       #pinentryFlavor = "gnome3";
     };
     hyprland = {
-  	  enable = true;
-  	  xwayland.enable = true;
+      enable = true;
+      xwayland.enable = true;
     };
     firefox = {
       enable = true;
       preferences = {
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
-    };    
+    };
     ssh = {
       startAgent = false;
       enableAskPassword = false;
     };
-  }; 
+  };
 
   services = {
     #desktopManager.cosmic.enable = true;
     #displayManager.cosmic-greeter.enable = true;
     gnome.gnome-keyring.enable = true;
     pipewire = {
-  	  enable = true;
-  	  alsa.enable = true;
-  	  alsa.support32Bit = true;
-  	  pulse.enable = true;
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
       wireplumber.enable = true;
     };
     gvfs.enable = true; #For Thunar auto-mount
     tumbler.enable = true;
-	  openssh = {
+    openssh = {
       enable = true;
       ports = [ 230 ];
       settings.PasswordAuthentication = true;
@@ -109,7 +111,7 @@
     xserver = {
       enable = true;
       displayManager.lightdm.enable = false;
-      xrandrHeads = [ { output = "DP-2"; primary = true; } ];
+      xrandrHeads = [{ output = "DP-2"; primary = true; }];
       xkb = {
         variant = "";
         layout = "us";
@@ -120,7 +122,7 @@
     };
 
   };
-  
+
   xdg = {
     portal = {
       wlr.enable = true;
@@ -156,9 +158,9 @@
       LC_TIME = "en_US.UTF-8";
     };
   };
-  
+
   fonts.packages = with pkgs; [
-	  nerdfonts
+    nerdfonts
   ];
 
   hardware.opengl = {
@@ -184,42 +186,42 @@
     users.arkannon = {
       isNormalUser = true;
       description = "arkannon";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
-      packages =  [
-	    ];
+      extraGroups = [ "adbusers" "networkmanager" "wheel" "libvirtd" "kvm" ];
+      packages = [
+      ];
     };
   };
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
-	    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	    wget
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      wget
       mesa
       dxvk
       gparted
-     # cosmic-bg
-     # cosmic-osd
-     # cosmic-term
-     # cosmic-edit
-     # cosmic-comp
-     # cosmic-store
-     # cosmic-randr
-     ## cosmic-panel
-     # cosmic-icons
-     # cosmic-files
-     # cosmic-session
-     # cosmic-greeter
-     # cosmic-applets
-     # cosmic-settings
-     # cosmic-launcher
-     # cosmic-protocols
-     # cosmic-screenshot
-     # cosmic-applibrary
-     # cosmic-notifications
-     # cosmic-settings-daemon
-     # cosmic-workspaces-epoch
-     # cosmic-design-demo
-     # xdg-desktop-portal-cosmic
+      # cosmic-bg
+      # cosmic-osd
+      # cosmic-term
+      # cosmic-edit
+      # cosmic-comp
+      # cosmic-store
+      # cosmic-randr
+      ## cosmic-panel
+      # cosmic-icons
+      # cosmic-files
+      # cosmic-session
+      # cosmic-greeter
+      # cosmic-applets
+      # cosmic-settings
+      # cosmic-launcher
+      # cosmic-protocols
+      # cosmic-screenshot
+      # cosmic-applibrary
+      # cosmic-notifications
+      # cosmic-settings-daemon
+      # cosmic-workspaces-epoch
+      # cosmic-design-demo
+      # xdg-desktop-portal-cosmic
 
     ];
     sessionVariables = {

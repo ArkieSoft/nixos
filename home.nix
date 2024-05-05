@@ -14,10 +14,10 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-  imports = [ 
+  imports = [
     ./sway.nix
     ./hyprland.nix
-    ./bash.nix 
+    ./bash.nix
     ./dunst.nix
     ./waybar.nix
   ];
@@ -42,7 +42,7 @@ in
         obs-studio-plugins.wlrobs
         obs-studio-plugins.obs-webkitgtk
         obs-studio-plugins.obs-vkcapture
-        
+
       ];
     };
     zoxide = {
@@ -70,7 +70,7 @@ in
       name = "Bibata-Modern-Classic";
     };
   };
- 
+
   home = {
     username = "arkannon";
     homeDirectory = "/home/arkannon";
@@ -93,6 +93,7 @@ in
       python311Packages.pip
       ripgrep
       python3
+      python312Packages.protobuf
       gcc
       lutris
       steam
@@ -109,6 +110,7 @@ in
       thunderbird
       nicotine-plus
       nwg-look
+      nwg-panel
       wdisplays
       btop
       signal-desktop

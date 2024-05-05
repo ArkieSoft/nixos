@@ -16,7 +16,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
   };
 
   outputs = inputs:
