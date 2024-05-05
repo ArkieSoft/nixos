@@ -39,6 +39,7 @@
         alias vmstop='LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown WindowsVM'
         alias v='nvim'
         alias cd='z'
+        alias ping='gping'
         PS1='[\u@\h \W]\$ '
 
 

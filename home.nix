@@ -118,6 +118,7 @@ in
       nextcloud-client
       pavucontrol
       winetricks
+      gping
       wine-staging
       wine
       grimblast

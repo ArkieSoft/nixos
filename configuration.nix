@@ -63,7 +63,6 @@
     };
   };
   programs = {
-    adb.enable = true;
     virt-manager.enable = true;
     steam.enable = true;
     gnupg.agent = {
@@ -111,7 +110,7 @@
     xserver = {
       enable = true;
       displayManager.lightdm.enable = false;
-      xrandrHeads = [{ output = "DP-2"; primary = true; }];
+      xrandrHeads = [{ output = "DP-2"; primary = true; }];#Set Primary monitor on xwayland
       xkb = {
         variant = "";
         layout = "us";
@@ -186,7 +185,7 @@
     users.arkannon = {
       isNormalUser = true;
       description = "arkannon";
-      extraGroups = [ "adbusers" "networkmanager" "wheel" "libvirtd" "kvm" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
       packages = [
       ];
     };
@@ -194,35 +193,10 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       mesa
       dxvk
       gparted
-      # cosmic-bg
-      # cosmic-osd
-      # cosmic-term
-      # cosmic-edit
-      # cosmic-comp
-      # cosmic-store
-      # cosmic-randr
-      ## cosmic-panel
-      # cosmic-icons
-      # cosmic-files
-      # cosmic-session
-      # cosmic-greeter
-      # cosmic-applets
-      # cosmic-settings
-      # cosmic-launcher
-      # cosmic-protocols
-      # cosmic-screenshot
-      # cosmic-applibrary
-      # cosmic-notifications
-      # cosmic-settings-daemon
-      # cosmic-workspaces-epoch
-      # cosmic-design-demo
-      # xdg-desktop-portal-cosmic
-
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
