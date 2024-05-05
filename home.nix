@@ -20,15 +20,10 @@ in
     ./bash.nix
     ./dunst.nix
     ./waybar.nix
+    ./git.nix
   ];
 
   programs = {
-    git = {
-      enable = true;
-      userEmail = "wyatt@arkannon.com";
-      userName = "ArkieSoft@Github";
-    };
-    gh.gitCredentialHelper.enable = true;
     home-manager.enable = true;
     kitty = {
       enable = true;
