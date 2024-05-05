@@ -28,6 +28,7 @@ in
       userEmail = "wyatt@arkannon.com";
       userName = "ArkieSoft@Github";
     };
+    gh.gitCredentialHelper.enable = true;
     home-manager.enable = true;
     kitty = {
       enable = true;
