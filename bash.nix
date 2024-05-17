@@ -23,23 +23,29 @@
         eval \"$(oh-my-posh init bash --config /etc/nixos/M365Princess.omp.json)\"
 
         alias passwds='nvim /home/arkannon/Documents/passwords'
-        alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage'
-        alias oldstomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old'
+        alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'
+        alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'
         alias cls='clear'
         alias matrix='gomuks'
         alias arkiemail.com='ssh root@mail.arkannon.com'
         alias arkannon.com='ssh wyatt@arkannon.com'
-        alias sl='ls'
+        alias sl='eza --color always --icons';
+        alias ls='eza --color always --icons';
         alias grep='grep --color=auto'
         alias size='du -cha --max-depth=1 . | grep -E \"M|G\"'
         alias nixconfig='cd /etc/nixos && nvim'
-        alias updoot='cd /etc/nixos/ && git add . && sudo nix flake update && sudo nixos-rebuild switch'
-        alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch'
+        alias updoot='cd /etc/nixos/ && git add . && sudo nix flake update && sudo nixos-rebuild switch && cowsay -f sodomized updooted | lolcat'
+        alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch && cowsay -f sodomized switched | lolcat'
         alias vmstart='LIBVIRT_DEFAULT_URI=qemu:///system virsh start WindowsVM'
         alias vmstop='LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown WindowsVM'
         alias v='nvim'
         alias cd='z'
-        alias ping='gping'
+        alias ping='prettyping'
+        alias plz='sudo'
+        alias ga.='git add .'
+        alias gc='git commit -m'
+        alias gp='git push'
+        alias gl='git log'
         PS1='[\u@\h \W]\$ '
 
 

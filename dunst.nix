@@ -9,7 +9,7 @@
           follow = "none";
           width = 300;
           height = 300;
-          origin = "top_right";
+          origin = "top-right";
           offset = "10x50";
           scale = 0;
           notification_limit = 5;

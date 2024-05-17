@@ -77,7 +77,13 @@ in
 
     packages = with pkgs; [
       rofi-wayland
+      mtr
+      qFlipper
+      nomacs
       helvum
+      cowsay
+      lolcat
+      eza
       gomuks
       gh
       vesktop
@@ -100,6 +106,7 @@ in
       lazygit
       gimp
       xfce.thunar
+      sox
       xfce.thunar-volman
       appimage-run
       xfce.thunar-archive-plugin
@@ -118,7 +125,7 @@ in
       nextcloud-client
       pavucontrol
       winetricks
-      gping
+      prettyping
       wine-staging
       wine
       grimblast

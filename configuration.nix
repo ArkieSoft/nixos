@@ -185,7 +185,7 @@
     users.arkannon = {
       isNormalUser = true;
       description = "arkannon";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "qemu-libvirtd" "dialout" "root" ];
       packages = [
       ];
     };
