@@ -15,12 +15,12 @@ in
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
   imports = [
-    ./sway.nix
-    ./hyprland.nix
-    ./bash.nix
-    ./dunst.nix
-    ./waybar.nix
-    ./git.nix
+    modules/sway.nix
+    modules/hyprland.nix
+    modules/bash.nix
+    modules/dunst.nix
+    modules/waybar.nix
+    modules/git.nix
   ];
 
   programs = {

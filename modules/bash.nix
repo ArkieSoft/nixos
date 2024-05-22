@@ -20,7 +20,7 @@
         [[ $- != *i* ]] && return
 
 
-        eval \"$(oh-my-posh init bash --config /etc/nixos/M365Princess.omp.json)\"
+        eval \"$(oh-my-posh init bash --config /etc/nixos/assets/M365Princess.omp.json)\"
 
         alias passwds='nvim /home/arkannon/Documents/passwords'
         alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'

@@ -80,7 +80,7 @@
           "$mod, Return, exec, kitty"
           "$mod, Q, killactive"
           "$mod, V, togglefloating"
-          "$mod, D, exec, rofi -show drun -config /etc/nixos/rofidmenu.rasi"
+          "$mod, D, exec, rofi -show drun -config /etc/nixos/assets/rofidmenu.rasi"
           "$mod, P, pseudo"
           "$mod, H, exec, /etc/nixos/scripts/toggle.sh"
           "$mod, J, togglesplit"

@@ -13,7 +13,7 @@ configuration {
     sidebar-mode:        false;
 }
 
-@import "/etc/nixos/arc_dark_transparent_colors.rasi"
+@import "/etc/nixos/assets/arc_dark_transparent_colors.rasi"
 
 window {
     background-color: @background;
