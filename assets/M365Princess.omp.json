@@ -57,7 +57,11 @@
           "foreground": "p:white",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "style": "folder"
+            "style": "folder",
+            "home_icon": "\uf4ee",
+            "mapped_locations": {
+              "/etc/nixos/": "\uf313"
+            }
           },
           "style": "powerline",
           "template": " {{ .Path }} ",
@@ -92,7 +96,7 @@
             "time_format": "15:04"
           },
           "style": "diamond",
-          "template": " 󱙧 {{ .CurrentDate | date .Format }} ",
+          "template": " 🌸 {{ .CurrentDate | date .Format }} ",
           "trailing_diamond": "\ue0b0",
           "type": "time"
         }
