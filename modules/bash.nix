@@ -5,7 +5,7 @@
       enable = true;
       bashrcExtra = "
 
-        A=$(shuf -i 1-4 -n 1)
+        A=$(shuf -i 1-5 -n 1)
 
         if [ $A -eq 1 ]; then
           neofetch
@@ -13,6 +13,8 @@
           neofetch --kitty /etc/nixos/fetchart/2b.png --size 15%
         elif [ $A -eq 3 ]; then
           neofetch --kitty /etc/nixos/fetchart/2b2.jpg --size 15%
+        elif [ $A -eq 4 ]; then
+          neofetch --ascii /etc/nixos/fetchart/kisser
         else
           neofetch --ascii /etc/nixos/fetchart/Pentag
         fi
