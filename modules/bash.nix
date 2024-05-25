@@ -13,7 +13,7 @@
           neofetch --kitty /etc/nixos/fetchart/2b.png --size 15%
         elif [ $A -eq 3 ]; then
           neofetch --kitty /etc/nixos/fetchart/2b2.jpg --size 15%
-        elif [ $A -eq 4 ]; then
+        elif [ $A -eq 4 ]; then 
           neofetch --ascii /etc/nixos/fetchart/kisser
         else
           neofetch --ascii /etc/nixos/fetchart/Pentag

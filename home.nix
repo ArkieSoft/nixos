@@ -36,7 +36,7 @@ in
       enable = true;
       plugins = with pkgs; [
         obs-studio-plugins.wlrobs
-        obs-studio-plugins.obs-webkitgtk
+        #obs-studio-plugins.obs-webkitgtk
         obs-studio-plugins.obs-vkcapture
 
       ];
@@ -78,7 +78,6 @@ in
     packages = with pkgs; [
       rofi-wayland
       mtr
-      qFlipper
       nomacs
       helvum
       cowsay
@@ -87,15 +86,14 @@ in
       gomuks
       gh
       vesktop
-      inputs.nix-citizen.packages.${system}.lug-helper
-      inputs.nix-citizen.packages.${system}.star-citizen-helper
-      inputs.nix-citizen.packages.${system}.star-citizen
+      #inputs.nix-citizen.packages.${system}.lug-helper
+      #inputs.nix-citizen.packages.${system}.star-citizen-helper
+      #inputs.nix-citizen.packages.${system}.star-citizen
       parsec-bin
       gnumake
       python311Packages.pip
       ripgrep
       python3
-      python312Packages.protobuf
       gcc
       lutris
       steam
@@ -108,7 +106,6 @@ in
       xfce.thunar
       sox
       xfce.thunar-volman
-      appimage-run
       xfce.thunar-archive-plugin
       thunderbird
       nicotine-plus

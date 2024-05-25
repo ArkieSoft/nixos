@@ -32,13 +32,14 @@
           inherit specialArgs;
           modules = [
             ./configuration.nix
-            nixos-cosmic.nixosModules.default
+            #nixos-cosmic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.arkannon = import ./home.nix;
               home-manager.extraSpecialArgs = specialArgs;
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };
