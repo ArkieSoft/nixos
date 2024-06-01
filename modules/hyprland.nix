@@ -13,6 +13,7 @@
           "hyprctl setcursor Bibata-Modern-Classic 24"
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+          "hyprctl dispatch exec vesktop"
         ];
 
         input = {
@@ -126,9 +127,13 @@
           "minsize 1 1, title:^()$,class:^(steam)$"
           "stayfocused,class:(Rofi)"
           "forceinput,class:(Rofi)"
+          "workspace 7 silent,class:(obs)"
+          "workspace 3,class:(vesktop)"
         ];
 
         workspace = [
+          "7,monitor:DP-1,default:false,persistent:true"
+          "6,monitor:DP-1,default:false,persistent:true"
           "1,monitor:DP-2,default:true,persistent:true"
           "2,monitor:DP-1,default:true,persistent:true"
           "3,monitor:HDMI-A-1,default:true,persistent:true"
