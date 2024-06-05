@@ -21,6 +21,7 @@ in
     modules/dunst.nix
     modules/waybar.nix
     modules/git.nix
+    modules/rofi.nix
   ];
 
   programs = {
@@ -76,7 +77,6 @@ in
     };
 
     packages = with pkgs; [
-      rofi-wayland
       mtr
       nomacs
       helvum
