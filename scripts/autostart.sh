@@ -3,7 +3,6 @@
 nwg-panel & disown nwg-panel
 thunar --daemon & disown thunar
 xrandr --output DP-2 --primary
-obs --startvirtualcam --disable-shutdown-check & disown obs
 #LIBVIRT_DEFAULT_URI=qemu:///system virsh net-start default
 sleep 15
 nextcloud & disown nextcloud

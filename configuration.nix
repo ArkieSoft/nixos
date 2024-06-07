@@ -64,7 +64,11 @@
   };
   programs = {
     virt-manager.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      extest.enable = true;
+      remotePlay.openFirewall = true;
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = false;
@@ -124,7 +128,7 @@
 
   xdg = {
     portal = {
-      wlr.enable = true;
+      #wlr.enable = true;
       xdgOpenUsePortal = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-hyprland
@@ -162,13 +166,16 @@
     nerdfonts
   ];
 
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
+    steam-hardware.enable = true;
   };
 
   nix = {

@@ -13,7 +13,9 @@
           "hyprctl setcursor Bibata-Modern-Classic 24"
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-          "hyprctl dispatch exec vesktop"
+          "hyprctl dispatch exec [workspace 3 silent] vesktop"
+          "hyprctl dispatch exec [workspace 6 silent] thunderbird"
+          "hyprctl dispatch -- exec [workspace 7 silent] obs --startvirtualcam --disable-shutdown-check"
         ];
 
         input = {
@@ -128,7 +130,7 @@
           "stayfocused,class:(Rofi)"
           "forceinput,class:(Rofi)"
           "workspace 7 silent,class:(obs)"
-          "workspace 3,class:(vesktop)"
+          "workspace 3 silent,class:(vesktop)"
         ];
 
         workspace = [
