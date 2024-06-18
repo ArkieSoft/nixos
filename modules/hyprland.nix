@@ -15,6 +15,7 @@
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
           "hyprctl dispatch exec [workspace 3 silent] vesktop"
           "hyprctl dispatch exec [workspace 6 silent] thunderbird"
+          "hyprctl dispatch exec [workspace 6 silent] signal-desktop"
           "hyprctl dispatch -- exec [workspace 7 silent] obs --startvirtualcam --disable-shutdown-check"
         ];
 

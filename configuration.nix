@@ -79,6 +79,10 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
+      #portalPackage = [ 
+      #  pkgs.xdg-desktop-portal-hyprland
+      #  pkgs.xdg-desktop-portal-wlr
+      #];
     };
     firefox = {
       enable = true;
@@ -128,11 +132,11 @@
 
   xdg = {
     portal = {
-      #wlr.enable = true;
       xdgOpenUsePortal = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-hyprland
         pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-wlr
       ];
       config.common.default = "*";
     };

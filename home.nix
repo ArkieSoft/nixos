@@ -83,6 +83,7 @@ in
       cowsay
       lolcat
       eza
+      emacs
       gomuks
       gh
       vesktop
@@ -118,6 +119,7 @@ in
       curl
       rustup
       libsForQt5.ark
+      libreoffice
       swww
       nextcloud-client
       pavucontrol
