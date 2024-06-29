@@ -5,6 +5,9 @@
       enable = true;
       xwayland.enable = true;
       systemd.enable = true;
+      
+      plugins = [ ./hwl.nix ];
+
 
       settings = {
         exec-once = [
@@ -96,8 +99,9 @@
           "$mod, down, movefocus, d"
           "CTRL, left, swapwindow, l"
           "CTRL, right, swapwindow, r"
-          "CTRL, up, swapwindow, u"
+          "CTRL, up, swapwindow, hu"
           "CTRL, down, swapwindow, d"
+          "CTRL, N, layoutmsg, rollnext"
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
           "$mod, 3, workspace, 3"
@@ -136,7 +140,7 @@
 
         workspace = [
           "7,monitor:DP-1,default:false,persistent:true"
-          "6,monitor:DP-1,default:false,persistent:true"
+          "6,monitor:DP-1,default:false,persistent:true, layoutopt:orientation:left"
           "1,monitor:DP-2,default:true,persistent:true"
           "2,monitor:DP-1,default:true,persistent:true"
           "3,monitor:HDMI-A-1,default:true,persistent:true"

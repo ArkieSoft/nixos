@@ -92,6 +92,8 @@ in
       #inputs.nix-citizen.packages.${system}.star-citizen
       parsec-bin
       gnumake
+      telegram-desktop
+      tg
       python311Packages.pip
       ripgrep
       python3
