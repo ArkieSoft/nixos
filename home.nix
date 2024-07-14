@@ -120,13 +120,14 @@
       libsForQt5.ark
       libreoffice
       swww
-      #nextcloud-client
+      nextcloud-client
       pavucontrol
       winetricks
       prettyping
       wine-staging
       wine
       grimblast
+      ventoy
     ];
   };
 }
