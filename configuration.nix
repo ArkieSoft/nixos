@@ -118,7 +118,7 @@
     xserver = {
       enable = true;
       displayManager.lightdm.enable = false;
-      xrandrHeads = [{ output = "DP-2"; primary = true; }];#Set Primary monitor on xwayland
+      xrandrHeads = [{ output = "DP-2"; primary = true; }]; #Set Primary monitor on xwayland
       xkb = {
         variant = "";
         layout = "us";
@@ -233,7 +233,7 @@
   #    "nofail"
   #    "auto"
   #    "exec"
-   #   "rw"
+  #   "rw"
   #  ];
   #};
 

@@ -8,38 +8,45 @@
   };
 
   outputs = inputs:
-  	with inputs;
-	let
-		specialArgs = { inherit inputs self; };
-		systems = [ "x86_64-linux" ];
-		eachSystem = inputs.nixpkgs.lib.genAttrs systems;
-	in
-	{
-		nixosConfigurations = {
-			arkannon = nixpkgs.lib.nixosSystem {
-				inherit specialArgs;
-				modules = [
-					./configuration.nix
-					home-manager.nixosModules.home-manager
-					{
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.arkannon = import ./home.nix;
-						home-manager.extraSpecialArgs = specialArgs;
-						home-manager.backupFileExtension = "backup";
-					}
-				];
-			};
-		};
+    with inputs;
+    let
+      specialArgs = { inherit inputs self; };
+      systems = [ "x86_64-linux" ];
+      eachSystem = inputs.nixpkgs.lib.genAttrs systems;
+    in
+    {
+      nixosConfigurations = {
+        arkannon = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.arkannon = import ./home.nix;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.backupFileExtension = "backup";
+            }
+          ];
+        };
+      };
 
-		homeConfigurations = {
-			"arkannon@arkannon" = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux;
-				unstable = unstable.legacyPackages.x86_64-linux;
-				moduels = [
-					./home.nix
-				];
-			};
-		};
-	};
+      homeConfigurations = {
+        "arkannon@arkannon" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          unstable = unstable.legacyPackages.x86_64-linux;
+          modules = [
+            ./home.nix
+          ];
+        };
+      };
+
+      formatter = eachSystem (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        pkgs.nixpkgs-fmt
+      );
+    };
 }

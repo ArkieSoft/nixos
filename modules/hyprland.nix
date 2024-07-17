@@ -5,7 +5,7 @@
       enable = true;
       xwayland.enable = true;
       systemd.enable = true;
-      
+
       #plugins = [ (pkgs.callPackage ./hwl.nix {}) ];
 
 
@@ -73,9 +73,7 @@
           preserve_split = true;
         };
 
-        master = {
-
-        };
+        master = { };
 
         monitor = [
           "DP-2, 2560x1440@144, 0x1080, 1"

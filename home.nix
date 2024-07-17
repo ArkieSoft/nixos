@@ -12,7 +12,7 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
   imports = [
-#    modules/sway.nix
+    #    modules/sway.nix
     modules/hyprland.nix
     modules/bash.nix
     modules/dunst.nix
@@ -74,6 +74,7 @@
     };
 
     packages = with pkgs; [
+      oneko
       mtr
       nomacs
       fastfetch

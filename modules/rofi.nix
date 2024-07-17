@@ -33,7 +33,7 @@ in
     enable = true;
     location = "center";
     package = pkgs.rofi-wayland;
-    theme =  {
+    theme = {
       "configuration" = {
         font = "Noto Sans Regular 10";
         show-icons = true;

@@ -1,11 +1,11 @@
-{
-  lib,
-  fetchFromGitHub,
-  pkg-config,
-  pixman,
-  libdrm,
-  hyprland,
-  hyprlandPlugins,
+{ lib
+, fetchFromGitHub
+, pkg-config
+, pixman
+, libdrm
+, hyprland
+, hyprlandPlugins
+,
 }:
 hyprlandPlugins.mkHyprlandPlugin hyprland {
   pluginName = "hyprWorkspaceLayouts";
@@ -25,7 +25,7 @@ hyprlandPlugins.mkHyprlandPlugin hyprland {
     #make all 
   '';
 
- # sourceRoot = ".";
+  # sourceRoot = ".";
 
   meta = {
     homepage = "https://github.com/zakk4223/hyprWorkspaceLayouts/tree/main";

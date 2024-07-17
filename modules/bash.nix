@@ -58,8 +58,5 @@
         '';
 
 
-        #export VISUAL=nvim
-        #export PATH=\"/usr/sbin/:$PATH\"
-        #export PATH=\"/bin/systemctl/:$PATH\"
     };
 }
