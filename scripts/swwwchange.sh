@@ -33,7 +33,13 @@ while true; do
 		done \
 		| sort -n | cut -d':' -f2- \
 		| while read -r img; do
-			swww img "$img" --transition-type any
-			sleep $INTERVAL
+      if [[ $(pidof swww-daemon) ]];then        
+			  swww img "$img" --transition-type any
+			  sleep $INTERVAL
+      else
+        swww-daemon &
+        swww img "$img" --transition-type any
+        sleep $INTERVAL
+      fi
 		done
 done
