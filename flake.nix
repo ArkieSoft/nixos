@@ -5,48 +5,53 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs:
-    with inputs;
-    let
-      specialArgs = { inherit inputs self; };
-      systems = [ "x86_64-linux" ];
-      eachSystem = inputs.nixpkgs.lib.genAttrs systems;
-    in
+  outputs =
+    inputs@{ self
+    , nixpkgs
+    , nixos-cosmic
+    , home-manager
+    , nixvim
+    , ...
+    }:
     {
       nixosConfigurations = {
         arkannon = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
+          system = "x86_64-linux";
           modules = [
+            {
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+            }
+            nixos-cosmic.nixosModules.default
             ./configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.arkannon = import ./home.nix;
-              home-manager.extraSpecialArgs = specialArgs;
-              home-manager.backupFileExtension = "backup";
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.arkannon = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit self inputs;
+                };
+                backupFileExtension = "backup";
+              };
             }
           ];
         };
       };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-      homeConfigurations = {
-        "arkannon@arkannon" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          unstable = unstable.legacyPackages.x86_64-linux;
-          modules = [
-            ./home.nix
-          ];
-        };
-      };
-
-      formatter = eachSystem (system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        pkgs.nixpkgs-fmt
-      );
     };
 }

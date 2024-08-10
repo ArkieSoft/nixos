@@ -1,19 +1,13 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
   nixpkgs.config = {
     allowUnfree = true;
   };
-
 
   # Bootloader.
   boot = {
@@ -97,8 +91,8 @@
   };
 
   services = {
-    #desktopManager.cosmic.enable = true;
-    #displayManager.cosmic-greeter.enable = true;
+    desktopManager.cosmic.enable = true;
+    displayManager.cosmic-greeter.enable = true;
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
@@ -186,6 +180,7 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
+      cores = 16;
       #auto-optimize-store = true;
     };
   };
