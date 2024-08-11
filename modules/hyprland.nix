@@ -6,9 +6,6 @@
       xwayland.enable = true;
       systemd.enable = true;
 
-      #plugins = [ (pkgs.callPackage ./hwl.nix {}) ];
-
-
       settings = {
         exec-once = [
           "/etc/nixos/scripts/swwwchange.sh /etc/nixos/wallpapers"

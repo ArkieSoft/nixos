@@ -1,15 +1,11 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    #    modules/sway.nix
     modules/hyprland.nix
     modules/bash.nix
     modules/dunst.nix
     modules/waybar.nix
     modules/git.nix
-    modules/rofi.nix
-    modules/hyprlock.nix
-    #modules/hypridle.nix
     modules/nixvim.nix
   ];
 
