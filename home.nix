@@ -22,21 +22,15 @@
       enable = true;
       plugins = with pkgs; [
         obs-studio-plugins.wlrobs
-        #obs-studio-plugins.obs-webkitgtk
         obs-studio-plugins.obs-vkcapture
-
       ];
     };
     zoxide = {
       enable = true;
       enableBashIntegration = true;
     };
-    #neovim = {
-    #  enable = true;
-    #  defaultEditor = true;
-    #};
   };
-
+  
   gtk = {
     enable = true;
     theme = {
@@ -63,30 +57,19 @@
     };
 
     packages = with pkgs; [
-      iamb
       manix
-      mtr
-      nomacs
+      mtr #Network Diagnostics Tool
+      nomacs #Lightweight image viewer
       fastfetch
-      helvum
-      bsdgames
       cowsay
       lolcat
       eza
-      emacs
       gomuks
       gh
       vesktop
-      #inputs.nix-citizen.packages.${system}.lug-helper
-      #inputs.nix-citizen.packages.${system}.star-citizen-helper
-      #inputs.nix-citizen.packages.${system}.star-citizen
       parsec-bin
-      gnumake
       telegram-desktop
-      python311Packages.pip
       ripgrep
-      python3
-      gcc
       lutris
       steam
       protonup-qt
@@ -94,22 +77,16 @@
       oh-my-posh
       neofetch
       gimp
-      xfce.thunar
-      sox
-      xfce.thunar-volman
-      xfce.thunar-archive-plugin
+      sox #Terminal sound player for Hydro.sh. Provides 'play' command
       thunderbird
       nicotine-plus
-      nwg-look
       nwg-panel
-      wdisplays
       btop
       signal-desktop
       vlc
       curl
       rustup
       libsForQt5.ark
-      libreoffice
       swww
       nextcloud-client
       pavucontrol
@@ -118,7 +95,6 @@
       wine-staging
       wine
       grimblast
-      ventoy
     ];
   };
 }

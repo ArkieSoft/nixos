@@ -20,7 +20,6 @@
     , nixpkgs
     , nixos-cosmic
     , home-manager
-    , nixvim
     , ...
     }:
     {
@@ -52,6 +51,5 @@
         };
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-
     };
 }
