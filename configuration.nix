@@ -73,10 +73,10 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      #portalPackage = [ 
-      #  pkgs.xdg-desktop-portal-hyprland
-      #  pkgs.xdg-desktop-portal-wlr
-      #];
+#portalPackage = [ 
+#  pkgs.xdg-desktop-portal-hyprland
+#       pkgs.xdg-desktop-portal-wlr
+#     ];
     };
     firefox = {
       enable = true;
@@ -101,7 +101,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    gvfs.enable = true; #For Thunar auto-mount
+# gvfs.enable = true; #For Thunar auto-mount
     tumbler.enable = true;
     openssh = {
       enable = true;

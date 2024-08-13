@@ -30,7 +30,7 @@
       enableBashIntegration = true;
     };
   };
-  
+
   gtk = {
     enable = true;
     theme = {
@@ -57,9 +57,12 @@
     };
 
     packages = with pkgs; [
+      chafa
       manix
+      rofi-wayland
+      figlet
       mtr #Network Diagnostics Tool
-      nomacs #Lightweight image viewer
+      xfce.thunar
       fastfetch
       cowsay
       lolcat

@@ -18,7 +18,7 @@
           "hyprctl dispatch exec [workspace 6 silent] signal-desktop"
           "hyprctl dispatch exec [workspace 6 silent] kitty gomuks"
           "hyprctl dispatch exec [workspace 6 silent] telegram-desktop"
-          "hyprctl dispatch -- exec [workspace 7 silent] obs --startvirtualcam --disable-shutdown-check"
+          "hyprctl dispatch -- exec [workspace 7 silent] obs --studio-mode --startvirtualcam --disable-shutdown-check"
         ];
 
         input = {

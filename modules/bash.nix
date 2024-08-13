@@ -33,6 +33,7 @@
         alias cls='clear'
         alias matrix='gomuks'
         alias mailserver='ssh wyatt@mail.arkannon.com'
+        alias brb='bash /etc/nixos/scripts/brb.sh'
         alias cloudserver='ssh wyatt@arkannon.com'
         alias sl='eza --color always --icons';
         alias ls='eza --color always --icons';
@@ -51,6 +52,8 @@
         alias gc='git commit -m'
         alias gp='git push'
         alias gl='git log'
+        alias wttr='curl wttr.in/Port+Orchard?m'
+
         PS1='[\u@\h \W]\$ '
 
 
