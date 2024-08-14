@@ -56,7 +56,7 @@
         };
       };
 
-      darwinConfigurations."arkmac" = nix-darwin.lib.darwinSystems {
+      darwinConfigurations."arkmac" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./arkmac/configuration.nix

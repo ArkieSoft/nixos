@@ -17,6 +17,8 @@
       btop
       rustup
       discord
+      cowsay
+      lolcat
     ];
   };
   
