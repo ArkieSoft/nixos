@@ -13,6 +13,11 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
   };
 
   outputs =
@@ -20,6 +25,8 @@
     , nixpkgs
     , nixos-cosmic
     , home-manager
+    , nix-darwin
+    , darwin-custom-icons
     , ...
     }:
     {
@@ -34,21 +41,36 @@
               };
             }
             nixos-cosmic.nixosModules.default
-            ./configuration.nix
+            ./arkannon/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.arkannon = import ./home.nix;
-                extraSpecialArgs = {
-                  inherit self inputs;
-                };
+                users.arkannon = import ./arkannon/home.nix;
+                extraSpecialArgs = { inherit self inputs; };
                 backupFileExtension = "backup";
               };
             }
           ];
         };
+      };
+
+      darwinConfigurations."arkmac" = nix-darwin.lib.darwinSystems {
+        system = "aarch64-darwin";
+        modules = [
+          ./arkmac/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.arkannon = import ./arkmac/home.nix;
+              extraSpecialArgs = { inherit self inputs; };
+            };
+          }
+          darwin-custom-icons.darwinModules.default
+        ];
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };

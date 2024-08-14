@@ -1,12 +1,12 @@
-{ config, pkgs, inputs, ... }:
+{ self, config, pkgs, inputs, ... }:
 {
   imports = [
-    modules/hyprland.nix
-    modules/bash.nix
-    modules/dunst.nix
-    modules/waybar.nix
-    modules/git.nix
-    modules/nixvim.nix
+    ../modules/hyprland.nix
+    ./bash.nix
+    ../modules/dunst.nix
+    ../modules/waybar.nix
+    ../modules/git.nix
+    ../modules/nixvim.nix
   ];
 
   programs = {

@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
-  programs.bash =
-    {
+  programs.bash = {
       enable = true;
       bashrcExtra = ''
 
@@ -62,11 +61,6 @@
         alias wttr='curl wttr.in/Port+Orchard?m'
 
         PS1='[\u@\h \W]\$ '
-
-
-
         '';
-
-
     };
 }
