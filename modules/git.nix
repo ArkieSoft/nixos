@@ -10,7 +10,6 @@
         }/bin/git-credential-libsecret";
     };
     ignores = [
-      "hardware-configuration.nix"
       "/Passwords/*"
     ];
   };
