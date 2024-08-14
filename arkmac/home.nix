@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
-  imports = [ 
+  imports = [
     ./bash.nix
     ../modules/nixvim.nix
   ];
-  
+
   home = {
     stateVersion = "24.05";
     packages = with pkgs; [
@@ -21,7 +21,7 @@
       lolcat
     ];
   };
-  
+
   programs = {
     zoxide = {
       enable = true;

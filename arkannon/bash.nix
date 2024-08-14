@@ -1,8 +1,8 @@
 { pkgs, lib, config, ... }:
 {
   programs.bash = {
-      enable = true;
-      bashrcExtra = ''
+    enable = true;
+    bashrcExtra = ''
 
         A=$(shuf -i 1-6 -n 1)
 
@@ -62,5 +62,5 @@
 
         PS1='[\u@\h \W]\$ '
         '';
-    };
+  };
 }
