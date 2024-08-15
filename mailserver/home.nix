@@ -4,6 +4,7 @@
   imports = [
     ./bash.nix
     ../modules/nixvim.nix
+    ../modules/git.nix
   ];
 
   home = {
@@ -23,15 +24,5 @@
 
   programs = {
     home-manager.enable = true;
-    git = {
-      enable = true;
-      userEmail = "wyatt@arkannon.com";
-      userName = "ArkieSoft@Github";
-      extraConfig = {
-        credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-          }/bin/git-credential-libsecret";
-        };
-    };
   };
 }

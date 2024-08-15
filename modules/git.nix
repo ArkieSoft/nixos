@@ -10,7 +10,7 @@
         }/bin/git-credential-libsecret";
     };
     ignores = [
-      "/Passwords/*"
+      "/passwords/*"
     ];
   };
 }

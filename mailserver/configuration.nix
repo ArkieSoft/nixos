@@ -27,8 +27,13 @@
     };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      cores = 1;
+    };
+  };
+  
   time.timeZone = "America/Chicago";
 
   users.users.wyatt = {

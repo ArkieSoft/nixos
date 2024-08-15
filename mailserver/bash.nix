@@ -9,7 +9,7 @@
       alias grep='grep --color=auto'
       alias nixconfig='cd /etc/nixos && nvim'
       alias updoot='cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch'
-      alias switch='cd /etc/nixos ** sudo nixos-rebuild switch'
+      alias switch='cd /etc/nixos && sudo nixos-rebuild switch'
       alias v='nvim'
     '';
   };

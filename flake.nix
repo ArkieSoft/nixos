@@ -66,7 +66,7 @@
                 useUserPackages = true;
                 users.wyatt = import ./mailserver/home.nix;
                 extraSpecialArgs = { inherit self inputs; };
-                backupFilesExtension = "backup";
+                backupFileExtension = "backup";
               };
             }
           ];
