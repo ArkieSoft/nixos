@@ -54,6 +54,23 @@
             }
           ];
         };
+
+        mailserver = nixpkgs.lib.nixosSystem {
+          system = "x86-64-linux";
+          modules = [
+            ./mailserver/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.wyatt = import ./mailserver/home.nix;
+                extraSpecialArgs = { inherit self inputs; };
+                backupFilesExtension = "backup";
+              };
+            }
+          ];
+        };
       };
 
       darwinConfigurations."arkmac" = nix-darwin.lib.darwinSystem {
