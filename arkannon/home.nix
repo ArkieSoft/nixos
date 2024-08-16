@@ -57,6 +57,7 @@
     };
 
     packages = with pkgs; [
+      crosswords
       chafa
       manix
       rofi-wayland

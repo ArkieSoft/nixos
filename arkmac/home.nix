@@ -8,6 +8,7 @@
   home = {
     stateVersion = "24.05";
     packages = with pkgs; [
+      crosswords
       flameshot
       libreoffice-bin
       gomuks
