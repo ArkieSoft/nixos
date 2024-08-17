@@ -1,6 +1,10 @@
 #!/run/current-system/sw/bin/bash
 
-cd /etc/nixos/
+if [ $1 == "*" ];then
+  cd $1
+else
+  cd /etc/nixos/
+fi
 git add .
 echo "What to label the commit?: "
 read commit
