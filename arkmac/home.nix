@@ -20,6 +20,8 @@
       discord
       cowsay
       lolcat
+      sox
+      figlet
     ];
   };
 
