@@ -10,7 +10,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 alias cd='z'
 alias updoot='cd ~/.config/nixos && git add . && nix flake update . && darwin-rebuild switch --flake .'
-alias switch='cd ~/.config/nixos && git add . && darwin-rebuild switch --flake .'
+alias switch='bash /Users/arkannon/.config/nixos/scripts/switch.sh mac'
 alias nixconfig='cd ~/.config/nixos && nvim'
 alias v='nvim'
 alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'

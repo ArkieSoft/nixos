@@ -33,9 +33,8 @@
         alias taxcuts='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"Medicare Successfully Cut!\" | lolcat && echo \"Starving Orphans, We Will Be Right Back!\" | lolcat && sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"WIC Successfully cut!\" | lolcat'
         alias mailserver='ssh wyatt@mail.arkannon.com'
         alias cloudserver='ssh wyatt@arkannon.com'
-        alias updoot='cd /etc/nixos/ && git add . && sudo nix flake update && sudo nixos-rebuild switch && echo "updating channels for manix" && nix-channel --update && cowsay -f sodomized updooted | lolcat'
-        alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch && cowsay -f sodomized switched | lolcat'
-        
+        alias updoot='cd /etc/nixos/ && git add . && sudo nix flake update && sudo nixos-rebuild switch && echo "updating channels for manix" && nix-channel --update && cowsay -f sodomized updooted |  lolcat'
+        alias switch='bash /etc/nixos/scripts/switch.sh nix"        
         ###SCRIPTS###
         alias nixgit='bash /etc/nixos/scripts/gupdate.sh'
 

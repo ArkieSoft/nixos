@@ -52,7 +52,7 @@ echo "Do you want to push the commit? [y/N]: "
 read push
 
 if [[ $push = "y" ]] || [[ $push = "Y" ]]; then
-  git pushd
+  git push
   figlet "Switch, Commit, and Push Completed" | lolcat
   exit
 else
