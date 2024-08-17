@@ -15,8 +15,40 @@
         key = "tt";
       }
       {
+        action = ":resize -5<CR>";
+        key = "<leader><Up>";
+      }
+      {
+        action = ":resize +5<CR>";
+        key = "<leader><Down>";
+      }
+      {
+        action = ":vertical resize +5<CR>";
+        key = "<leader><Right>";
+      }
+      {
+        action = ":vertical resize -5<CR>";
+        key = "<leader><Left>";
+      }
+      {
         action = "\"+y";
         key = "<leader>y";
+      }
+      {
+        action = ":terminal<CR>";
+        key = "<C-t>";
+      }
+      {
+        action = ":vs<CR>";
+        key = "<leader>v";
+      }
+      {
+        action = ":split<CR>";
+        key = "<leader>h";
+      }
+      {
+        action = ":q<CR>";
+        key = "<leader>q";
       }
     ];
 
