@@ -151,7 +151,8 @@
         keymaps = {
           toggle = "<Space>t";
         };
-        shell = if pkgs.stdenv.isDarwin then "bash"
+        shell =
+          if pkgs.stdenv.isDarwin then "bash"
           else "/run/current-system/sw/bin/bash";
       };
       nvim-tree = {

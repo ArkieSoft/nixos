@@ -33,7 +33,7 @@
       cores = 1;
     };
   };
-  
+
   time.timeZone = "America/Chicago";
 
   users.users.wyatt = {
