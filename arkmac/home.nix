@@ -22,6 +22,7 @@
       lolcat
       sox
       figlet
+      eza
     ];
   };
 

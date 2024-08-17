@@ -36,6 +36,9 @@
         alias updoot='cd /etc/nixos/ && git add . && sudo nix flake update && sudo nixos-rebuild switch && echo "updating channels for manix" && nix-channel --update && cowsay -f sodomized updooted | lolcat'
         alias switch='cd /etc/nixos/ && git add . && sudo nixos-rebuild switch && cowsay -f sodomized switched | lolcat'
         
+        ###SCRIPTS###
+        alias nixgit='bash /etc/nixos/scripts/gupdate.sh'
+
         ### MEMES ###
         alias brb='bash /etc/nixos/scripts/brb.sh'
         alias tbc='bash /etc/nixos/scripts/tbc.sh'

@@ -1,10 +1,13 @@
 #!/run/current-system/sw/bin/bash
 
-if [ $1 == "*" ];then
+if [[ $1 = "mac" ]];then
+  cd /Users/arkannon/.config/nixos/
+elif [[ $1 = "*" ]];then
   cd $1
 else
   cd /etc/nixos/
 fi
+
 git add .
 echo "What to label the commit?: "
 read commit
