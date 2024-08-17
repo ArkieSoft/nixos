@@ -58,6 +58,10 @@
   };
   programs = {
     virt-manager.enable = true;
+    nh = {
+      enable = true;
+      flake = "/etc/nixos/";
+    };
     steam = {
       enable = true;
       extest.enable = true;
