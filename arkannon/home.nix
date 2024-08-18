@@ -57,6 +57,7 @@
     };
 
     packages = with pkgs; [
+      ryujinx
       crosswords
       chafa
       manix
