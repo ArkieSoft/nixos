@@ -5,6 +5,7 @@ platform="$(uname)"
 function darwin() {
   cd $HOME/.config/nixos
   git add .
+  nix flake update .
   darwin-rebuild switch --flake .
   main
 }

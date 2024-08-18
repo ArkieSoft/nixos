@@ -9,8 +9,8 @@ eval \"$(oh-my-posh init bash --config ~/.config/nixos/assets/M365Princess.omp.j
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 alias cd='z'
-alias updoot='cd ~/.config/nixos && git add . && nix flake update . && darwin-rebuild switch --flake .'
-alias switch='bash /Users/arkannon/.config/nixos/scripts/switch.sh mac'
+alias updoot='bash /Users/arkannon/.config/nixos/scripts/updoot.sh'
+alias switch='bash /Users/arkannon/.config/nixos/scripts/switch.sh'
 alias nixconfig='cd ~/.config/nixos && git add . && nvim'
 alias v='nvim'
 alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'

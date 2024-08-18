@@ -1,63 +1,57 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 
-macpath="/Users/arkannon/.config/nixos"
-nixpath="/etc/nixos"
+platform="$(uname)"
 
-if [[ $1 = "mac" ]] || [[ $1 = "Mac" ]];then
-  cd $macpath
-  system="mac"
-elif [[ $1 = "Nixos" ]] || [[ $1 = "nixos" ]];then
-  cd $nixpath
-  system="nix"
-else 
-  echo "NixOS (1) or Mac (2)?: "
-  read choice
-  if [[ $choice = 1 ]];then
-    cd $nixpath
-    system="nix"
-  elif [[ $choice = 2 ]];then
-    cd $macpath
-    system="mac"
+function darwin() {
+  cd $HOME/.config/nixos
+  git add .
+  darwin-rebuild switch --flake .
+  main
+}
+
+function linux_mod() {
+  cd /etc/nixos/
+  git add .
+  sudo nixos-rebuild switch
+  main
+}
+
+function main(){ 
+  cowsay -f sodomized switched | lolcat
+  echo "Do you want to make a commit? [y/N]: "
+  read git
+
+  if [[ $git = y ]] || [[ $git = Y ]];then
+    echo "What to label for commit?: "
+    read commit
+    git commit -m "$commit"
   else
-    echo "You're not taking this seriously are you?"
+    figlet "Updoot Completed" | lolcat
     exit
   fi
-fi
 
-git add .
+  echo "Do you want to push the commit? [y/N]: "
+  read push
 
-if [[ $system = "nix" ]]; then
-  sudo nixos-rebuild switch
-  cowsay -f sodomized switched | lolcat
-elif [[ $system = "mac" ]]; then
-  darwin-rebuild switch --flake .
-  cowsay -f sodomized switched | lolcat
-else
-  echo "Something went horribly wrong, figure it out!"
-fi
+  if [[ $push = "y" ]] || [[ $push = "Y" ]]; then
+    git push
+    figlet "Update, Commit, and Push Completed" | lolcat
+    exit
+  else
+    figlet "Update, and Commit Completed" | lolcat
+    exit
+  fi
+}
 
-echo "Do you want to make a commit? [y/N]: "
-read git
-
-if [[ $git = y ]] || [[ $git = Y ]];then
-  echo "What to label for commit?: "
-  read commit
-  git commit -m "$commit"
-else
-  figlet "Switch Completed" | lolcat
-  exit
-fi
-
-echo "Do you want to push the commit? [y/N]: "
-read push
-
-if [[ $push = "y" ]] || [[ $push = "Y" ]]; then
-  git push
-  figlet "Switch, Commit, and Push Completed" | lolcat
-  exit
-else
-  figlet "Switch, and Commit Completed" | lolcat
-  exit
-fi
-exit
+case $platform in
+  "Darwin")
+    darwin
+    ;;
+  "Linux")
+    linux_mod
+    ;;
+  *)
+    echo "Splish Sp'd'own, your PC is unkown"
+    exit 1
+esac
 
