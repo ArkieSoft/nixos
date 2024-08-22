@@ -8,7 +8,7 @@
   home = {
     stateVersion = "24.05";
     packages = with pkgs; [
-      (callPackage ../modules/ass/nixhandle.nix {})
+      (callPackage ../modules/ass.nix {})
       crosswords
       flameshot
       libreoffice-bin

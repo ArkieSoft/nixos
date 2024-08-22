@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , bash
 , subversion
+, pkgs
 , makeWrapper
 }:
 
@@ -16,11 +17,11 @@ stdenv.mkDerivation {
   };
   buildInputs = [ bash subversion];
   nativeBuildInputs = [ makeWrapper ];
-  installPhase = ''
+  installPhase = if stdenv.isLinux then ''
     mkdir -p $out/bin
     ls
-    cp nixhandle $out/bin/nixhandle
-    wrapProgram $out/bin/nixhandle \
+    cp nixhandle $out/bin/nixh
+    wrapProgram $out/bin/nixh \
       --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
 
     cp autostart $out/bin/autostart
@@ -51,5 +52,10 @@ stdenv.mkDerivation {
     wrapProgram $out/bin/toggle \
       --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
 
-  '';
+  '' else ''
+    mkdir -p $out/bin
+    cp nixhandle $out/bin/nixh
+    wrapProgram $out/bin/nixh \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+    '';
 }
