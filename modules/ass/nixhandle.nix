@@ -11,8 +11,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ArkieSoft";
     repo = "ass";
-    rev = "fd02f57b28c35c6f79e6936ba9cf88ddf2356cc5";
-    sha256 = "BxJJnr/vQluce0WCxLhjfXjudd7tR/yqb11/GZk+WTs=";
+    rev = "cc5a803921417e5e5cfff8e31bb9956052c116cf";
+    sha256 = "L8ODHFGaa4vAFteOIY1PP625KZX4cB7lUB83sa/ex8I=";
   };
   buildInputs = [ bash subversion];
   nativeBuildInputs = [ makeWrapper ];
@@ -22,5 +22,34 @@ stdenv.mkDerivation {
     cp nixhandle $out/bin/nixhandle
     wrapProgram $out/bin/nixhandle \
       --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp autostart $out/bin/autostart
+    wrapProgram $out/bin/autostart \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp brb $out/bin/brb
+    wrapProgram $out/bin/brb \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp dance $out/bin/dance
+    wrapProgram $out/bin/dance \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp hydro $out/bin/hydro
+    wrapProgram $out/bin/hydro \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp swwwchange $out/bin/swwwchange
+    wrapProgram $out/bin/swwwchange \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp tbc $out/bin/tbc
+    wrapProgram $out/bin/tbc \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp toggle $out/bin/toggle
+    wrapProgram $out/bin/toggle \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
   '';
 }
