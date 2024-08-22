@@ -11,14 +11,15 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ArkieSoft";
     repo = "ass";
-    rev = "b3061b82f0eaaa085be7204e2fd2a079112fc02b";
-    sha256 = "4LY4fVJgE08z2iy/HN6qp1yVW88rmEYviJiwzmQe7Ns=";
+    rev = "fd02f57b28c35c6f79e6936ba9cf88ddf2356cc5";
+    sha256 = "BxJJnr/vQluce0WCxLhjfXjudd7tR/yqb11/GZk+WTs=";
   };
   buildInputs = [ bash subversion];
   nativeBuildInputs = [ makeWrapper ];
   installPhase = ''
     mkdir -p $out/bin
-    cp nixhandle.sh $out/bin/nixhandle
+    ls
+    cp nixhandle $out/bin/nixhandle
     wrapProgram $out/bin/nixhandle \
       --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
   '';
