@@ -31,10 +31,6 @@
         alias taxcuts='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"Medicare Successfully Cut!\" | lolcat && echo \"Starving Orphans, We Will Be Right Back!\" | lolcat && sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"WIC Successfully cut!\" | lolcat'
         alias mailserver='ssh wyatt@mail.arkannon.com'
         alias cloudserver='ssh wyatt@arkannon.com'
-        alias updoot='bash /etc/nixos/scripts/updoot.sh'
-        alias switch='bash /etc/nixos/scripts/switch.sh'        
-        ###SCRIPTS###
-        alias nixgit='bash /etc/nixos/scripts/gupdate.sh'
 
         ### MEMES ###
         alias brb='bash /etc/nixos/scripts/brb.sh'

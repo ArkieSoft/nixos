@@ -9,13 +9,9 @@ eval \"$(oh-my-posh init bash --config ~/.config/nixos/assets/M365Princess.omp.j
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 alias cd='z'
-alias updoot='bash /Users/arkannon/.config/nixos/scripts/updoot.sh'
-alias switch='bash /Users/arkannon/.config/nixos/scripts/switch.sh'
 alias nixconfig='cd ~/.config/nixos && git add . && nvim'
 alias v='nvim'
 alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'
- 
-alias nixgit='bash /Users/arkannon/.config/scripts/gupdate.sh'
 
 alias orphanstomper='nix store gc && nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'
 alias mailserver='ssh wyatt@mail.arkannon.com'
