@@ -12,7 +12,7 @@ function darwin() {
 function linux_mod() {
   cd /etc/nixos/
   git add .
-  sudo nixos-rebuild switch
+  nixos-rebuild --use-remote-sudo switch
   main
 }
 

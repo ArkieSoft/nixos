@@ -14,7 +14,7 @@ function linux_mod() {
   cd /etc/nixos/
   git add .
   sudo nix flake update
-  sudo nixos-rebuild boot
+  nixos-rebuild --use-remote-sudo boot
   main
 }
 
@@ -22,7 +22,7 @@ function main(){
   cowsay -f sodomized Updooted | lolcat
   echo "Updating Channels for Manix"
   nix-channel --update
-  echo "Do you want to make a commit? [y/N]: "
+ echo "Do you want to make a commit? [y/N]: "
   read git
 
   if [[ $git = y ]] || [[ $git = Y ]];then
