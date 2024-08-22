@@ -57,6 +57,7 @@
     };
 
     packages = with pkgs; [
+      (callPackage ../modules/ass/nixhandle.nix {})
       ryujinx
       crosswords
       chafa
