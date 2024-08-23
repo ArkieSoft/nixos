@@ -185,6 +185,7 @@
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
       cores = 16;
+      max-jobs = 16;
       #auto-optimize-store = true;
     };
   };
