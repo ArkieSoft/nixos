@@ -32,11 +32,6 @@
         alias mailserver='ssh wyatt@mail.arkannon.com'
         alias cloudserver='ssh wyatt@arkannon.com'
 
-        ### MEMES ###
-        alias brb='bash /etc/nixos/scripts/brb.sh'
-        alias tbc='bash /etc/nixos/scripts/tbc.sh'
-        alias dance='bash /etc/nixos/scripts/dance.sh'
-        
         alias nixconfig='cd /etc/nixos && git pull && nvim'
         alias cls='clear'
         alias matrix='gomuks'
