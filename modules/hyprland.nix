@@ -8,8 +8,8 @@
 
       settings = {
         exec-once = [
-          "/etc/nixos/scripts/swwwchange.sh /etc/nixos/wallpapers"
-          "/etc/nixos/scripts/autostart.sh"
+          "swwwchange /etc/nixos/wallpapers"
+          "autostart"
           "hyprctl setcursor Bibata-Modern-Classic 24"
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -86,7 +86,7 @@
           "$mod, V, togglefloating"
           "$mod, D, exec, rofi -show drun -config /etc/nixos/assets/rofidmenu.rasi"
           "$mod, P, pseudo"
-          "$mod, H, exec, /etc/nixos/scripts/toggle.sh"
+          "$mod, H, exec, toggle"
           "$mod, J, togglesplit"
           "$mod, S, exec, grimblast --freeze copysave area"
           "$mod, F, fullscreen"
