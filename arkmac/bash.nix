@@ -24,12 +24,6 @@ alias ls='eza --color always --icons'
 alias grep='grep --color=auto'
 alias wttr='curl wttr.in/Port+Orchard?m'
 
-
-if [ -z \"$__NIX_DARWIN_SET_ENVIRONMENT_DONE\" ]; then
-  . /nix/store/lr100jhkyg6sdbj46ymyrp4qr8dj414l-set-environment
-fi
-
-[[ $- != *i* ]] && return
 ";
   };
 }
