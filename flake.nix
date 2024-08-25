@@ -1,6 +1,11 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    hm-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +31,8 @@
     , nixos-cosmic
     , home-manager
     , nix-darwin
+    , hm-unstable
+    , unstable
     , darwin-custom-icons
     , ...
     }:
@@ -77,7 +84,7 @@
         system = "aarch64-darwin";
         modules = [
           ./arkmac/configuration.nix
-          home-manager.darwinModules.home-manager
+          hm-unstable.darwinModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
