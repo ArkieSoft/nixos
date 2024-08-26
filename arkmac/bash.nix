@@ -4,7 +4,7 @@
     enable = true;
     bashrcExtra = "
 neofetch
-eval \"$(oh-my-posh init bash --config ~/.config/nixos/assets/M365Princess.omp.json)\"
+eval \"$(oh-my-posh init bash --config ~/nix/assets/M365Princess.omp.json)\"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 

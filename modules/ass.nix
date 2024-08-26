@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ArkieSoft";
     repo = "ass";
-    rev = "d99a48d19518b11be0ee19576709e520a88561be";
-    sha256 = "gp+TAwmPxFY+eqlZPBu4iJT5mxxB3d4b8MVv7OJRKhE=";
+    rev = "510dae8a4ff2a6873bc4341cd7f7600e692e4ca0";
+    sha256 = "U1ZfPQ9lDWn5t7ASPoyPfpfqZU58YPWfVCOQQT6IjXw=";
   };
   buildInputs = [ bash subversion];
   nativeBuildInputs = [ makeWrapper ];
@@ -57,5 +57,17 @@ stdenv.mkDerivation {
     cp nixhandle $out/bin/nixh
     wrapProgram $out/bin/nixh \
       --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
-    '';
+    
+    cp brb $out/bin/brb
+    wrapProgram $out/bin/brb \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp dance $out/bin/dance
+    wrapProgram $out/bin/dance \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+     cp tbc $out/bin/tbc
+    wrapProgram $out/bin/tbc \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+  '';
 }

@@ -14,6 +14,7 @@
       libreoffice-bin
       gomuks
       gh
+      chafa
       neofetch
       oh-my-posh
       btop
@@ -25,6 +26,28 @@
       figlet
       eza
     ];
+
+    file = {
+      "assets" = {
+        source = ../assets;
+        recursive = true;
+        target = "nix/assets/";
+      };
+
+      "sounds" = {
+        source = ../sounds;
+        recursive = true;
+        target = "nix/sounds/";
+      };
+
+      "fetchart" = {
+        source = ../fetchart;
+        recursive = true;
+        target = "nix/fetchart";
+      };
+
+
+    };
   };
 
   programs = {
@@ -48,4 +71,5 @@
       };
     };
   };
+
 }

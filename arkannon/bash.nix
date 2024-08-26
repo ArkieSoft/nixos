@@ -9,19 +9,19 @@
         if [ $A -eq 1 ]; then
           neofetch
         elif [ $A -eq 2 ]; then
-          neofetch --kitty /etc/nixos/fetchart/2b.png --size 15%
+          neofetch --kitty ~/nix/fetchart/2b.png --size 15%
         elif [ $A -eq 3 ]; then
-          neofetch --kitty /etc/nixos/fetchart/2b2.jpg --size 15%
+          neofetch --kitty ~/nix/fetchart/2b2.jpg --size 15%
         elif [ $A -eq 4 ]; then 
-          neofetch --ascii /etc/nixos/fetchart/kisser
+          neofetch --ascii ~/nix/fetchart/kisser
         else
-          neofetch --ascii /etc/nixos/fetchart/Pentag
+          neofetch --ascii ~/nix/fetchart/Pentag
         fi
 
         [[ $- != *i* ]] && return
 
 
-        eval "$(oh-my-posh init bash --config /etc/nixos/assets/M365Princess.omp.json)"
+        eval "$(oh-my-posh init bash --config ~/nix/assets/M365Princess.omp.json)"
 
 
         ### OS MANAGEMENT ###
