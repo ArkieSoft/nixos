@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ArkieSoft";
     repo = "ass";
-    rev = "6eadf43b3e42f92f8aa10d2c7173759b82b078f9";
-    sha256 = "Pk+mIdKIYLSibwcvRhK+Jz6yHdH9Ij8TcZGHirvmxG0=";
+    rev = "d99a48d19518b11be0ee19576709e520a88561be";
+    sha256 = "gp+TAwmPxFY+eqlZPBu4iJT5mxxB3d4b8MVv7OJRKhE=";
   };
   buildInputs = [ bash subversion];
   nativeBuildInputs = [ makeWrapper ];
