@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ArkieSoft";
     repo = "ass";
-    rev = "41dcd578c83eb6dd24269fd14bee94844b4e537b";
-    sha256 = "GeWqFl/g4NTBPMFSJPKK8OylmTRE/+ppkuy86vBVeAU=";
+    rev = "d8daa99448b0a61e6650e8a3e2f4f50b54c11e95";
+    sha256 = "DSV4faBOCTzx4JkwJSRagEAiSEcdSr8V4R1gyF9zNW0=";
   };
   buildInputs = [ bash subversion];
   nativeBuildInputs = [ makeWrapper ];
@@ -69,5 +69,16 @@ stdenv.mkDerivation {
      cp tbc $out/bin/tbc
     wrapProgram $out/bin/tbc \
       --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+  
+    cp toggle $out/bin/toggle
+    wrapProgram $out/bin/toggle \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+    cp hydro $out/bin/hydro
+    wrapProgram $out/bin/hydro \
+      --prefix PATH : ${lib.makeBinPath [ bash subversion ]}
+
+
+  
   '';
 }

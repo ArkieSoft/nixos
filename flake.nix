@@ -13,8 +13,13 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "unstable";
+    };
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
@@ -26,6 +31,8 @@
     , nixos-cosmic
     , home-manager
     , nix-darwin
+    , unstable
+    , home-manager-unstable
     , darwin-custom-icons
     , ...
     }:
@@ -90,5 +97,6 @@
         ];
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
     };
 }
