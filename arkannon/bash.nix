@@ -43,6 +43,8 @@
         alias vmstop='LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown WindowsVM'
         alias v='nvim'
         alias cd='z'
+        alias pgrep='pgrep -fl'
+        alias pkill='pkill -f'
         alias ping='prettyping'
         alias plz='sudo'
         alias ga.='git add .'

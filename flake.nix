@@ -16,7 +16,7 @@
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager-unstable = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";

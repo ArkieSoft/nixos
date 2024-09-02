@@ -105,7 +105,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    # gvfs.enable = true; #For Thunar auto-mount
+    gvfs.enable = true; #For Thunar auto-mount
     tumbler.enable = true;
     openssh = {
       enable = true;
@@ -125,6 +125,7 @@
         xterm
       ];
     };
+    udev.packages = [ pkgs.yubikey-personalization ];
 
   };
 
@@ -142,6 +143,7 @@
       "text/html" = "firefox";
       "x-scheme-handler/http" = "firefox";
       "x-scheme-handler/https" = "firefox";
+      "inode/directory" = "thunar";
     };
   };
   # Set your time zone./

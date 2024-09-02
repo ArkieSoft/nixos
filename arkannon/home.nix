@@ -10,6 +10,11 @@
   ];
 
   programs = {
+    password-store.enable = true;
+    oh-my-posh = {
+      enable = true;
+      enableFishIntegration = true;
+    };
     home-manager.enable = true;
     kitty = {
       enable = true;
@@ -23,11 +28,14 @@
       plugins = with pkgs; [
         obs-studio-plugins.wlrobs
         obs-studio-plugins.obs-vkcapture
+        obs-studio-plugins.obs-backgroundremoval
+
       ];
     };
     zoxide = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
     };
   };
 
@@ -58,6 +66,8 @@
 
     packages = with pkgs; [
       (callPackage ../modules/ass.nix {})
+      termsonic
+      termusic
       ryujinx
       crosswords
       chafa
@@ -70,6 +80,7 @@
       cowsay
       lolcat
       eza
+      yt-dlp
       gomuks
       gh
       vesktop
@@ -80,7 +91,6 @@
       steam
       protonup-qt
       wl-clipboard
-      oh-my-posh
       neofetch
       gimp
       sox #Terminal sound player for Hydro.sh. Provides 'play' command
@@ -117,7 +127,7 @@
       };
 
       "fetchart" = {
-        source = "../fetchart/";
+        source = ../fetchart;
         recursive = true;
         target = "nix/fetchart";
       };
