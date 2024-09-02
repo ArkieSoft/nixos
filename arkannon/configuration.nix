@@ -215,6 +215,11 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };
+    etc = {
+      "xdg/user-dirs.defaults".text = ''
+        SCREENSHOT=Pictures/screenshots
+        '';
+    };
   };
 
   fileSystems."/vms" = {

@@ -88,7 +88,7 @@
           "$mod, P, pseudo"
           "$mod, H, exec, toggle"
           "$mod, J, togglesplit"
-          "$mod, S, exec, grimblast --freeze copysave area"
+          "$mod, S, exec, grimblast --freeze copysave area ~/Pictures/screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
           "$mod, F, fullscreen"
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"

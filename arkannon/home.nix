@@ -62,6 +62,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "firefox";
+      XDG_SCREENSHOT_DIR = "~/Pictures";
     };
 
     packages = with pkgs; [
