@@ -66,7 +66,7 @@
     };
 
     packages = with pkgs; [
-      (callPackage ../modules/ass.nix {})
+      (callPackage ../modules/ass.nix { })
       termsonic
       termusic
       ryujinx
