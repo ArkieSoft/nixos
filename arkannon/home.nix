@@ -66,7 +66,8 @@
     };
 
     packages = with pkgs; [
-      (callPackage ../modules/ass.nix {})
+      (callPackage ../modules/ass.nix { })
+      exfatprogs
       termsonic
       termusic
       ryujinx
@@ -97,6 +98,7 @@
       sox #Terminal sound player for Hydro.sh. Provides 'play' command
       thunderbird
       nicotine-plus
+      cbonsai
       nwg-panel
       btop
       signal-desktop

@@ -3,20 +3,20 @@
   programs.fish = {
     enable = true;
     shellInitLast = ''
-      set A $(shuf -i 1-5 -n 1)
+       set A $(shuf -i 1-5 -n 1)
 
-     if test $A -eq 1
-       neofetch
-     else if test $A -eq 2
-       neofetch --kitty ~/nix/fetchart/2b.png --size 15%
-     else if test $A -eq 3
-       neofetch --kitty ~/nix/fetchart/2b2.jpg --size 15%
-     else if test $A -eq 4
-       neofetch --ascii ~/nix/fetchart/kisser
-     else
-       neofetch --ascii ~/nix/fetchart/Pentag
-     end
-     '';
+      if test $A -eq 1
+        neofetch
+      else if test $A -eq 2
+        neofetch --kitty ~/nix/fetchart/2b.png --size 15%
+      else if test $A -eq 3
+        neofetch --kitty ~/nix/fetchart/2b2.jpg --size 15%
+      else if test $A -eq 4
+        neofetch --ascii ~/nix/fetchart/kisser
+      else
+        neofetch --ascii ~/nix/fetchart/Pentag
+      end
+    '';
 
     shellAliases = {
       mailserver = "ssh wyatt@mail.arkannon.com";

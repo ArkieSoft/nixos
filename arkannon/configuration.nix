@@ -218,7 +218,7 @@
     etc = {
       "xdg/user-dirs.defaults".text = ''
         SCREENSHOT=Pictures/screenshots
-        '';
+      '';
     };
   };
 
