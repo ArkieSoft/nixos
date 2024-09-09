@@ -10,6 +10,7 @@
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
       crosswords
+      dart-sass
       flameshot
       libreoffice-bin
       hugo
