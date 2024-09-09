@@ -19,9 +19,10 @@
   networking = {
     hostName = "cloudserver";
     networkmanager.enable = true;
+    nameservers = [ "156.154.132.200" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 ];
-      allowedUDPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 80 443 1313 ];
+      allowedUDPPorts = [ 80 443 1313 ];
       enable = true;
     };
   };
@@ -45,8 +46,10 @@
 
   services = {
     xserver = {
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
     openssh = {
       enable = true;
@@ -88,6 +91,16 @@
           url = "https://github.com/theCalcaholic/nextcloud-secrets/releases/download/v2.0.3/secrets.tar.gz";
           license = "agpl3Only";
         };
+        permissions_overwrite = pkgs.fetchNextcloudApp {
+          sha256 = "sha256-1hmkc5i/O0Xwp2V3P1NhMWlrD053ETB+2a6xqtcNgf8=";
+          url = "https://github.com/icewind1991/permissions_overwrite/releases/download/v0.1.13/permissions_overwrite-v0.1.13.tar.gz";
+          license = "agpl3Only";
+        };
+        spreed = pkgs.fetchNextcloudApp {
+          sha256 = "sha256-x6IL9Re6FKGq9uqF1MGmsUUmQRFYnUjA9QcIxPH61fc=";
+          url = "https://github.com/nextcloud-releases/spreed/releases/download/v19.0.8/spreed-v19.0.8.tar.gz";
+          license = "agpl3Only";
+        };
       };
     };
     
@@ -96,9 +109,30 @@
       openFirewall = true;
       user = "nextcloud";
       settings = {
-        MusicFolder = "/var/lib/nextcloud/data/admin/files/Music";
+        MusicFolder = "/storage/Music";
       };
           };
+
+#    forgejo = {
+#      enable = true;
+#      lfs.enable = true;
+#      useWizard = true;
+#    };
+    
+     matrix-conduit = {
+      enable = true;
+      settings.global = {
+        allow_registration = true;
+        server_name = "chat.arkannon.com";
+        address = "127.0.0.1";
+        port = 6167;
+      };
+     };
+
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
 
     nginx = {
       virtualHosts = {
@@ -114,6 +148,41 @@
             proxyWebsockets = true;
           };
         };
+        "jf.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:8096";
+            proxyWebsockets = true;
+          };
+        };
+        "chat.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:6167";
+            proxyWebsockets = true;
+          };
+        };
+        "git.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:3000";
+          };
+        };
+        "arkannon.com" = {
+          root = "/var/www/homepage/public";
+          forceSSL = true;
+          enableACME = true;
+          serverAliases = [
+            "www.arkannon.com"
+            "arkannon.com"
+          ];
+          locations."/" = {
+            index = "index.html";
+          };
+        };
       };
     };
   };
@@ -123,8 +192,14 @@
   certs = {
    ${config.services.nextcloud.hostName}.email = "certs@arkannon.com";
    "music.arkannon.com".email = "certs@arkannon.com";
+   "jf.arkannon.com".email = "certs@arkannon.com";
+   "chat.arkannon.com".email = "certs@arkannon.com";
+   "git.arkannon.com".email = "certs@arkannon.com";
+   "arkannon.com".email = "certs@arkannon.com";
   };
  };
+  
+  virtualisation.docker.enable = true;
   
   nix = {
     settings = {
@@ -135,12 +210,24 @@
   users.users.wyatt = {
     isNormalUser = true;
     description = "wyatt";
-    extraGroups = [ "networkmanager" "wheel" "root" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "root" "dialout" "docker" ];
     packages = with pkgs; [ ];
   };
 
-  fileSystems."/var/lib/nextcloud/data" = {
+  fileSystems."/storage" = {
     device = "/dev/disk/by-uuid/5f86d5fd-c05e-4332-b5b1-2fada5e5e045";
+    fsType = "ext4";
+    options = [
+      "users"
+      "nofail"
+      "auto"
+      "exec"
+      "rw"
+    ];
+  };
+
+ fileSystems."/var/lib/nextcloud/data" = {
+    device = "/dev/disk/by-uuid/efb684de-de0e-4969-915d-688dc1ed73f2";
     fsType = "ext4";
     options = [
       "users"
@@ -155,6 +242,10 @@
 
   environment = {
     systemPackages = with pkgs; [
+      jellyfin
+      jellyfin-web
+      jellyfin-ffmpeg
+      hugo
     ];
     etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
   };
