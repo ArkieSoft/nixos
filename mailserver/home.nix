@@ -19,6 +19,8 @@
       git
       gcc
       nixpkgs-fmt
+      (callPackage ./ass.nix { })
+
     ];
   };
 
