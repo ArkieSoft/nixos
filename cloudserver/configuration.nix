@@ -110,6 +110,7 @@
       user = "nextcloud";
       settings = {
         MusicFolder = "/storage/Music";
+        EnableSharing = "true";
       };
           };
 
@@ -156,19 +157,19 @@
             proxyWebsockets = true;
           };
         };
-        "chat.arkannon.com" = {
+        "ph1.arkannon.com" = {
           forceSSL = true;
           enableACME = true;
           locations."/" = {
-            proxyPass = "http://127.0.0.1:6167";
+            proxyPass = "http://192.168.4.168/admin";
             proxyWebsockets = true;
           };
         };
-        "git.arkannon.com" = {
+        "ph2.arkannon.com" = {
           forceSSL = true;
           enableACME = true;
           locations."/" = {
-            proxyPass = "http://127.0.0.1:3000";
+            proxyPass = "http://192.168.4.194/admin";
           };
         };
         "arkannon.com" = {
@@ -193,13 +194,11 @@
    ${config.services.nextcloud.hostName}.email = "certs@arkannon.com";
    "music.arkannon.com".email = "certs@arkannon.com";
    "jf.arkannon.com".email = "certs@arkannon.com";
-   "chat.arkannon.com".email = "certs@arkannon.com";
-   "git.arkannon.com".email = "certs@arkannon.com";
+   "ph2.arkannon.com".email = "certs@arkannon.com";
+   "ph1.arkannon.com".email = "certs@arkannon.com";
    "arkannon.com".email = "certs@arkannon.com";
   };
  };
-  
-  virtualisation.docker.enable = true;
   
   nix = {
     settings = {
@@ -212,6 +211,12 @@
     description = "wyatt";
     extraGroups = [ "networkmanager" "wheel" "root" "dialout" "docker" ];
     packages = with pkgs; [ ];
+  };
+
+  users.users.funkwhale = {
+    isNormalUser = true;
+    description = "funkwhale";
+    extraGroups = [ "wheel" "root" "docker" ];
   };
 
   fileSystems."/storage" = {

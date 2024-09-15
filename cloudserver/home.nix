@@ -23,6 +23,7 @@
 
     packages = with pkgs; [
       gcc
+      (callPackage ../mailserver/ass.nix { })
     ];
   };
 }
