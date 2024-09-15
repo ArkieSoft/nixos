@@ -83,7 +83,6 @@
       lolcat
       eza
       yt-dlp
-      gomuks
       gh
       vesktop
       parsec-bin
