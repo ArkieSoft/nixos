@@ -14,7 +14,6 @@
       flameshot
       libreoffice-bin
       hugo
-      gomuks
       gh
       chafa
       neofetch

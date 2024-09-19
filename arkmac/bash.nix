@@ -3,6 +3,7 @@
   programs.bash = {
     enable = true;
     bashrcExtra = "
+export PATH=/opt/homebrew/bin:$PATH
 neofetch
 eval \"$(oh-my-posh init bash --config ~/nix/assets/M365Princess.omp.json)\"
 

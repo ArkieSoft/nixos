@@ -18,6 +18,9 @@
 
   homebrew = {
     enable = true;
+    brews = [
+      "telnet"
+    ];
     casks = [
       "firefox"
       "nextcloud"
@@ -32,6 +35,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   system = {
+    stateVersion = 5;
     defaults = {
       finder = {
         AppleShowAllFiles = true;
