@@ -68,6 +68,7 @@
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
       exfatprogs
+      libtelnet
       termsonic
       termusic
       ryujinx
