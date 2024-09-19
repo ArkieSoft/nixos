@@ -21,8 +21,8 @@
     networkmanager.enable = true;
     nameservers = [ "156.154.132.200" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 1313 ];
-      allowedUDPPorts = [ 80 443 1313 ];
+      allowedTCPPorts = [ 80 443 678 ];
+      allowedUDPPorts = [ 80 443 678 ];
       enable = true;
     };
   };
@@ -187,6 +187,8 @@
       };
     };
   };
+
+  virtualisation.docker.enable = true;
 
   security.acme = {
   acceptTerms = true;
