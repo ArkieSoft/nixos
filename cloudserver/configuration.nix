@@ -21,8 +21,8 @@
     networkmanager.enable = true;
     nameservers = [ "156.154.132.200" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 678 ];
-      allowedUDPPorts = [ 80 443 678 ];
+      allowedTCPPorts = [ 80 443 ];
+      allowedUDPPorts = [ 80 443 ];
       enable = true;
     };
   };
