@@ -101,8 +101,8 @@
           url = "https://github.com/nextcloud-releases/spreed/releases/download/v19.0.8/spreed-v19.0.8.tar.gz";
           license = "agpl3Only";
         };
-        external_portal = pkgs.fetchNextcloudApp {
-          sha256 = "";
+        externalportal = pkgs.fetchNextcloudApp {
+          sha256 = "sha256-TBkOxqZ7/sYQHueYqNTPf/I2BTC2kzLiBLO07kjpil0=";
           url = "https://github.com/puavo-org/externalportal/releases/download/v1.3.1/externalportal.tar.gz";
           license = "agpl3Only";
         };
