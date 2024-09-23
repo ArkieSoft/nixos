@@ -13,6 +13,10 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim-unstable = {
+      url = "github:nix-community/nixvim/main";
+      inputs.nixpkgs.follows = "unstable";
+    };
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager-unstable = {
       url = "github:nix-community/home-manager/master";
@@ -38,7 +42,7 @@
     }:
     {
       nixosConfigurations = {
-        arkannon = nixpkgs.lib.nixosSystem {
+        arkannon = unstable.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             {
@@ -49,7 +53,7 @@
             }
             nixos-cosmic.nixosModules.default
             ./arkannon/configuration.nix
-            home-manager.nixosModules.home-manager
+            home-manager-unstable.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;

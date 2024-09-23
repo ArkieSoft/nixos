@@ -130,7 +130,7 @@
           "stayfocused, title:^()$,class:^(steam)$"
           "minsize 1 1, title:^()$,class:^(steam)$"
           "stayfocused,class:(Rofi)"
-          "forceinput,class:(Rofi)"
+#"forceinput,class:(Rofi)"
           "workspace 7 silent,class:(obs)"
           "workspace 3 silent,class:(vesktop)"
           #"workspace 6 silent,class:(kitty)"
