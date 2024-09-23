@@ -6,7 +6,7 @@
     ../modules/dunst.nix
     ../modules/waybar.nix
     ../modules/git.nix
-    ../modules/nixvim-unstable.nix
+    ../modules/nixvim.nix
   ];
 
   programs = {

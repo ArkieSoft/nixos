@@ -42,7 +42,7 @@
     }:
     {
       nixosConfigurations = {
-        arkannon = unstable.lib.nixosSystem {
+        arkannon = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             {
@@ -53,7 +53,7 @@
             }
             nixos-cosmic.nixosModules.default
             ./arkannon/configuration.nix
-            home-manager-unstable.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
