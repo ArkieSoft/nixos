@@ -21,7 +21,7 @@
     networkmanager.enable = true;
     nameservers = [ "156.154.132.200" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 80 443 3000 8080 ];
       allowedUDPPorts = [ 80 443 ];
       enable = true;
     };
@@ -44,7 +44,43 @@
     };
   };
 
+  systemd.services.qbittorrent = {
+    enable = true;
+    description = "qBittorrent-nox service";
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" "nss-lookup.target" ];
+    path = [ "pkgs.nix" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "exec";
+      User = "wyatt";
+      ExecStart = "/run/current-system/sw/bin/qbittorrent-nox";
+    };
+  };
+
   services = {
+    lidarr = {
+      enable = true;
+      user = "nextcloud";
+      group = "nextcloud";
+      openFirewall = true;
+    };
+    radarr = {
+      enable = true;
+      user = "nextcloud";
+      group = "nextcloud";
+      openFirewall = true;
+    };
+    sonarr = {
+      enable = true;
+      user = "nextcloud";
+      group = "nextcloud";
+      openFirewall = true;
+    };
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+    };
     xserver = {
       xkb = {
         layout = "us";
@@ -162,21 +198,6 @@
             proxyWebsockets = true;
           };
         };
-        "ph1.arkannon.com" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            proxyPass = "http://192.168.4.168/admin";
-            proxyWebsockets = true;
-          };
-        };
-        "ph2.arkannon.com" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            proxyPass = "http://192.168.4.194/admin";
-          };
-        };
         "arkannon.com" = {
           root = "/var/www/homepage/public";
           forceSSL = true;
@@ -189,6 +210,52 @@
             index = "index.html";
           };
         };
+        "indexarr.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:9696";
+            proxyWebsockets = true;
+          };
+        };
+        "qt.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:3000";
+            proxyWebsockets = true;
+            extraConfig = ''
+              proxy_set_header   Host               $proxy_host;
+              proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
+              proxy_set_header   X-Forwarded-Host   $http_host;
+              proxy_set_header   X-Forwarded-Proto  $scheme;
+            '';
+          };
+        };
+        "lidarr.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:8686";
+            proxyWebsockets = true;
+          };
+        };
+        "sonarr.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:8989";
+            proxyWebsockets = true;
+          };
+        };
+        "radarr.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:7878";
+            proxyWebsockets = true;
+          };
+        };
       };
     };
   };
@@ -196,15 +263,17 @@
   virtualisation.docker.enable = true;
 
   security.acme = {
-  acceptTerms = true;
-  certs = {
-   ${config.services.nextcloud.hostName}.email = "certs@arkannon.com";
-   "music.arkannon.com".email = "certs@arkannon.com";
-   "jf.arkannon.com".email = "certs@arkannon.com";
-   "ph2.arkannon.com".email = "certs@arkannon.com";
-   "ph1.arkannon.com".email = "certs@arkannon.com";
-   "arkannon.com".email = "certs@arkannon.com";
-  };
+    acceptTerms = true;
+    defaults.email = "certs@arkannon.com";
+# certs = {
+#   ${config.services.nextcloud.hostName}.email = "certs@arkannon.com";
+#   "music.arkannon.com".email = "certs@arkannon.com";
+#   "jf.arkannon.com".email = "certs@arkannon.com";
+#   "indexarr.arkannon.com".email = "certs@arkannon.com";
+#   "arkannon.com".email = "certs@arkannon.com";
+#   "qt.arkannon.com".email = "certs@arkannon.com";
+#   "lidarr.arkannon.com".email = "certs@arkannon.com";
+#  };
  };
   
   nix = {
@@ -258,6 +327,8 @@
       jellyfin-web
       jellyfin-ffmpeg
       hugo
+      qbittorrent-nox
+
     ];
     etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
   };
