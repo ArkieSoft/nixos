@@ -21,7 +21,7 @@
     networkmanager.enable = true;
     nameservers = [ "156.154.132.200" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 3000 8080 ];
+      allowedTCPPorts = [ 80 443 ];
       allowedUDPPorts = [ 80 443 ];
       enable = true;
     };
@@ -53,7 +53,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "exec";
-      User = "wyatt";
+      User = "nextcloud";
       ExecStart = "/run/current-system/sw/bin/qbittorrent-nox";
     };
   };
