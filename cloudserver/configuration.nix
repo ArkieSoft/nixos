@@ -19,7 +19,7 @@
   networking = {
     hostName = "cloudserver";
     networkmanager.enable = true;
-    nameservers = [ "156.154.132.200" ];
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
     firewall = {
       allowedTCPPorts = [ 80 443 ];
       allowedUDPPorts = [ 80 443 ];
