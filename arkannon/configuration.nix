@@ -37,6 +37,7 @@
     hostName = "arkannon"; # Define your hostname.
     networkmanager.enable = true;
     firewall.enable = false;
+    nameservers = [ "156.154.132.200" ];
   };
 
   security = {
