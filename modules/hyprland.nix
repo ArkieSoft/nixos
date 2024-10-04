@@ -40,7 +40,7 @@
         decoration = {
           #rounding = 20;
           rounding = 0;
-          inactive_opacity = .95;
+          inactive_opacity = 1;
           blur = {
             enabled = true;
             size = 3;
