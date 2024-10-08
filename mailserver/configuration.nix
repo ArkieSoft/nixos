@@ -41,6 +41,31 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
+  systemd = {
+    timers = {
+      "reboot" = {
+        wantedBy = [ "timers.target" ];
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+      };
+    };
+
+    services = {
+      "reboot" = {
+        script = ''
+          shutdown -r --no-wall
+        '';
+
+        serviceConfig = {
+          Type = "oneshot";
+          User = "root";
+        };
+      };
+    };
+  };
+
   services = {
     openssh = {
       enable = true;
