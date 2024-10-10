@@ -67,6 +67,7 @@
 
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
+      hugo
       exfatprogs
       libtelnet
       termsonic
