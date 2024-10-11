@@ -90,7 +90,9 @@
     openssh = {
       enable = true;
       settings = {
-        PermitRootLogin = "yes";
+        PermitRootLogin = "no";
+        settings.PasswordAuthenticaion = false;
+        settings.kbdInteractiveAuthentication = false;
       };
     };
     nextcloud = {
