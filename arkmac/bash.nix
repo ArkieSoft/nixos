@@ -16,7 +16,7 @@ alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --dele
 
 alias orphanstomper='nix store gc && nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'
 alias mailserver='ssh wyatt@mail.arkannon.com'
-alias homeserver='ssh wyatt@arkannon.com'
+alias cloudserver='ssh -i ~/.ssh/cloudserver wyatt@arkannon.com'
 alias arkdesk='ssh -p 230 arkannon@arkannon.com'
 alias sl='eza --color always --icons'
 alias grep='grep --color=auto'

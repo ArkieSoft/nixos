@@ -30,7 +30,7 @@
         alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'
         alias taxcuts='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"Medicare Successfully Cut!\" | lolcat && echo \"Starving Orphans, We Will Be Right Back!\" | lolcat && sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"WIC Successfully cut!\" | lolcat'
         alias mailserver='ssh wyatt@mail.arkannon.com'
-        alias cloudserver='ssh wyatt@arkannon.com'
+        alias cloudserver='ssh -i ~/.ssh/cloudserver wyatt@arkannon.com'
 
         alias nixconfig='cd /etc/nixos && git pull && nvim'
         alias cls='clear'
