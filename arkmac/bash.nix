@@ -15,7 +15,7 @@ alias v='nvim'
 alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'
 
 alias orphanstomper='nix store gc && nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'
-alias mailserver='ssh wyatt@mail.arkannon.com'
+alias mailserver='ssh -i ~/.ssh/mailserver wyatt@mail.arkannon.com'
 alias cloudserver='ssh -i ~/.ssh/cloudserver wyatt@arkannon.com'
 alias arkdesk='ssh -p 230 arkannon@arkannon.com'
 alias sl='eza --color always --icons'
