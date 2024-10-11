@@ -91,8 +91,8 @@
       enable = true;
       settings = {
         PermitRootLogin = "no";
-        settings.PasswordAuthenticaion = false;
-        settings.kbdInteractiveAuthentication = false;
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
       };
     };
     nextcloud = {
