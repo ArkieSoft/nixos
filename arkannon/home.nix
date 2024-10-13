@@ -67,6 +67,7 @@
 
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
+      libreoffice
       hugo
       exfatprogs
       libtelnet
