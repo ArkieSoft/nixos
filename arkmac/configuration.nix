@@ -22,6 +22,7 @@
       "telnet"
     ];
     casks = [
+      "ukelele"
       "firefox"
       "nextcloud"
       "parsec"
