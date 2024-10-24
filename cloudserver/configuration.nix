@@ -149,6 +149,11 @@
           url = "https://github.com/nextcloud/bookmarks/releases/download/v15.0.2/bookmarks-15.0.2.tar.gz";
           license = "agpl3Only";
         };
+        passwords = pkgs.fetchNextcloudApp {
+          sha256 = "sha256-ceKLZrWs+ph5ufnUT9FV6fDPbfyaT9Duq1kLHtnySyQ=";
+          url = "https://git.mdns.eu/api/v4/projects/45/packages/generic/passwords/2024.9.0/passwords.tar.gz";
+          license = "agpl3Only";
+        };
       };
     };
     
