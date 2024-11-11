@@ -27,6 +27,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
+    nix-citizen.url = "github:LovingMelody/nix-citizen";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
   };
 
   outputs =
@@ -38,6 +41,8 @@
     , unstable
     , home-manager-unstable
     , darwin-custom-icons
+    , nix-gaming
+    , nix-citizen
     , ...
     }:
     {

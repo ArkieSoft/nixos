@@ -67,12 +67,16 @@
 
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
+      inputs.nix-citizen.packages.${system}.star-citizen
+      inputs.nix-citizen.packages.${system}.star-citizen-helper
+      inputs.nix-citizen.packages.${system}.lug-helper
       librewolf
       libreoffice
       hugo
       exfatprogs
       libtelnet
       termsonic
+      heroic
       termusic
       ryujinx
       crosswords
