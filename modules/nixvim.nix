@@ -115,6 +115,7 @@
     };
 
     plugins = {
+      web-devicons.enable = true; 
       telescope = {
         enable = true;
         keymaps = {
@@ -168,7 +169,9 @@
       };
       barbecue = {
         enable = true;
-        attachNavic = true;
+        settings = {
+          attach_navic = true;
+        };
       };
       cursorline = {
         enable = true;
@@ -193,7 +196,7 @@
           bashls.enable = true;
           jsonls.enable = true;
           nixd.enable = true;
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installRustc = true;
             installCargo = true;
