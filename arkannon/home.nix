@@ -73,6 +73,7 @@
       librewolf
       libreoffice
       hugo
+      prismlauncher
       exfatprogs
       libtelnet
       termsonic
