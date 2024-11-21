@@ -18,9 +18,6 @@
 
   homebrew = {
     enable = true;
-    brews = [
-      "telnet"
-    ];
     casks = [
       "ukelele"
       "firefox"
