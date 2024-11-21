@@ -31,8 +31,6 @@
     ];
   };
 
-  environment.loginShell = "/run/current-system/sw/bin/bash";
-
   security.pam.enableSudoTouchIdAuth = true;
 
   system = {
