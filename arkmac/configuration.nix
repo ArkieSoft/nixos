@@ -21,6 +21,7 @@
     casks = [
       "ukelele"
       "firefox"
+      "signal"
       "nextcloud"
       "parsec"
       "flameshot"
