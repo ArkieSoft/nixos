@@ -95,6 +95,12 @@
   };
  
   services = {
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     desktopManager.cosmic.enable = true;
     displayManager.cosmic-greeter.enable = true;
     gnome.gnome-keyring.enable = true;
