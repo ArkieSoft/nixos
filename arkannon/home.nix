@@ -122,6 +122,7 @@
       wine-staging
       wine
       grimblast
+      chirp
     ];
 
     file = {
