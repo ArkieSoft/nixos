@@ -19,6 +19,7 @@
   homebrew = {
     enable = true;
     casks = [
+      "chirp"
       "ukelele"
       "firefox"
       "signal"
