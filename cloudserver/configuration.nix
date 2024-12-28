@@ -59,6 +59,13 @@
   };
 
   services = {
+    mastodon = {
+      enable = true;
+      localDomain = "social.arkannon.com";
+      configureNginx = true;
+      smtp.fromAddress = "noreply@social.arkannon.com";
+      streamingProcesses = 3;
+    };
     lidarr = {
       enable = true;
       user = "nextcloud";
@@ -110,47 +117,47 @@
       extraApps = {
         inherit (pkgs.nextcloud30Packages.apps) calendar contacts notes;
         cookbook = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-Pfa+Xbopg20os+pnGgg+wpEX1MI5fz5JMb0K4a8rBhs=";
+          sha256 = "sha256-upbTdzu17BH6tehgCUcTxBvTVOO31Kri/33vGd4Unyw=";
           url = "https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.2/cookbook-0.11.2.tar.gz";
           license = "agpl3Only";
         };
         picker = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-JrNhQQYTRqaQTnurOMz5643UeXxNhrkciJkEAXm90Vg=";
+          sha256 = "sha256-v/CoSNPoiasaEyZRbSnJTwcXBDOjCHvaPVP3f6keoss=";
           url = "https://github.com/nextcloud-releases/picker/releases/download/v1.0.10/picker-v1.0.10.tar.gz";
           license = "agpl3Only";
         };
         pride_flags = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-JvHpuJSx22q4duTWnYvj7+nW6REHjugIjDpfYTzbAts=";
+          sha256 = "sha256-AC1DsCHzKVhXtYStSRBDFGgRHlK4WUegAJ5m5mr02yo=";
           url = "https://git.finally.coffee/finallycoffee/nextcloud-pride-flags/releases/download/1.1.1/pride_flags-1.1.1.tar.gz";
           license = "gpl3";
         };
         secrets = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-54eycqxpxVBPJ5cy8sno0sB95h+twCt2DfGcAodviRU=";
+          sha256 = "sha256-tTe6mS1aaLZRACUhGgEINKzhz+vNigPcVTtEY87mQQQ=";
           url = "https://github.com/theCalcaholic/nextcloud-secrets/releases/download/v2.1.1/secrets.tar.gz";
           license = "agpl3Only";
         };
         permissions_overwrite = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-1hmkc5i/O0Xwp2V3P1NhMWlrD053ETB+2a6xqtcNgf8=";
+          sha256 = "sha256-qDLmHzLO0PnUT0DSk+U8KvkQKKR/56rZQxuK9FTOtEc=";
           url = "https://github.com/icewind1991/permissions_overwrite/releases/download/v0.1.13/permissions_overwrite-v0.1.13.tar.gz";
           license = "agpl3Only";
         };
         spreed = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-RVpDJG/zsU6iLcYYnY3Lbrw01SgC0puknZrPJsJRQDQ=";
+          sha256 = "sha256-mUJmbOMMIkm/83a+7xcW59TTar58D4l0Ek+kZoRdxG8=";
           url = "https://github.com/nextcloud-releases/spreed/releases/download/v20.0.1/spreed-v20.0.1.tar.gz";
           license = "agpl3Only";
         };
         externalportal = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-TBkOxqZ7/sYQHueYqNTPf/I2BTC2kzLiBLO07kjpil0=";
+          sha256 = "sha256-Bdhx6xHzoYi4na8w4g4Nwlg5/GqwqRiHPtfQ2P9sUR8=";
           url = "https://github.com/puavo-org/externalportal/releases/download/v1.3.1/externalportal.tar.gz";
           license = "agpl3Only";
         };
         bookmarks = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-/yeuwml6evsM/zy8LrlgJRyzG0i+VpU4gorlWU5tuPg=";
+          sha256 = "sha256-F3r+FU5m9vj13bhJqGi7cCtZUxAIL453QUu1y65Ty/I=";
           url = "https://github.com/nextcloud/bookmarks/releases/download/v15.0.2/bookmarks-15.0.2.tar.gz";
           license = "agpl3Only";
         };
         passwords = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-ceKLZrWs+ph5ufnUT9FV6fDPbfyaT9Duq1kLHtnySyQ=";
+          sha256 = "sha256-L+jumcussL0c9xNMg/GMs1GSd1IY9wUvC8ZEg+3U+sc=";
           url = "https://git.mdns.eu/api/v4/projects/45/packages/generic/passwords/2024.9.0/passwords.tar.gz";
           license = "agpl3Only";
         };
@@ -331,7 +338,16 @@
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "qbittorrent-nox-4.6.4"
+      "aspnetcore-runtime-wrapped-6.0.36"
+      "aspnetcore-runtime-6.0.36"
+      "dotnet-sdk-wrapped-6.0.428"
+      "dotnet-sdk-6.0.428"
+    ];
+  };
 
   environment = {
     systemPackages = with pkgs; [
