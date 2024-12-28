@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     owner = "ArkieSoft";
     repo = "ass";
     rev = "b6f2b6c37b2548a1eefa19881af3e427dcb7e737";
-    sha256 = "";
+    sha256 = "sha256-0hGxa5OtPMHvm/y/IGs4+zBzj3PK/ZLNUg3leJiAzMk=";
   };
   buildInputs = [ bash subversion ];
   nativeBuildInputs = [ makeWrapper ];
