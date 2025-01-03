@@ -38,7 +38,7 @@
         alias sl='eza --color always --icons';
         alias ls='eza --color always --icons';
         alias grep='grep --color=auto'
-        alias size='du -cha --max-depth=1 . | grep -E \"M|G\"'
+        alias size='du -cha --max-depth=1 . | grep -E "M|G"'
         alias vmstart='LIBVIRT_DEFAULT_URI=qemu:///system virsh net-start default && LIBVIRT_DEFAULT_URI=qemu:///system virsh start WindowsVM'
         alias vmstop='LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown WindowsVM'
         alias v='nvim'

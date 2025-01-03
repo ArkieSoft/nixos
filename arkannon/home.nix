@@ -67,9 +67,9 @@
 
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
-      inputs.nix-citizen.packages.${system}.star-citizen
-      inputs.nix-citizen.packages.${system}.star-citizen-helper
-      inputs.nix-citizen.packages.${system}.lug-helper
+#inputs.nix-citizen.packages.${system}.star-citizen
+#inputs.nix-citizen.packages.${system}.star-citizen-helper
+#inputs.nix-citizen.packages.${system}.lug-helper
       qbittorrent
       libreoffice
       hugo
