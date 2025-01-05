@@ -113,6 +113,9 @@
         adminpassFile = "/etc/nextcloud-admin-pass";
         adminuser = "admin";
       };
+      settings = {
+        log_type = "file";
+      };
       extraAppsEnable = true;
       extraApps = {
         inherit (pkgs.nextcloud30Packages.apps) calendar contacts notes;
@@ -156,11 +159,11 @@
           url = "https://github.com/nextcloud/bookmarks/releases/download/v15.0.2/bookmarks-15.0.2.tar.gz";
           license = "agpl3Only";
         };
-        passwords = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-L+jumcussL0c9xNMg/GMs1GSd1IY9wUvC8ZEg+3U+sc=";
-          url = "https://git.mdns.eu/api/v4/projects/45/packages/generic/passwords/2024.9.0/passwords.tar.gz";
-          license = "agpl3Only";
-        };
+#       passwords = pkgs.fetchNextcloudApp {
+#         sha256 = "sha256-L+jumcussL0c9xNMg/GMs1GSd1IY9wUvC8ZEg+3U+sc=";
+#          url = "https://git.mdns.eu/api/v4/projects/45/packages/generic/passwords/2024.9.0/passwords.tar.gz";
+#          license = "agpl3Only";
+#        };
       };
     };
     
