@@ -30,11 +30,13 @@
     nix-citizen.url = "github:LovingMelody/nix-citizen";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =
     inputs@{ self
     , nixpkgs
+    , sops-nix
     , nixos-cosmic
     , home-manager
     , nix-darwin
@@ -92,6 +94,7 @@
           system = "x86_64-linux";
           modules = [
             ./cloudserver/configuration.nix
+            sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
             {
               home-manager = {

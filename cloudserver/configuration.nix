@@ -357,9 +357,10 @@
       hugo
       qbittorrent-nox
       neovim
+      age
     ];
-    etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
+#etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
+    etc."nextcloud-admin-pass".text = builtins.readFile ../../../../home/wyatt/admin-pass;
   };
-
   system.stateVersion = "24.05";
 }
