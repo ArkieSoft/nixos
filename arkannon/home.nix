@@ -123,6 +123,7 @@
       wine
       grimblast
       chirp
+      ventoy-full
     ];
 
     file = {
