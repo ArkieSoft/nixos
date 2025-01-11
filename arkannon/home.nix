@@ -123,7 +123,7 @@
       wine
       grimblast
       chirp
-      ventoy-full
+      pokemmo-installer
     ];
 
     file = {
