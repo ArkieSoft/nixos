@@ -44,6 +44,7 @@
     };
   };
 
+
   systemd.services.qbittorrent = {
     enable = true;
     description = "qBittorrent-nox service";
@@ -59,13 +60,6 @@
   };
 
   services = {
-    mastodon = {
-      enable = true;
-      localDomain = "social.arkannon.com";
-      configureNginx = true;
-      smtp.fromAddress = "noreply@social.arkannon.com";
-      streamingProcesses = 3;
-    };
     lidarr = {
       enable = true;
       user = "nextcloud";
@@ -176,23 +170,7 @@
         EnableSharing = "true";
       };
           };
-
-#    forgejo = {
-#      enable = true;
-#      lfs.enable = true;
-#      useWizard = true;
-#    };
-    
-     matrix-conduit = {
-      enable = true;
-      settings.global = {
-        allow_registration = true;
-        server_name = "chat.arkannon.com";
-        address = "127.0.0.1";
-        port = 6167;
-      };
-     };
-
+   
     jellyfin = {
       enable = true;
       openFirewall = true;
@@ -281,40 +259,23 @@
       };
     };
   };
-
-  virtualisation.docker.enable = true;
-
+  
   security.acme = {
     acceptTerms = true;
     defaults.email = "certs@arkannon.com";
-# certs = {
-#   ${config.services.nextcloud.hostName}.email = "certs@arkannon.com";
-#   "music.arkannon.com".email = "certs@arkannon.com";
-#   "jf.arkannon.com".email = "certs@arkannon.com";
-#   "indexarr.arkannon.com".email = "certs@arkannon.com";
-#   "arkannon.com".email = "certs@arkannon.com";
-#   "qt.arkannon.com".email = "certs@arkannon.com";
-#   "lidarr.arkannon.com".email = "certs@arkannon.com";
-#  };
- };
+  };
   
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
-  
+
   users.users.wyatt = {
     isNormalUser = true;
     description = "wyatt";
-    extraGroups = [ "networkmanager" "wheel" "root" "dialout" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "root" "dialout" "docker" "podman" ];
     packages = with pkgs; [ ];
-  };
-
-  users.users.funkwhale = {
-    isNormalUser = true;
-    description = "funkwhale";
-    extraGroups = [ "wheel" "root" "docker" ];
   };
 
   fileSystems."/storage" = {
