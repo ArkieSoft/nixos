@@ -60,6 +60,21 @@
   };
 
   services = {
+    glance = {
+      enable = true;
+      openFirewall = true;
+      settings.port = 8086;
+    };
+#    pufferpanel = {
+#      enable = true;
+#      environment = {
+#        PUFFER_WEB_HOST = ":8088";
+#        PUFFER_DAEMON_SFTP_HOST = ":5657";
+#        PUFFER_DAEMON_CONSOLE_BUFFER = "1000";
+#        PUFFER_DAEMON_CONSOLE_FORWARD = "true";
+#        PUFFER_PANEL_REGISTRATIONENABLED = "false";
+#      };
+#    };
     lidarr = {
       enable = true;
       user = "nextcloud";
@@ -112,7 +127,7 @@
       };
       extraAppsEnable = true;
       extraApps = {
-        inherit (pkgs.nextcloud30Packages.apps) calendar contacts notes;
+        inherit (pkgs.nextcloud30Packages.apps) calendar contacts notes news;
         cookbook = pkgs.fetchNextcloudApp {
           sha256 = "sha256-upbTdzu17BH6tehgCUcTxBvTVOO31Kri/33vGd4Unyw=";
           url = "https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.2/cookbook-0.11.2.tar.gz";
@@ -256,6 +271,14 @@
             proxyWebsockets = true;
           };
         };
+        "start.arkannon.com" = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:8080";
+            proxyWebsockets = true;
+          };
+        };
       };
     };
   };
@@ -315,6 +338,8 @@
 
   environment = {
     systemPackages = with pkgs; [
+      komga
+      pufferpanel
       jellyfin
       jellyfin-web
       jellyfin-ffmpeg

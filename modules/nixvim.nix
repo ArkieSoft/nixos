@@ -7,6 +7,7 @@
     enable = true;
     defaultEditor = true;
     colorscheme = "nightfox";
+    colorschemes.nightfox.enable = true;
     clipboard.providers.wl-copy.enable = true;
 
     keymaps = [

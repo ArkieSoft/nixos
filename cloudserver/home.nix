@@ -3,6 +3,7 @@
   imports = [
     ../modules/nixvim.nix
     ../modules/git.nix
+    ./bash.nix
   ];
 
   programs = {
@@ -23,6 +24,7 @@
 
     packages = with pkgs; [
       gcc
+      eza
       (callPackage ../mailserver/ass.nix { })
     ];
   };
