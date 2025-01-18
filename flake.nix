@@ -72,7 +72,7 @@
             }
           ];
         };
-      cloudserver = nixpkgs.lib.nixosSystem {
+        cloudserver = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./cloudserver/configuration.nix

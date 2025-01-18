@@ -26,7 +26,7 @@
       enable = true;
     };
   };
-  
+
   time.timeZone = "America/Los_Angeles";
 
   i18n = {
@@ -65,16 +65,16 @@
       openFirewall = true;
       settings.port = 8086;
     };
-#    pufferpanel = {
-#      enable = true;
-#      environment = {
-#        PUFFER_WEB_HOST = ":8088";
-#        PUFFER_DAEMON_SFTP_HOST = ":5657";
-#        PUFFER_DAEMON_CONSOLE_BUFFER = "1000";
-#        PUFFER_DAEMON_CONSOLE_FORWARD = "true";
-#        PUFFER_PANEL_REGISTRATIONENABLED = "false";
-#      };
-#    };
+    #    pufferpanel = {
+    #      enable = true;
+    #      environment = {
+    #        PUFFER_WEB_HOST = ":8088";
+    #        PUFFER_DAEMON_SFTP_HOST = ":5657";
+    #        PUFFER_DAEMON_CONSOLE_BUFFER = "1000";
+    #        PUFFER_DAEMON_CONSOLE_FORWARD = "true";
+    #        PUFFER_PANEL_REGISTRATIONENABLED = "false";
+    #      };
+    #    };
     lidarr = {
       enable = true;
       user = "nextcloud";
@@ -168,14 +168,14 @@
           url = "https://github.com/nextcloud/bookmarks/releases/download/v15.0.2/bookmarks-15.0.2.tar.gz";
           license = "agpl3Only";
         };
-#       passwords = pkgs.fetchNextcloudApp {
-#         sha256 = "sha256-L+jumcussL0c9xNMg/GMs1GSd1IY9wUvC8ZEg+3U+sc=";
-#          url = "https://git.mdns.eu/api/v4/projects/45/packages/generic/passwords/2024.9.0/passwords.tar.gz";
-#          license = "agpl3Only";
-#        };
+        #       passwords = pkgs.fetchNextcloudApp {
+        #         sha256 = "sha256-L+jumcussL0c9xNMg/GMs1GSd1IY9wUvC8ZEg+3U+sc=";
+        #          url = "https://git.mdns.eu/api/v4/projects/45/packages/generic/passwords/2024.9.0/passwords.tar.gz";
+        #          license = "agpl3Only";
+        #        };
       };
     };
-    
+
     navidrome = {
       enable = true;
       openFirewall = true;
@@ -184,8 +184,8 @@
         MusicFolder = "/storage/Music";
         EnableSharing = "true";
       };
-          };
-   
+    };
+
     jellyfin = {
       enable = true;
       openFirewall = true;
@@ -282,12 +282,12 @@
       };
     };
   };
-  
+
   security.acme = {
     acceptTerms = true;
     defaults.email = "certs@arkannon.com";
   };
-  
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -313,7 +313,7 @@
     ];
   };
 
- fileSystems."/var/lib/nextcloud/data" = {
+  fileSystems."/var/lib/nextcloud/data" = {
     device = "/dev/disk/by-uuid/efb684de-de0e-4969-915d-688dc1ed73f2";
     fsType = "ext4";
     options = [
@@ -348,7 +348,7 @@
       neovim
       age
     ];
-#etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
+    #etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
     etc."nextcloud-admin-pass".text = builtins.readFile ../../../../home/wyatt/admin-pass;
   };
   system.stateVersion = "24.05";

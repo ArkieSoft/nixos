@@ -93,7 +93,7 @@
       enableAskPassword = false;
     };
   };
- 
+
   services = {
     printing.enable = true;
     avahi = {

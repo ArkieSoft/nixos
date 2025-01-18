@@ -63,7 +63,7 @@
     };
     kitty = {
       enable = true;
-#font.name = "CaskaydiaCove Nerd Font";
+      #font.name = "CaskaydiaCove Nerd Font";
       settings = {
         shell = "/etc/profiles/per-user/arkannon/bin/bash";
         editor = "nvim";
