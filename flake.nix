@@ -72,25 +72,7 @@
             }
           ];
         };
-
-        mailserver = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./mailserver/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.wyatt = import ./mailserver/home.nix;
-                extraSpecialArgs = { inherit self inputs; };
-                backupFileExtension = "backup";
-              };
-            }
-          ];
-        };
-
-        cloudserver = nixpkgs.lib.nixosSystem {
+      cloudserver = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./cloudserver/configuration.nix
