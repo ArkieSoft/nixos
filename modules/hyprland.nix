@@ -78,7 +78,7 @@
         monitor = [
           "DP-2, 2560x1440@144, 0x1080, 1"
           "DP-1, 2560x1440@144, 2560x1080, 1"
-          "HDMI-A-1, 1920x1080@60, 2560x0, 1"
+          "HDMI-A-2, 1920x1080@60, 2560x0, 1"
         ];
 
         "$mod" = "SUPER";
@@ -145,7 +145,7 @@
           "6,monitor:DP-1,default:false,persistent:true,layoutopt:wslayout-layout:master"
           "1,monitor:DP-2,default:true,persistent:true"
           "2,monitor:DP-1,default:true,persistent:true"
-          "3,monitor:HDMI-A-1,default:true,persistent:true"
+          "3,monitor:HDMI-A-2,default:true,persistent:true"
           "4,monitor:DP-2,default:false,persistent:true"
         ];
       };
