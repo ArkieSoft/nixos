@@ -4,6 +4,7 @@
     enable = true;
     bashrcExtra = "
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=/Users/arkannon/Library/Python/3.9/bin:$PATH
 neofetch
 eval \"$(oh-my-posh init bash --config ~/nix/assets/M365Princess.omp.json)\"
 
