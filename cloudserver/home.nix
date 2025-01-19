@@ -25,7 +25,7 @@
     packages = with pkgs; [
       gcc
       eza
-      (callPackage ../mailserver/ass.nix { })
+      (callPackage ./ass.nix { })
     ];
   };
 }
