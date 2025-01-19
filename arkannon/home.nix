@@ -70,28 +70,22 @@
       #inputs.nix-citizen.packages.${system}.star-citizen
       #inputs.nix-citizen.packages.${system}.star-citizen-helper
       #inputs.nix-citizen.packages.${system}.lug-helper
+      gcc
       qbittorrent
       libreoffice
       hugo
       prismlauncher
-      exfatprogs
-      libtelnet
-      termsonic
       heroic
-      termusic
       ryujinx
       crosswords
       chafa
-      manix
       rofi-wayland
       figlet
       mtr #Network Diagnostics Tool
       xfce.thunar
-      fastfetch
       cowsay
       lolcat
       eza
-      yt-dlp
       gh
       vesktop
       parsec-bin
@@ -106,7 +100,6 @@
       sox #Terminal sound player for Hydro.sh. Provides 'play' command
       thunderbird
       nicotine-plus
-      cbonsai
       nwg-panel
       btop
       signal-desktop
@@ -124,6 +117,9 @@
       grimblast
       chirp
       pokemmo-installer
+      python3Full
+      python3Packages.pip
+      python3Packages.pipx
     ];
 
     file = {

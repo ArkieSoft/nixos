@@ -19,7 +19,8 @@
         fi
 
         [[ $- != *i* ]] && return
-
+        
+        export PATH=$PATH:~/.cargo/bin/
 
         eval "$(oh-my-posh init bash --config ~/nix/assets/M365Princess.omp.json)"
 
