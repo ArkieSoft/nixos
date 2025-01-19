@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./nginx.nix
       ./nextcloud.nix
+      ./services.nix
     ];
 
   boot.loader = {
@@ -57,74 +58,6 @@
       Type = "exec";
       User = "nextcloud";
       ExecStart = "/run/current-system/sw/bin/qbittorrent-nox";
-    };
-  };
-
-  services = {
-    glance = {
-      enable = true;
-      openFirewall = true;
-      settings.port = 8086;
-    };
-    #    pufferpanel = {
-    #      enable = true;
-    #      environment = {
-    #        PUFFER_WEB_HOST = ":8088";
-    #        PUFFER_DAEMON_SFTP_HOST = ":5657";
-    #        PUFFER_DAEMON_CONSOLE_BUFFER = "1000";
-    #        PUFFER_DAEMON_CONSOLE_FORWARD = "true";
-    #        PUFFER_PANEL_REGISTRATIONENABLED = "false";
-    #      };
-    #    };
-    lidarr = {
-      enable = true;
-      user = "nextcloud";
-      group = "nextcloud";
-      openFirewall = true;
-    };
-    radarr = {
-      enable = true;
-      user = "nextcloud";
-      group = "nextcloud";
-      openFirewall = true;
-    };
-    sonarr = {
-      enable = true;
-      user = "nextcloud";
-      group = "nextcloud";
-      openFirewall = true;
-    };
-    prowlarr = {
-      enable = true;
-      openFirewall = true;
-    };
-    xserver = {
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
-    openssh = {
-      enable = true;
-      settings = {
-        PermitRootLogin = "no";
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
-      };
-    };
-    navidrome = {
-      enable = true;
-      openFirewall = true;
-      user = "nextcloud";
-      settings = {
-        MusicFolder = "/storage/Music";
-        EnableSharing = "true";
-      };
-    };
-
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
     };
   };
 
@@ -183,15 +116,12 @@
 
   environment = {
     systemPackages = with pkgs; [
-      komga
-      pufferpanel
       jellyfin
       jellyfin-web
       jellyfin-ffmpeg
       hugo
       qbittorrent-nox
       neovim
-      age
     ];
     #etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
     etc."nextcloud-admin-pass".text = builtins.readFile ../../../../home/wyatt/admin-pass;
