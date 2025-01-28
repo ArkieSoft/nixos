@@ -101,8 +101,8 @@
       nssmdns4 = true;
       openFirewall = true;
     };
-    desktopManager.cosmic.enable = true;
-    displayManager.cosmic-greeter.enable = true;
+    desktopManager.cosmic.enable = false;
+    displayManager.cosmic-greeter.enable = false;
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
@@ -147,7 +147,6 @@
       extraPortals = [
         pkgs.xdg-desktop-portal-hyprland
         pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-wlr
       ];
       config.common.default = "*";
     };
