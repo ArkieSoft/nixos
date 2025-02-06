@@ -55,6 +55,7 @@
     python3Full
     python3Packages.pip
     python3Packages.pipx
+    ollama
   ];
 
 }
