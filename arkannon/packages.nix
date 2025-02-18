@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     (callPackage ../modules/ass.nix { })
+    #(callPackage ../modules/zen-browser.nix { })
     #inputs.nix-citizen.packages.${system}.star-citizen
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
@@ -56,6 +57,8 @@
     python3Packages.pip
     python3Packages.pipx
     ollama
+    libcaca
+    mplayer
   ];
 
 }
