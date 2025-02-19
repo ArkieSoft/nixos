@@ -55,6 +55,11 @@
     jellyfin = {
       enable = true;
       openFirewall = true;
+   };
+    teamspeak3 = {
+      enable = true;
+      openFirewall = true;
+      dataDir = /storage/teamspeak3;
     };
   };
 }
