@@ -80,11 +80,11 @@
           proxyWebsockets = true;
         };
       };
-      "start.arkannon.com" = {
+      "chat.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:8080";
+          proxyPass = "http://127.0.0.1:5093";
           proxyWebsockets = true;
         };
       };
