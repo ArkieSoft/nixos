@@ -46,6 +46,7 @@
     };
   };
 
+  virtualisation.docker.enable = true;
 
   systemd.services.qbittorrent = {
     enable = true;
