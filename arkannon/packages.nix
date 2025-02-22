@@ -2,18 +2,16 @@
 {
   home.packages = with pkgs; [
     (callPackage ../modules/ass.nix { })
-    #(callPackage ../modules/zen-browser.nix { })
     #inputs.nix-citizen.packages.${system}.star-citizen
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
+    #unstable.teamspeak6-client
     gcc
     qbittorrent
     libreoffice
     hugo
     prismlauncher
     heroic
-    ryujinx
-    crosswords
     chafa
     rofi-wayland
     figlet
@@ -51,14 +49,7 @@
     wine-staging
     wine
     grimblast
-    chirp
-    pokemmo-installer
-    python3Full
-    python3Packages.pip
-    python3Packages.pipx
-    ollama
-    libcaca
-    mplayer
+    inetutils
   ];
 
 }

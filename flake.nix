@@ -70,6 +70,16 @@
                 backupFileExtension = "backup";
               };
             }
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import unstable {
+                    system = prev.system;
+                    config = prev.config;
+                  };
+                })
+              ];
+            }
           ];
         };
         cloudserver = nixpkgs.lib.nixosSystem {
