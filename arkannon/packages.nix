@@ -50,6 +50,9 @@
     wine
     grimblast
     inetutils
+    tmux
+    gum
+    newt
   ];
 
 }
