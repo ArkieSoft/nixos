@@ -233,6 +233,20 @@
       dxvk
       gparted
       neovim
+      w3m
+      dante
+      inetutils
+      sox
+      eza
+      git
+      cowsay
+      hugo
+      gcc
+      figlet
+      mtr
+      prettyping
+      rustup
+      curl
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

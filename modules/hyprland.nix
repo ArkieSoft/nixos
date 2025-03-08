@@ -14,11 +14,12 @@
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
           "hyprctl dispatch exec [workspace 3 silent] vesktop"
-          "hyprctl dispatch exec [workspace 6 silent] thunderbird"
-          "hyprctl dispatch exec [workspace 6 silent] signal-desktop"
+          #"hyprctl dispatch exec [workspace 6 silent] thunderbird"
+          #"hyprctl dispatch exec [workspace 6 silent] signal-desktop"
           # "hyprctl dispatch exec [workspace 6 silent] kitty gomuks"
-          "hyprctl dispatch exec [workspace 6 silent] pavucontrol"
-          "hyprctl dispatch exec [workspace 6 silent] telegram-desktop"
+          #"hyprctl dispatch exec [workspace 6 silent] pavucontrol"
+          #"hyprctl dispatch exec [workspace 6 silent] telegram-desktop"
+          "hyprctl dispatch -- exec [workspace 6 silent] nvim --noplugin -c 'terminal aerc' -c 'set number! relativenumber!' -c 'colorscheme default' -c 'vs term://signal-cli' -c 'split term://irssi' -c 'wincmd l' -c 'lefta term://matrix-commander-rs'"
           "hyprctl dispatch -- exec [workspace 7 silent] obs --studio-mode --startvirtualcam --disable-shutdown-check"
         ];
 

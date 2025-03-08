@@ -10,16 +10,6 @@
     colorschemes.nightfox.enable = true;
     clipboard.providers.wl-copy.enable = true;
 
-    extraPlugins = [(pkgs.vimUtils.buildVimPlugin {
-      name = "nvim-surfers";
-      src = pkgs.fetchFromGitHub {
-        owner = "fpeterek";
-        repo = "nvim-surfers";
-        rev = "master";
-        hash = "sha256-jKduxXhqKUadREeFtrOVYQCKlkJCzjHKnanx3TGucDA=";
-      };
-    })];
-
     keymaps = [
       {
         action = ":NvimTreeToggle<CR>";
