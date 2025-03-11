@@ -43,9 +43,8 @@
     gum
     newt
     aerc
-    signal-cli
-    matrix-commander-rs
     irssi
+    emacs-pgtk
   ];
 
 }
