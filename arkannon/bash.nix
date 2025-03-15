@@ -26,13 +26,13 @@
 
 
         ### OS MANAGEMENT ###
-        alias passwds='nvim /home/arkannon/Documents/passwords'
         alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'
         alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'
         alias taxcuts='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"Medicare Successfully Cut!\" | lolcat && echo \"Starving Orphans, We Will Be Right Back!\" | lolcat && sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"WIC Successfully cut!\" | lolcat'
         alias mailserver='ssh -i ~/.ssh/mailserver wyatt@mail.arkannon.com'
         alias cloudserver='ssh -i ~/.ssh/cloudserver wyatt@arkannon.com'
 
+        alias pythonenv='nix-shell /etc/nixos/nix-shell/python.nix'
         alias nixconfig='cd /etc/nixos && git pull && nvim'
         alias cls='clear'
         alias matrix='gomuks'

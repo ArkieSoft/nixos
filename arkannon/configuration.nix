@@ -178,9 +178,12 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerdfonts
+    ];
+    fontDir.enable = true;
+  };
 
   hardware = {
     graphics = {
