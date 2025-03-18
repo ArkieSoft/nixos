@@ -1,4 +1,16 @@
-{ self, inputs, pkgs, config, stdenv, ... }: {
+{ self, inputs, pkgs, lib, config, stdenv, ... }: 
+let
+  fromGitHub = rev: ref: repo: pkgs.vimUtils.buildVimPlugin {
+    pname = "${lib.strings.sanitizeDerivationName repo}";
+    version = ref;
+    src = builtins.fetchGit {
+      url = "https://github.com/${repo}.git";
+      ref = ref;
+      rev = rev;
+    };
+  };
+in
+{
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
@@ -9,6 +21,10 @@
     colorscheme = "nightfox";
     colorschemes.nightfox.enable = true;
     clipboard.providers.wl-copy.enable = true;
+
+    extraPlugins = with pkgs.vimplugins; [
+      (fromGitHub "c7dfd2f9fc7108ef3832a02f40a76ab1b2d940ce" "main" "jim-fx/sudoku.nvim")
+    ];
 
     keymaps = [
       {
@@ -50,6 +66,27 @@
       {
         action = ":q<CR>";
         key = "<leader>q";
+      }
+    ];
+
+    autoCmd = [
+      {
+        command = "set nornu";
+        event = [
+          "TermOpen"
+        ];
+        pattern = [
+          "*"
+        ];
+      }
+      {
+        command = "set nonu";
+        event = [
+          "TermOpen"
+        ];
+        pattern = [
+          "*"
+        ];
       }
     ];
 
