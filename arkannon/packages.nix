@@ -43,8 +43,10 @@
     gum
     newt
     aerc
-    irssi
+    weechat
     emacs-pgtk
+    mgba
+    prusa-slicer
   ];
 
 }

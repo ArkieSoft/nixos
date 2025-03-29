@@ -104,6 +104,7 @@
     };
     desktopManager.cosmic.enable = false;
     displayManager.cosmic-greeter.enable = false;
+    displayManager.ly.enable = true;
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
@@ -231,6 +232,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      unzip
       wget
       mesa
       dxvk
