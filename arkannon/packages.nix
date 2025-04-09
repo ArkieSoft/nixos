@@ -47,6 +47,7 @@
     emacs-pgtk
     mgba
     prusa-slicer
+    kicad
   ];
 
 }

@@ -116,6 +116,7 @@
     gvfs.enable = true; #For Thunar auto-mount
     tumbler.enable = true;
     openssh = {
+      sftpServerExecutable = "internal-sftp";
       enable = true;
       ports = [ 230 ];
       settings.PasswordAuthentication = true;
