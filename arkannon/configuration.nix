@@ -179,7 +179,6 @@
       LC_TIME = "en_US.UTF-8";
     };
   };
-
   fonts = {
     packages = with pkgs; [
       nerdfonts

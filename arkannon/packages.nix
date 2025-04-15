@@ -16,7 +16,6 @@
     lolcat
     gh
     vesktop
-    parsec-bin
     telegram-desktop
     ripgrep
     lutris
@@ -48,6 +47,7 @@
     mgba
     prusa-slicer
     kicad
+    moonlight-qt
   ];
 
 }

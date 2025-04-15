@@ -21,6 +21,7 @@
           #"hyprctl dispatch exec [workspace 6 silent] telegram-desktop"
           "hyprctl dispatch -- exec [workspace 6 silent] nvim --noplugin -c 'terminal aerc' -c 'set number! relativenumber!' -c 'colorscheme default' -c 'vs term://signal-cli' -c 'split term://irssi' -c 'wincmd l' -c 'lefta term://matrix-commander-rs'"
           "hyprctl dispatch -- exec [workspace 7 silent] obs --studio-mode --startvirtualcam --disable-shutdown-check"
+          "hyprctl dispatch --exec [workspace 9 silent] /etc/nixos/assets/vmstart.sh"
         ];
 
         input = {
@@ -139,9 +140,11 @@
           "workspace 3 silent,class:(vesktop)"
           #"workspace 6 silent,class:(kitty)"
           #"workspace 1 silent,class:(kitty)"
+          "workspace 9 silent, class:(moonlight)"
         ];
 
         workspace = [
+          "9,monitor:DP-2,default:false,persistent:true"
           "7,monitor:DP-1,default:false,persistent:true"
           "6,monitor:DP-1,default:false,persistent:true,layoutopt:wslayout-layout:master"
           "1,monitor:DP-2,default:true,persistent:true"
