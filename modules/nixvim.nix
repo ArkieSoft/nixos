@@ -191,7 +191,7 @@ in
           toggle = "<Space>t";
         };
         shell =
-          if pkgs.stdenv.isDarwin then "bash --rcfile ~/.config/nixos/assets/nvimbashrc"
+          if pkgs.stdenv.isDarwin then "bash --rcfile ~/.config/nix/assets/nvimbashrc"
           else "/run/current-system/sw/bin/bash";
       };
       nvim-tree = {

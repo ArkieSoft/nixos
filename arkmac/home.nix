@@ -9,8 +9,10 @@
     stateVersion = "24.05";
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
+      nicotine-plus
       crosswords
       dart-sass
+      weechat
       flameshot
       libreoffice-bin
       hugo

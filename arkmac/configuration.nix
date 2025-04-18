@@ -12,13 +12,15 @@
 
   programs.bash.enable = true;
 
-  nix.settings.experimental-features = "nix-command flakes impure-derivations ca-derivations";
-
+  nix.settings = {
+    experimental-features = "nix-command flakes impure-derivations ca-derivations";
+  };
   fonts.packages = [ pkgs.cascadia-code pkgs.nerdfonts ];
 
   homebrew = {
     enable = true;
     casks = [
+      "utm"
       "chirp"
       "ukelele"
       "firefox"
@@ -27,6 +29,7 @@
       "parsec"
       "flameshot"
       "raspberry-pi-imager"
+      "freecad"
     ];
   };
 
