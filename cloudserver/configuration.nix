@@ -23,8 +23,8 @@
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 ];
-      allowedUDPPorts = [ 80 443 ];
+      allowedTCPPorts = [ 80 443 25565];
+      allowedUDPPorts = [ 80 443 25565];
       enable = true;
     };
   };
@@ -48,18 +48,33 @@
 
   virtualisation.docker.enable = true;
 
-  systemd.services.qbittorrent = {
-    enable = true;
-    description = "qBittorrent-nox service";
-    wants = [ "network-online.target" ];
-    after = [ "network-online.target" "nss-lookup.target" ];
-    path = [ "pkgs.nix" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "exec";
-      User = "nextcloud";
-      ExecStart = "/run/current-system/sw/bin/qbittorrent-nox";
+  systemd.services = {
+    qbittorrent = {
+      enable = true;
+      description = "qBittorrent-nox service";
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" "nss-lookup.target" ];
+      path = [ "pkgs.nix" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "exec";
+        User = "nextcloud";
+        ExecStart = "/run/current-system/sw/bin/qbittorrent-nox";
+      };
     };
+#    minecraft = {
+#      enable = true;
+#      description = "PaperMC Server";
+#      wants = [ "network-online.target" ];
+#      after = [ "network-online.target" "nss-lookup.target" ];
+#      path = [ "/home/wyatt/mcserver" ];
+#      wantedBy = [ "multi-user.target" ];
+#      serviceConfig = {
+#        Type = "exec";
+#        User = "wyatt";
+#        ExecStart = "/run/current-system/sw/bin/java -Xmx4096M -Xms512M -jar /home/wyatt/mcserver/paper-1.19.4-466.jar nogui";
+#      };
+#    };
   };
 
   security.acme = {
@@ -124,6 +139,8 @@
       qbittorrent-nox
       neovim
       kitty
+      jre
+      screen
     ];
     #etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
     etc."nextcloud-admin-pass".text = builtins.readFile ../../../../home/wyatt/admin-pass;
