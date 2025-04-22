@@ -252,6 +252,7 @@
       prettyping
       rustup
       curl
+      zulu17
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
