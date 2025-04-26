@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {  
   services = {
+    telegraf.enable = true;
     glance = {
       enable = true;
       openFirewall = true;
