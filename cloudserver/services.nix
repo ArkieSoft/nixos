@@ -61,5 +61,15 @@
 #      openFirewall = true;
 #      dataDir = /storage/teamspeak3;
 #    };
+    grafana = {
+      enable = true;
+      settings = {
+        server = {
+          http_addr = "127.0.0.1";
+          http_port = 3420;
+          domain = "graf.arkannon.com";
+        };
+      };
+    };
   };
 }

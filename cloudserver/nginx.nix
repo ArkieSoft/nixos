@@ -6,6 +6,15 @@
         forceSSL = true;
         enableACME = true;
       };
+      "graf.arkannon.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3420";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+      };
       "music.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
