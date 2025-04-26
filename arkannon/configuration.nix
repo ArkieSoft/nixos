@@ -154,9 +154,9 @@
       config.common.default = "*";
     };
     mime.defaultApplications = {
-      "text/html" = "app.zen_browser.zen";
-      "x-scheme-handler/http" = "app.zen_browser.zen";
-      "x-scheme-handler/https" = "app.zen_browser.zen";
+      "text/html" = "firefox";
+      "x-scheme-handler/http" = "firefox";
+      "x-scheme-handler/https" = "firefox";
       "inode/directory" = "thunar";
     };
   };

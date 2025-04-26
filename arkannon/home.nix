@@ -61,7 +61,7 @@
     stateVersion = "24.05";
     sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = "app.zen_browser.zen";
+      BROWSER = "firefox";
       XDG_SCREENSHOT_DIR = "~/Pictures";
 #  XDG_DATA_DIRS = "/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     };
