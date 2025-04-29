@@ -48,6 +48,7 @@
     prusa-slicer
     kicad
     moonlight-qt
+    picard
   ];
 
 }

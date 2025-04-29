@@ -9,7 +9,7 @@
       settings = {
         exec-once = [
           "swwwchange /etc/nixos/wallpapers"
-          "autostart"
+          "waybar -c /etc/nixos/assets/waybar/config.jsonc -s /etc/nixos/assets/waybar/style.css"
           "hyprctl setcursor Bibata-Modern-Classic 24"
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
