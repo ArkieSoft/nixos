@@ -95,6 +95,11 @@
   };
 
   services = {
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
+    };
+
     flatpak.enable = true;
     printing.enable = true;
     avahi = {
@@ -253,6 +258,7 @@
       rustup
       curl
       zulu17
+      libimobiledevice
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
