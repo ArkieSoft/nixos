@@ -20,16 +20,21 @@
   homebrew = {
     enable = true;
     casks = [
-      "utm"
       "chirp"
       "ukelele"
       "firefox"
       "signal"
       "nextcloud"
-      "parsec"
       "flameshot"
       "raspberry-pi-imager"
       "freecad"
+    ];
+
+    brews = [
+      "sketchybar"
+    ];
+    taps = [
+      "FelixKratz/formulae"
     ];
   };
 
