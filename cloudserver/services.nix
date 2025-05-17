@@ -1,7 +1,14 @@
 { config, pkgs, ... }:
 {  
   services = {
-    telegraf.enable = true;
+#    telegraf.enable = true;
+    ntfy-sh = {
+      enable = true;
+      settings = {
+        listen-http = ":3040";
+        base-url = "https://ntfy.arkannon.com";
+      };
+    };
     glance = {
       enable = true;
       openFirewall = true;

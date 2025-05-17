@@ -62,6 +62,19 @@
         ExecStart = "/run/current-system/sw/bin/qbittorrent-nox";
       };
     };
+    monitor = {
+      enable = true;
+      description = "Systems Monitor";
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" "nss-lookup.target" ];
+      path = [ "/run/current-system/sw/" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "exec";
+        User = "wyatt";
+        ExecStart = "/run/current-system/sw/bin/bash /home/wyatt/monitor";
+      };
+    };
 #    minecraft = {
 #      enable = true;
 #      description = "PaperMC Server";
@@ -91,7 +104,7 @@
   users.users.wyatt = {
     isNormalUser = true;
     description = "wyatt";
-    extraGroups = [ "networkmanager" "wheel" "root" "dialout" "docker" "podman" ];
+    extraGroups = [ "ntfy-sh" "networkmanager" "wheel" "root" "dialout" "docker" "podman" ];
     packages = with pkgs; [ ];
   };
 
@@ -141,6 +154,7 @@
       kitty
       jre
       screen
+      curl
     ];
     #etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
     etc."nextcloud-admin-pass".text = builtins.readFile ../../../../home/wyatt/admin-pass;
