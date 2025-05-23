@@ -9,6 +9,7 @@
     qbittorrent
     libreoffice
     prismlauncher
+    chiaki-ng
     heroic
     chafa
     rofi-wayland
