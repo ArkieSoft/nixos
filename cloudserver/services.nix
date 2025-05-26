@@ -1,18 +1,12 @@
 { config, pkgs, ... }:
 {  
   services = {
-#    telegraf.enable = true;
     ntfy-sh = {
       enable = true;
       settings = {
         listen-http = ":3040";
         base-url = "https://ntfy.arkannon.com";
       };
-    };
-    glance = {
-      enable = true;
-      openFirewall = true;
-      settings.port = 8086;
     };
     lidarr = {
       enable = true;
@@ -60,15 +54,14 @@
       };
     };
 
+    firefox-syncserver = {
+      enable = true;
+    };
+
     jellyfin = {
       enable = true;
       openFirewall = true;
     };
-#  teamspeak3 = {
-#   enable = true;
-#      openFirewall = true;
-#      dataDir = /storage/teamspeak3;
-#    };
     grafana = {
       enable = true;
       settings = {

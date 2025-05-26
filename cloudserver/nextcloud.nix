@@ -10,6 +10,7 @@
     config = {
       adminpassFile = "/etc/nextcloud-admin-pass";
       adminuser = "admin";
+      dbtype = "sqlite";
     };
     settings = {
       log_type = "file";
