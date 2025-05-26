@@ -1,4 +1,4 @@
-{ self, config, pkgs, inputs, ... }:
+{ self, config, pkgs, lib, inputs, ... }:
 {
   imports =
     [
@@ -99,7 +99,6 @@
       enable = true;
       package = pkgs.usbmuxd2;
     };
-
     flatpak.enable = true;
     printing.enable = true;
     avahi = {
@@ -185,9 +184,8 @@
     };
   };
   fonts = {
-    packages = with pkgs; [
-      nerdfonts
-    ];
+    packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+    
     fontDir.enable = true;
   };
 

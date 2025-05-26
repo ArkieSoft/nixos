@@ -160,7 +160,7 @@ in
           "<Space><Space>" = "oldfiles";
         };
       };
-      crates-nvim.enable = true;
+      crates.enable = true;
       image.enable = true;
       improved-search = {
         enable = true;
@@ -187,12 +187,12 @@ in
       };
       floaterm = {
         enable = true;
-        keymaps = {
-          toggle = "<Space>t";
+        settings = {
+          keymap_toggle = "<Space>t";
+          shell =
+            if pkgs.stdenv.isDarwin then "bash --rcfile ~/.config/nix/assets/nvimbashrc"
+            else "/run/current-system/sw/bin/bash";
         };
-        shell =
-          if pkgs.stdenv.isDarwin then "bash --rcfile ~/.config/nix/assets/nvimbashrc"
-          else "/run/current-system/sw/bin/bash";
       };
       nvim-tree = {
         enable = true;
@@ -213,9 +213,11 @@ in
       };
       cursorline = {
         enable = true;
-        cursorline = {
-          number = true;
-          enable = true;
+        settings = {
+          cursorline = {
+            number = true;
+            enable = true;
+          };
         };
       };
       neocord = {
