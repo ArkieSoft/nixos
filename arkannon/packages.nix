@@ -6,6 +6,8 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    supersonic
+    manix
     qbittorrent
     libreoffice
     prismlauncher
@@ -40,16 +42,13 @@
     wine
     grimblast
     tmux
-    gum
-    newt
-    aerc
-    weechat
     emacs-pgtk
     mgba
     prusa-slicer
     kicad
     moonlight-qt
     picard
+    librewolf
   ];
 
 }

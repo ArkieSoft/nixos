@@ -57,6 +57,7 @@
     };
   };
   programs = {
+    dconf.enable = true;
     virt-manager.enable = true;
     nh = {
       enable = true;
@@ -77,16 +78,7 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      #portalPackage = [ 
-      #  pkgs.xdg-desktop-portal-hyprland
-      #       pkgs.xdg-desktop-portal-wlr
-      #     ];
-    };
-    firefox = {
-      enable = true;
-      preferences = {
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-      };
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
     ssh = {
       startAgent = false;
@@ -152,15 +144,15 @@
     portal = {
       xdgOpenUsePortal = true;
       extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-wlr
         pkgs.xdg-desktop-portal-gtk
       ];
       config.common.default = "*";
     };
     mime.defaultApplications = {
-      "text/html" = "firefox";
-      "x-scheme-handler/http" = "firefox";
-      "x-scheme-handler/https" = "firefox";
+      "text/html" = "librewolf";
+      "x-scheme-handler/http" = "librewolf";
+      "x-scheme-handler/https" = "librewolf";
       "inode/directory" = "thunar";
     };
   };
@@ -257,6 +249,9 @@
       curl
       zulu17
       libimobiledevice
+      qogir-theme
+      qogir-icon-theme
+      virtiofsd
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

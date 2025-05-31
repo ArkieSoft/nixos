@@ -39,6 +39,17 @@
     };
   };
 
+  xdg = {
+    portal.extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+#configFile = {
+#      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+#      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+#    };
+  };
+
   gtk = {
     enable = true;
     theme = {
@@ -60,10 +71,11 @@
     homeDirectory = "/home/arkannon";
     stateVersion = "24.05";
     sessionVariables = {
+      GTK_THEME = "Qogir-Dark";
       EDITOR = "nvim";
-      BROWSER = "firefox";
+      BROWSER = "librewolf";
       XDG_SCREENSHOT_DIR = "~/Pictures";
-#  XDG_DATA_DIRS = "/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+#XDG_DATA_DIRS = "/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     };
     
     file = {

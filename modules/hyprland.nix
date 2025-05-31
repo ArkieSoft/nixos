@@ -85,7 +85,7 @@
 
         "$mod" = "SUPER";
         bind = [
-          "$mod, W, exec, app.zen_browser.zen"
+          "$mod, W, exec, librewolf"
           "$mod, Return, exec, kitty"
           "$mod, Q, killactive"
           "$mod, V, togglefloating"
