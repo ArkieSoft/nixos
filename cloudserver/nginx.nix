@@ -6,23 +6,14 @@
         forceSSL = true;
         enableACME = true;
       };
-      "ntfy.arkannon.com" = {
+      "search.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:3040";
+          proxyPass = "http://127.0.0.1:4100";
           proxyWebsockets = true;
         };
       };
-#      "graf.arkannon.com" = {
-#        forceSSL = true;
-#        enableACME = true;
-#        locations."/" = {
-#          proxyPass = "http://127.0.0.1:3420";
-#          proxyWebsockets = true;
-#          recommendedProxySettings = true;
-#        };
-#      };
       "music.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
@@ -94,14 +85,6 @@
         enableACME = true;
         locations."/" = {
           proxyPass = "http://127.0.0.1:7878";
-          proxyWebsockets = true;
-        };
-      };
-      "chat.arkannon.com" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:5093";
           proxyWebsockets = true;
         };
       };

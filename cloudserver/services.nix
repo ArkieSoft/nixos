@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 {  
   services = {
-    ntfy-sh = {
+    
+    whoogle-search = {
       enable = true;
-      settings = {
-        listen-http = ":3040";
-        base-url = "https://ntfy.arkannon.com";
-      };
+      port = 4100;
     };
+
     lidarr = {
       enable = true;
       user = "nextcloud";
@@ -54,23 +53,9 @@
       };
     };
 
-    firefox-syncserver = {
-      enable = true;
-    };
-
     jellyfin = {
       enable = true;
       openFirewall = true;
-    };
-    grafana = {
-      enable = true;
-      settings = {
-        server = {
-          http_addr = "127.0.0.1";
-          http_port = 3420;
-          domain = "graf.arkannon.com";
-        };
-      };
     };
   };
 }
