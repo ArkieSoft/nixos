@@ -8,6 +8,7 @@
 
       settings = {
         exec-once = [
+          "nextcloud"
           "swwwchange /etc/nixos/wallpapers"
           "waybar -c /etc/nixos/assets/waybar/config.jsonc -s /etc/nixos/assets/waybar/style.css"
           "hyprctl setcursor Bibata-Modern-Classic 24"

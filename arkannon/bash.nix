@@ -9,13 +9,13 @@
         if [ $A -eq 1 ]; then
           neofetch
         elif [ $A -eq 2 ]; then
-          neofetch --kitty ~/nix/fetchart/2b.png --size 15%
+          neofetch --kitty /etc/nixos/fetchart/2b.png --size 15%
         elif [ $A -eq 3 ]; then
-          neofetch --kitty ~/nix/fetchart/2b2.jpg --size 15%
+          neofetch --kitty /etc/nixos/fetchart/2b2.jpg --size 15%
         elif [ $A -eq 4 ]; then 
-          neofetch --ascii ~/nix/fetchart/kisser
+          neofetch --ascii /etc/nixos/fetchart/kisser
         else
-          neofetch --ascii ~/nix/fetchart/Pentag
+          neofetch --ascii /etc/nixos/fetchart/Pentag
         fi
 
         [[ $- != *i* ]] && return

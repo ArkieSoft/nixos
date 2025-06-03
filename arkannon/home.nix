@@ -44,6 +44,17 @@
       pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
     ];
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = "librewolf";
+        "scheme-handler/http" = "librewolf";
+        "scheme-handler/https" = "librewolf";
+        "x-scheme-handler/http" = "librewolf";
+        "x-scheme-handler/https" = "librewolf";
+        "inode/directory" = "thunar";
+      };
+    };
 #configFile = {
 #      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
 #      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";

@@ -151,6 +151,8 @@
     };
     mime.defaultApplications = {
       "text/html" = "librewolf";
+      "scheme-handler/http" = "librewolf";
+      "scheme-handler/https" = "librewolf";
       "x-scheme-handler/http" = "librewolf";
       "x-scheme-handler/https" = "librewolf";
       "inode/directory" = "thunar";
