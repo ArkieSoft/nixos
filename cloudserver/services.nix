@@ -1,11 +1,25 @@
 { config, pkgs, ... }:
 {  
   services = {
-    
-    whoogle-search = {
+    searx = {
       enable = true;
-      port = 4100;
+      environmentFile = /home/wyatt/searxng-key;
+      settings = {
+        server.port = 5090;
+        server.bind.address = "0.0.0.0";
+        server.secret_key = "${config.services.searx.environmentFile}";
+      };
     };
+
+    ollama = {
+      enable = true;
+    };
+
+#    nextjs-ollama-llm-ui.enable = true;
+#    whoogle-search = {
+#      enable = true;
+#      port = 4100;
+#    };
 
     lidarr = {
       enable = true;

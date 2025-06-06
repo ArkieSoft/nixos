@@ -10,10 +10,19 @@
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:4100";
+          proxyPass = "http://127.0.0.1:5090";
           proxyWebsockets = true;
         };
       };
+      "test.arkannon.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:11434";
+          proxyWebsockets = true;
+        };
+      };
+
       "music.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
