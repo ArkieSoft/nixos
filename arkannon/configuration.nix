@@ -15,6 +15,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    initrd.kernelModules = [ "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "amd_iommu=on" ]; # Enables PCI-Passthrough
     blacklistedKernelModules = [ "nvidia" "nouveau" ]; #Turns off Nvidia drivers
@@ -24,7 +25,7 @@
       ''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
     kernel.sysctl = { "vm.max_map_count" = 16777216; }; #For Star Citizen
     extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
+      (callPackage ../modules/v4l2loopback.nix { })
     ];
   };
 
@@ -254,6 +255,7 @@
       qogir-theme
       qogir-icon-theme
       virtiofsd
+      bolt-launcher
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

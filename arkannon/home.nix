@@ -30,7 +30,6 @@
         obs-studio-plugins.wlrobs
         obs-studio-plugins.obs-vkcapture
         obs-studio-plugins.obs-backgroundremoval
-
       ];
     };
     zoxide = {
