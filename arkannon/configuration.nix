@@ -255,7 +255,7 @@
       qogir-theme
       qogir-icon-theme
       virtiofsd
-      bolt-launcher
+      clolcat
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

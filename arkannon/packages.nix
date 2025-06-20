@@ -18,7 +18,6 @@
     chafa
     rofi-wayland
     xfce.thunar
-    lolcat
     gh
     vesktop
     telegram-desktop
