@@ -32,7 +32,7 @@
     nicotine-plus
     nwg-panel
     btop
-    signal-desktop
+#  signal-desktop
     vlc
     libsForQt5.ark
     swww
