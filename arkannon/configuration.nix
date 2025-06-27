@@ -24,9 +24,9 @@
       options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
       ''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
     kernel.sysctl = { "vm.max_map_count" = 16777216; }; #For Star Citizen
-#    extraModulePackages = with config.boot.kernelPackages; [
-#      (callPackage ../modules/v4l2loopback.nix { })
-#    ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      v4l2loopback
+    ];
   };
 
   swapDevices = [{
@@ -212,6 +212,7 @@
       warn-dirty = false;
       cores = 10;
       max-jobs = 10;
+      download-buffer-size = 524288000;
       #auto-optimize-store = true;
     };
   };
