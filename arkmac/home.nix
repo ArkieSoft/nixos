@@ -9,6 +9,7 @@
     stateVersion = "24.05";
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
+      moonlight-qt
       nicotine-plus
       crosswords
       dart-sass

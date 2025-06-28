@@ -1,10 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   users.users.arkannon.home = "/Users/arkannon";
 
-  services = {
-    nix-daemon.enable = true;
-  };
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -15,7 +12,11 @@
   nix.settings = {
     experimental-features = "nix-command flakes impure-derivations ca-derivations";
   };
-  fonts.packages = [ pkgs.cascadia-code pkgs.nerdfonts ];
+
+  fonts = {
+    packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  };
+
 
   homebrew = {
     enable = true;
@@ -37,10 +38,11 @@
       "FelixKratz/formulae"
     ];
   };
-
-  security.pam.enableSudoTouchIdAuth = true;
-
+  
+  security.pam.services.sudo_local.touchIdAuth = true;
+  
   system = {
+    primaryUser = "arkannon";
     stateVersion = 5;
     defaults = {
       finder = {
