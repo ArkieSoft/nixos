@@ -8,6 +8,9 @@
     ../modules/git.nix
     ../modules/nixvim.nix
     ./packages.nix
+    ../modules/hyprlock.nix
+    ../modules/hypridle.nix
+    ../modules/hyprpaper.nix
   ];
 
   programs = {
@@ -22,6 +25,10 @@
       settings = {
         background = "#181818";
         confirm_os_window_close = 0;
+      };
+      font = {
+        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "CaskaydiaCoveNerdFont";
       };
     };
     obs-studio = {

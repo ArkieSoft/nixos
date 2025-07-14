@@ -38,6 +38,13 @@
     hostName = "arkannon"; # Define yourromoZZhostname.
     networkmanager.enable = true;
     firewall.enable = false;
+    bridges = {
+      br0 = {
+        interfaces = [
+          "enp6s0"
+        ];
+      };
+    };
   };
 
   security = {
@@ -99,9 +106,12 @@
       nssmdns4 = true;
       openFirewall = true;
     };
-    desktopManager.cosmic.enable = false;
-    displayManager.cosmic-greeter.enable = false;
-    displayManager.ly.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      package = pkgs.kdePackages.sddm;
+      wayland.enable = true;
+      theme = "catppuccin-mocha";
+    };
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
@@ -231,6 +241,10 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      wayneko
+      pyprland
+      hyprpaper
+      catppuccin-sddm
       unzip
       wget
       mesa

@@ -31,6 +31,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     sops-nix.url = "github:Mic92/sops-nix";
+    pyprland.url = "github:hyprland-community/pyprland";
   };
 
   outputs =
@@ -45,12 +46,14 @@
     , darwin-custom-icons
     , nix-gaming
     , nix-citizen
+    , pyprland
     , ...
     }:
     {
       nixosConfigurations = {
         arkannon = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          #environment.systemPackages = [ pyprland.packages."x86_64-linux".pyprland ];
           modules = [
             {
               nix.settings = {

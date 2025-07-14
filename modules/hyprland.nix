@@ -8,8 +8,12 @@
 
       settings = {
         exec-once = [
+          "pypr"
+          "wayneko --layer overlay --follow-pointer true --sleepiness-night 1 --sleepiness 1"
           "nextcloud"
-          "swwwchange /etc/nixos/wallpapers"
+          "hyprpaper"
+          "bash /etc/nixos/assets/hyprpaper.sh"
+          #"swwwchange /etc/nixos/wallpapers"
           "waybar -c /etc/nixos/assets/waybar/config.jsonc -s /etc/nixos/assets/waybar/style.css"
           "hyprctl setcursor Bibata-Modern-Classic 24"
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
@@ -87,11 +91,15 @@
         "$mod" = "SUPER";
         bind = [
           "$mod, W, exec, librewolf"
+          "$mod, B, exec, pypr toggle btop"
+          "$mod, L, exec, hyprlock"
           "$mod, Return, exec, kitty"
           "$mod, Q, killactive"
-          "$mod, V, togglefloating"
+          "$mod, V, exec, pypr toggle volume"
           "$mod, D, exec, rofi -show drun -config /etc/nixos/assets/rofidmenu.rasi"
           "$mod, P, pseudo"
+          "$mod, T, exec, pypr toggle term"
+          "$mod, N, exec, pypr toggle notes"
           "$mod, H, exec, toggle"
           "$mod, J, togglesplit"
           "$mod, S, exec, grimblast --freeze copysave area ~/Pictures/screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"

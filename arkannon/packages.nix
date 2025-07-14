@@ -50,7 +50,7 @@
     moonlight-qt
     picard
     librewolf
-    dosbox-staging
+    wonderdraft
   ];
 
 }
