@@ -51,6 +51,7 @@
     picard
     librewolf
     wonderdraft
+    kdePackages.kdenlive
   ];
 
 }

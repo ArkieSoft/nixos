@@ -241,6 +241,8 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      appimage-run
+      gnome-disk-utility
       wayneko
       pyprland
       hyprpaper

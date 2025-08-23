@@ -150,6 +150,7 @@
           #"workspace 6 silent,class:(kitty)"
           #"workspace 1 silent,class:(kitty)"
           "workspace 9 silent, class:(moonlight)"
+          "idleinhibit fullscreen, class:.*"
         ];
 
         workspace = [
