@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     (callPackage ../modules/ass.nix { })
@@ -52,6 +52,8 @@
     librewolf
     wonderdraft
     kdePackages.kdenlive
+    inputs.winboat.packages.${system}.winboat
+    dosbox
   ];
 
 }

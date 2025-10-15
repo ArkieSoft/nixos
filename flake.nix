@@ -32,6 +32,10 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     sops-nix.url = "github:Mic92/sops-nix";
     pyprland.url = "github:hyprland-community/pyprland";
+    winboat = {
+      url = "github:TibixDev/winboat";
+      inputs.nixpkgs.follows = "unstable";
+    };
   };
 
   outputs =
@@ -47,6 +51,7 @@
     , nix-gaming
     , nix-citizen
     , pyprland
+    , winboat
     , ...
     }:
     {

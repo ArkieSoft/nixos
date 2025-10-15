@@ -63,6 +63,7 @@
       qemu.swtpm.enable = true;
 
     };
+    docker.enable = true;
   };
   programs = {
     dconf.enable = true;
@@ -233,7 +234,7 @@
     users.arkannon = {
       isNormalUser = true;
       description = "arkannon";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "qemu-libvirtd" "dialout" "root" ];
+      extraGroups = [ "docker" "networkmanager" "wheel" "libvirtd" "kvm" "qemu-libvirtd" "dialout" "root" ];
       packages = [
       ];
     };
@@ -241,6 +242,8 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      freerdp
+      docker-compose
       appimage-run
       gnome-disk-utility
       wayneko
