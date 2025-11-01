@@ -242,6 +242,9 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      python3
+      usbutils
+      thonny
       freerdp
       docker-compose
       appimage-run

@@ -104,6 +104,7 @@
           "$mod, J, togglesplit"
           "$mod, S, exec, grimblast --freeze copysave area ~/Pictures/screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
           "$mod, F, fullscreen"
+          "$mod, G, togglefloating"
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"

@@ -52,7 +52,7 @@
     librewolf
     wonderdraft
     kdePackages.kdenlive
-    inputs.winboat.packages.${system}.winboat
+#inputs.winboat.packages.${system}.winboat
     dosbox
   ];
 
