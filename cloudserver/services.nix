@@ -11,16 +11,6 @@
       };
     };
 
-    ollama = {
-      enable = true;
-    };
-
-#    nextjs-ollama-llm-ui.enable = true;
-#    whoogle-search = {
-#      enable = true;
-#      port = 4100;
-#    };
-
     lidarr = {
       enable = true;
       user = "nextcloud";

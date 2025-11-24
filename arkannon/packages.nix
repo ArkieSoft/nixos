@@ -54,6 +54,7 @@
     kdePackages.kdenlive
 #inputs.winboat.packages.${system}.winboat
     dosbox
+    runelite
   ];
 
 }

@@ -145,7 +145,7 @@
     udev.packages = [ pkgs.yubikey-personalization ];
     hardware = {
       openrgb = {
-        enable = true;
+        enable = false;
         package = pkgs.openrgb-with-all-plugins;
         motherboard = "amd";
       };
@@ -245,7 +245,7 @@
       python3
       usbutils
       thonny
-      freerdp
+#freerdp
       docker-compose
       appimage-run
       gnome-disk-utility
