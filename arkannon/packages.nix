@@ -6,17 +6,13 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
-    openscad
-    freecad-wayland
     supersonic
     manix
     qbittorrent
     libreoffice
-    prismlauncher
-    chiaki-ng
     heroic
     chafa
-    rofi-wayland
+    rofi
     xfce.thunar
     gh
     vesktop
@@ -34,7 +30,7 @@
     btop
 #    signal-desktop
     vlc
-    libsForQt5.ark
+    kdePackages.ark
     swww
     nextcloud-client
     pavucontrol
@@ -43,18 +39,15 @@
     wine
     grimblast
     tmux
-    emacs-pgtk
     mgba
     prusa-slicer
-    kicad
     moonlight-qt
     picard
-    librewolf
+    librewolf-bin
     wonderdraft
     kdePackages.kdenlive
-#inputs.winboat.packages.${system}.winboat
-    dosbox
-    runelite
+    cosmic-ext-tweaks
+    quick-webapps
   ];
 
 }

@@ -1,16 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.05";
+      url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim-unstable = {
@@ -32,17 +28,12 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     sops-nix.url = "github:Mic92/sops-nix";
     pyprland.url = "github:hyprland-community/pyprland";
-    winboat = {
-      url = "github:TibixDev/winboat";
-      inputs.nixpkgs.follows = "unstable";
-    };
   };
 
   outputs =
     inputs@{ self
     , nixpkgs
     , sops-nix
-    , nixos-cosmic
     , home-manager
     , nix-darwin
     , unstable
@@ -51,7 +42,6 @@
     , nix-gaming
     , nix-citizen
     , pyprland
-    , winboat
     , ...
     }:
     {
@@ -60,13 +50,6 @@
           system = "x86_64-linux";
           #environment.systemPackages = [ pyprland.packages."x86_64-linux".pyprland ];
           modules = [
-            {
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org/" ];
-                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-              };
-            }
-            nixos-cosmic.nixosModules.default
             ./arkannon/configuration.nix
             home-manager.nixosModules.home-manager
             {

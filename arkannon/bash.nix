@@ -22,9 +22,6 @@
         
         export PATH=$PATH:~/.cargo/bin/
 
-        eval "$(oh-my-posh init bash --config ~/nix/assets/M365Princess.omp.json)"
-
-
         ### OS MANAGEMENT ###
         alias orphanstomper='sudo nix store gc && sudo nix-collect-garbage && cowsay -f hellokitty \"Orphans Successfully Stomped\" | lolcat'
         alias elderlystomper='sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && cowsay -f stegosaurus \"No Elders Left to Stomp, Now!\" | lolcat'

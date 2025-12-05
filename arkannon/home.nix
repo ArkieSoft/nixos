@@ -13,11 +13,13 @@
     ../modules/hyprpaper.nix
   ];
 
+
+
   programs = {
     password-store.enable = true;
     oh-my-posh = {
       enable = true;
-      enableFishIntegration = true;
+      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile "/etc/nixos/assets/M365Princess.omp.json"));
     };
     home-manager.enable = true;
     kitty = {
@@ -25,19 +27,12 @@
       settings = {
         background = "#181818";
         confirm_os_window_close = 0;
+        hide_window_decorations = true;
       };
       font = {
         package = pkgs.nerd-fonts.caskaydia-cove;
         name = "CaskaydiaCoveNerdFont";
       };
-    };
-    obs-studio = {
-      enable = true;
-      plugins = with pkgs; [
-        obs-studio-plugins.wlrobs
-        obs-studio-plugins.obs-vkcapture
-        obs-studio-plugins.obs-backgroundremoval
-      ];
     };
     zoxide = {
       enable = true;
@@ -49,6 +44,7 @@
     portal.extraPortals = [
       pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-cosmic
     ];
     mimeApps = {
       enable = true;
@@ -96,6 +92,7 @@
     };
     
     file = {
+
       "assets" = {
         source = ../assets;
         recursive = true;

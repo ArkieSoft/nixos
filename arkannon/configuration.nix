@@ -19,14 +19,9 @@
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "amd_iommu=on" ]; # Enables PCI-Passthrough
     blacklistedKernelModules = [ "nvidia" "nouveau" ]; #Turns off Nvidia drivers
-    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" "v4l2loopback" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
-    extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef 
-      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-      ''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
+    kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
+    extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
     kernel.sysctl = { "vm.max_map_count" = 16777216; }; #For Star Citizen
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
   };
 
   swapDevices = [{
@@ -67,6 +62,22 @@
   };
   programs = {
     dconf.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.wlrobs
+        obs-studio-plugins.obs-vkcapture
+        obs-studio-plugins.obs-backgroundremoval
+      ];
+    };
+    firefox = {
+      enable = true;
+      package = pkgs.librewolf-bin;
+      preferences = {
+        "widget.gtk.libadwaita-colors.enabled" = false;
+      };
+    };
     virt-manager.enable = true;
     nh = {
       enable = true;
@@ -107,12 +118,10 @@
       nssmdns4 = true;
       openFirewall = true;
     };
-    displayManager.sddm = {
+    desktopManager.cosmic = {
       enable = true;
-      package = pkgs.kdePackages.sddm;
-      wayland.enable = true;
-      theme = "catppuccin-mocha";
     };
+    displayManager.cosmic-greeter.enable = true; 
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
@@ -158,6 +167,7 @@
       extraPortals = [
         pkgs.xdg-desktop-portal-wlr
         pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-cosmic
       ];
       config.common.default = "*";
     };
@@ -200,7 +210,7 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };
@@ -241,7 +251,14 @@
   };
   # $ nix search wget
   environment = {
+    cosmic.excludePackages = with pkgs; [ 
+      cosmic-player 
+      cosmic-term
+      cosmic-edit 
+      cosmic-store
+    ];
     systemPackages = with pkgs; [
+      cosmic-ext-applet-caffeine
       python3
       usbutils
       thonny
