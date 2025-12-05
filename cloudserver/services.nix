@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {  
   services = {
     searx = {
       enable = true;
+      package = pkgs.unstable.searxng;
       environmentFile = /home/wyatt/searxng-key;
       settings = {
         server.port = 5090;

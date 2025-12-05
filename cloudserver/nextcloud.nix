@@ -2,7 +2,7 @@
 {
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud31;
+    package = pkgs.nextcloud32;
     hostName = "cloud.arkannon.com";
     https = true;
     configureRedis = true;
@@ -19,23 +19,23 @@
     extraApps = {
       inherit (pkgs.nextcloud31Packages.apps) calendar contacts notes news;
       cookbook = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-EWLBypv588IkO1wx0vFv26NSk5GKx1pqSWTlAcW2mwE=";
-        url = "https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.3/cookbook-0.11.3.tar.gz";
+        sha256 = "sha256-Bw5Oga5zawiicIR9tOLSflK0258Uy7q/9zJsXS5Ggd4=";
+        url = "https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.5/cookbook-0.11.5.tar.gz";
         license = "agpl3Only";
       };
       picker = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-w8SYE2UVb5kJNESoTcQd4W3qiW8Ouk6VefKG9NWtWbs=";
-        url = "https://github.com/nextcloud-releases/picker/releases/download/v1.0.12/picker-v1.0.12.tar.gz";
+        sha256 = "sha256-PrYd4M2XCfTLa7nJJY3de36MG7/UcjrQx8teWI75XGE=";
+        url = "https://github.com/nextcloud-releases/picker/releases/download/v1.0.13/picker-v1.0.13.tar.gz";
         license = "agpl3Only";
       };
-      pride_flags = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-7k4OcZe49h2C2tS4EbeBkl4nGHkgkwyEXhEJzwRcfH8=";
-        url = "https://git.finally.coffee/finallycoffee/nextcloud-pride-flags/releases/download/1.1.2/pride_flags-1.1.2.tar.gz";
-        license = "gpl3";
-      };
+#      pride_flags = pkgs.fetchNextcloudApp {
+#        sha256 = "sha256-7k4OcZe49h2C2tS4EbeBkl4nGHkgkwyEXhEJzwRcfH8=";
+#        url = "https://git.finally.coffee/finallycoffee/nextcloud-pride-flags/releases/download/1.1.2/pride_flags-1.1.2.tar.gz";
+#        license = "gpl3";
+#      };
       secrets = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-tTe6mS1aaLZRACUhGgEINKzhz+vNigPcVTtEY87mQQQ=";
-        url = "https://github.com/theCalcaholic/nextcloud-secrets/releases/download/v2.1.1/secrets.tar.gz";
+        sha256 = "sha256-nKTVSbaXOqGNXdtb1PD/OyoI4KF5R9CWJWjuONECmE0=";
+        url = "https://github.com/theCalcaholic/nextcloud-secrets/releases/download/v2.1.4/secrets.tar.gz";
         license = "agpl3Only";
       };
 #      permissions_overwrite = pkgs.fetchNextcloudApp {
@@ -44,8 +44,8 @@
 #        license = "agpl3Only";
 #      };
       spreed = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-ztc0u9lYd5rZmzFPt1J4fmSBP3ZINswTaqVr4QZtidQ=";
-        url = "https://github.com/nextcloud-releases/spreed/releases/download/v21.0.1/spreed-v21.0.1.tar.gz";
+        sha256 = "sha256-/mkCCKGUoIqRumVIHL+fPKk4y0NOkdVvk71Mzk889BM=";
+        url = "https://github.com/nextcloud-releases/spreed/releases/download/v22.0.4/spreed-v22.0.4.tar.gz";
         license = "agpl3Only";
       };
 ##Not compatible with Nextcloud31. Check later
@@ -55,8 +55,8 @@
 #        license = "agpl3Only";
 #      };
       bookmarks = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-oXpTsmjD1zGjNoPoNVIVSVO4nHAoWy0YW3IT797XrRM=";
-        url = "https://github.com/nextcloud/bookmarks/releases/download/v15.1.0/bookmarks-15.1.0.tar.gz";
+        sha256 = "sha256-szrfk83p+oNxhg49MwwSUlKJwHSMF/O8PuWE3wBgYrk=";
+        url = "https://github.com/nextcloud/bookmarks/releases/download/v16.0.1/bookmarks-16.0.1.tar.gz";
         license = "agpl3Only";
       };
       #       passwords = pkgs.fetchNextcloudApp {
