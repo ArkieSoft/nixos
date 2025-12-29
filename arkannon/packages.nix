@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     (callPackage ../modules/ass.nix { })
+    (callPackage ../modules/edhm_ui.nix { })
     #inputs.nix-citizen.packages.${system}.star-citizen
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper

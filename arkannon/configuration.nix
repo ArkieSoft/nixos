@@ -54,11 +54,10 @@
     #Allows virt-manager to work with QEMU backend
     spiceUSBRedirection.enable = true;
     libvirtd = {
-      enable = true;
+      enable = false;
       qemu.swtpm.enable = true;
 
     };
-    docker.enable = true;
   };
   programs = {
     dconf.enable = true;
