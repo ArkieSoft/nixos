@@ -7,6 +7,8 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    jellyfin-media-player
+    min-ed-launcher
     supersonic
     manix
     qbittorrent
@@ -16,7 +18,6 @@
     rofi
     xfce.thunar
     gh
-    vesktop
     telegram-desktop
     ripgrep
     lutris
@@ -44,7 +45,7 @@
     prusa-slicer
     moonlight-qt
     picard
-    librewolf-bin
+    librewolf
     wonderdraft
     kdePackages.kdenlive
     cosmic-ext-tweaks

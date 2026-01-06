@@ -54,7 +54,7 @@
     #Allows virt-manager to work with QEMU backend
     spiceUSBRedirection.enable = true;
     libvirtd = {
-      enable = false;
+      enable = true;
       qemu.swtpm.enable = true;
 
     };
@@ -72,7 +72,7 @@
     };
     firefox = {
       enable = true;
-      package = pkgs.librewolf-bin;
+      package = pkgs.librewolf;
       preferences = {
         "widget.gtk.libadwaita-colors.enabled" = false;
       };
