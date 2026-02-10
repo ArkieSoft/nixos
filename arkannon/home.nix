@@ -49,11 +49,11 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "text/html" = "librewolf";
-        "scheme-handler/http" = "librewolf";
-        "scheme-handler/https" = "librewolf";
-        "x-scheme-handler/http" = "librewolf";
-        "x-scheme-handler/https" = "librewolf";
+        "text/html" = "chromium";
+        "scheme-handler/http" = "chromium";
+        "scheme-handler/https" = "chromium";
+        "x-scheme-handler/http" = "chromium";
+        "x-scheme-handler/https" = "chromium";
         "inode/directory" = "thunar";
       };
     };
@@ -86,7 +86,7 @@
     sessionVariables = {
       GTK_THEME = "Qogir-Dark";
       EDITOR = "nvim";
-      BROWSER = "librewolf";
+      BROWSER = "chromium";
       XDG_SCREENSHOT_DIR = "~/Pictures";
 #XDG_DATA_DIRS = "/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     };

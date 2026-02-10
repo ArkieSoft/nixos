@@ -21,7 +21,9 @@
     blacklistedKernelModules = [ "nvidia" "nouveau" ]; #Turns off Nvidia drivers
     kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
     extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
-    kernel.sysctl = { "vm.max_map_count" = 16777216; }; #For Star Citizen
+    kernel.sysctl = { "vm.max_map_count" = 16777216;
+      "fs.file-max" = 524288;    
+    }; #For Star Citizen
   };
 
   swapDevices = [{
@@ -45,11 +47,22 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    pam.services.arkannon = {
-      enableGnomeKeyring = true;
+    pam = {
+      loginLimits = [
+        { domain = "*"; type = "soft"; item = "nofile"; value = "1048576"; }
+        { domain = "*"; type = "hard"; item = "nofile"; value = "1048576"; }
+      ];
+      services.arkannon = {
+        enableGnomeKeyring = true;
+      };
     };
   };
-
+  systemd = {
+    user.extraConfig = "DefaultLimitNOFILE=1048576";
+    settings.Manager = {
+      DefaultLimitNOFILE = "1048576";
+    };
+  };
   virtualisation = {
     #Allows virt-manager to work with QEMU backend
     spiceUSBRedirection.enable = true;
@@ -60,6 +73,36 @@
     };
   };
   programs = {
+    adb.enable = true;
+    chromium.enable = true;
+    alvr = {
+      enable = true;
+      openFirewall = true;
+      package = pkgs.alvr.overrideAttrs (
+        finalAttrs: prevAttrs: {
+          version = "20.13.0";
+
+          src = pkgs.fetchFromGitHub {
+            owner = "alvr-org";
+            repo = "ALVR";
+            tag = "v${finalAttrs.version}";
+            fetchSubmodules = true;
+            hash = "sha256-h7/fuuolxbNkjUbqXZ7NTb1AEaDMFaGv/S05faO2HIc=";
+          };
+
+          cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+            inherit (finalAttrs) src;
+            hash = "sha256-A0ADPMhsREH1C/xpSxW4W2u4ziDrKRrQyY5kBDn//gQ=";
+          };
+        }
+      );
+    };
+    nix-ld ={
+      enable = false;
+      libraries = with pkgs; [
+        freetype
+      ];
+    };
     dconf.enable = true;
     obs-studio = {
       enable = true;
@@ -171,11 +214,11 @@
       config.common.default = "*";
     };
     mime.defaultApplications = {
-      "text/html" = "librewolf";
-      "scheme-handler/http" = "librewolf";
-      "scheme-handler/https" = "librewolf";
-      "x-scheme-handler/http" = "librewolf";
-      "x-scheme-handler/https" = "librewolf";
+      "text/html" = "chromium";
+      "scheme-handler/http" = "chromium";
+      "scheme-handler/https" = "chromium";
+      "x-scheme-handler/http" = "chromium";
+      "x-scheme-handler/https" = "chromium";
       "inode/directory" = "thunar";
     };
   };
@@ -257,6 +300,7 @@
       cosmic-store
     ];
     systemPackages = with pkgs; [
+      protontricks
       cosmic-ext-applet-caffeine
       python3
       usbutils

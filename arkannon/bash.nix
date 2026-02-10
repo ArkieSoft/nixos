@@ -29,6 +29,7 @@
         alias mailserver='ssh -i ~/.ssh/mailserver wyatt@mail.arkannon.com'
         alias cloudserver='ssh -i ~/.ssh/cloudserver wyatt@arkannon.com'
         alias arkmac='ssh arkannon@192.168.4.209'
+        alias edclear='protontricks -c "wineserver -k" 359320'
 
         alias pythonenv='nix-shell /etc/nixos/nix-shell/python.nix'
         alias nixconfig='cd /etc/nixos && git pull && nvim'

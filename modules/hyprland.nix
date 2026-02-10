@@ -9,7 +9,7 @@
       settings = {
         exec-once = [
           "pypr"
-          "wayneko --layer overlay --follow-pointer true --sleepiness-night 1 --sleepiness 1"
+#          "wayneko --layer overlay --follow-pointer true --sleepiness-night 1 --sleepiness 1"
           "nextcloud"
           "hyprpaper"
           "bash /etc/nixos/assets/hyprpaper.sh"
@@ -18,7 +18,7 @@
           "hyprctl setcursor Bibata-Modern-Classic 24"
           "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
           "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-          "hyprctl dispatch exec [workspace 3 silent] vesktop"
+          "hyprctl dispatch exec [workspace 3 silent] flatpak run dev.vencord.Vesktop"
           #"hyprctl dispatch exec [workspace 6 silent] thunderbird"
           #"hyprctl dispatch exec [workspace 6 silent] signal-desktop"
           # "hyprctl dispatch exec [workspace 6 silent] kitty gomuks"
@@ -83,14 +83,14 @@
         master = { };
 
         monitor = [
-          "DP-2, 2560x1440@144, 0x1080, 1"
-          "DP-1, 2560x1440@144, 2560x1080, 1"
-          "HDMI-A-2, 1920x1080@60, 2560x0, 1"
+          "DP-1, 2560x1440@144, 0x1080, 1"
+          "DP-2, 2560x1440@144, 2560x1080, 1"
+          "HDMI-A-1, 1920x1080@60, 2560x0, 1"
         ];
 
         "$mod" = "SUPER";
         bind = [
-          "$mod, W, exec, librewolf"
+          "$mod, W, exec, chromium"
           "$mod, B, exec, pypr toggle btop"
           "$mod, L, exec, hyprlock"
           "$mod, Return, exec, kitty"
@@ -155,13 +155,13 @@
         ];
 
         workspace = [
-          "9,monitor:DP-2,default:false,persistent:true"
-          "7,monitor:DP-1,default:false,persistent:true"
-          "6,monitor:DP-1,default:false,persistent:true,layoutopt:wslayout-layout:master"
-          "1,monitor:DP-2,default:true,persistent:true"
-          "2,monitor:DP-1,default:true,persistent:true"
-          "3,monitor:HDMI-A-2,default:true,persistent:true"
-          "4,monitor:DP-2,default:false,persistent:true"
+          "9,monitor:DP-1,default:false,persistent:true"
+          "7,monitor:DP-2,default:false,persistent:true"
+          "6,monitor:DP-2,default:false,persistent:true,layoutopt:wslayout-layout:master"
+          "1,monitor:DP-1,default:true,persistent:true"
+          "2,monitor:DP-2,default:true,persistent:true"
+          "3,monitor:HDMI-A-1,default:true,persistent:true"
+          "4,monitor:DP-1,default:false,persistent:true"
         ];
       };
     };

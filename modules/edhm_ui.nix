@@ -24,11 +24,11 @@
 
 stdenv.mkDerivation rec {
   pname = "edhm-ui";
-  version = "3.0.59";
+  version = "3.0.61";
 
   src = fetchurl {
     url = "https://github.com/BlueMystical/EDHM_UI/releases/download/v${version}/edhm-ui-v3-linux-x64.zip";
-    sha256 = "sha256-JJAVr01rRPvoeucwxSbNM0i9/cvmsBksvE9nzEw55so=";
+    sha256 = "sha256-TPatLTHQTAn2M6OAogoaoXyMJogF8SNZ/vPBdINIK8A=";
   };
 
   nativeBuildInputs = [

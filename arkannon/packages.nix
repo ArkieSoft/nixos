@@ -7,14 +7,17 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    freecad
     jellyfin-media-player
     min-ed-launcher
     supersonic
     manix
     qbittorrent
     libreoffice
+    ungoogled-chromium
     heroic
     chafa
+    chirp
     rofi
     xfce.thunar
     gh
