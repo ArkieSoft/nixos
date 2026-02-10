@@ -11,7 +11,10 @@
         server.secret_key = "${config.services.searx.environmentFile}";
       };
     };
-
+    murmur = {
+      enable = false;
+      registerName = "Arkannon's Dungeon";
+    };
     lidarr = {
       enable = true;
       user = "nextcloud";
