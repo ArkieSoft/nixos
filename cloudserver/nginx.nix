@@ -14,7 +14,7 @@
           proxyWebsockets = true;
         };
       };
-      "mumble.arkannon.com" = {
+      "matrix.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
