@@ -7,6 +7,8 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    memtester
+    memtest_vulkan
     freecad
     jellyfin-media-player
     min-ed-launcher
