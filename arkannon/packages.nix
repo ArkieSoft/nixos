@@ -8,6 +8,7 @@
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
     memtester
+    ed-odyssey-materials-helper
     memtest_vulkan
     freecad
     jellyfin-media-player
