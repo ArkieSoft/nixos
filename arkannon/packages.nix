@@ -7,6 +7,10 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    signal-desktop
+    unstable.noctalia-shell
+    unstable.stoat-desktop
+    element-desktop
     memtester
     ed-odyssey-materials-helper
     memtest_vulkan

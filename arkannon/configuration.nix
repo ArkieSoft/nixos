@@ -98,7 +98,7 @@
       );
     };
     nix-ld ={
-      enable = false;
+      enable = true;
       libraries = with pkgs; [
         freetype
       ];
