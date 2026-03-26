@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     (callPackage ../modules/ass.nix { })
-    (callPackage ../modules/edhm_ui.nix { })
     #inputs.nix-citizen.packages.${system}.star-citizen
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
@@ -12,6 +11,7 @@
     unstable.stoat-desktop
     element-desktop
     memtester
+    edhm-ui
     ed-odyssey-materials-helper
     memtest_vulkan
     freecad
@@ -56,7 +56,6 @@
     moonlight-qt
     picard
     librewolf
-    wonderdraft
     kdePackages.kdenlive
     cosmic-ext-tweaks
     quick-webapps

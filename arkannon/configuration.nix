@@ -101,6 +101,8 @@
       enable = true;
       libraries = with pkgs; [
         freetype
+        icu
+        sdl3
       ];
     };
     dconf.enable = true;
@@ -111,6 +113,9 @@
         obs-studio-plugins.wlrobs
         obs-studio-plugins.obs-vkcapture
         obs-studio-plugins.obs-backgroundremoval
+        obs-studio-plugins.obs-retro-effects
+        obs-studio-plugins.obs-dvd-screensaver
+        obs-studio-plugins.obs-move-transition
       ];
     };
     firefox = {
@@ -300,6 +305,7 @@
       cosmic-store
     ];
     systemPackages = with pkgs; [
+      gamescope
       protontricks
       cosmic-ext-applet-caffeine
       python3
@@ -350,16 +356,16 @@
     };
   };
 
-  fileSystems."/vms" = {
-    device = "/dev/disk/by-uuid/dd7864ff-40e8-4df3-8482-74828ce62690";
-    fsType = "ext4";
-    options = [
-      "users"
-      "nofail"
-      "auto"
-      "rw"
-    ];
-  };
+#  fileSystems."/vms" = {
+#    device = "/dev/disk/by-uuid/dd7864ff-40e8-4df3-8482-74828ce62690";
+#    fsType = "ext4";
+#    options = [
+#      "users"
+#      "nofail"
+#      "auto"
+#      "rw"
+#    ];
+#  };
   #fileSystems."/home/arkannon" = {
   #  device = "/dev/disk/by-uuid/2a2ce087-44f3-40c6-93d4-f7224e344c22";
   #  fsType = "ext4";
