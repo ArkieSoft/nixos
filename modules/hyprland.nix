@@ -153,6 +153,10 @@
           #"workspace 1 silent,class:(kitty)"
           "workspace 9 silent, class:(moonlight)"
           "idleinhibit fullscreen, class:.*"
+          "float, workspace 9 silent, title:^(Friends List)$,class:^(steam)$"
+          "float, workspace 6 silent, title:^(EDCoPTER Server Controller)$,class:^(steam_app_359320)$"
+          "float, workspace 6 silent, title:^(EDCoPilot-UI)$,class:^(steam_app_359320)$"
+          "float, workspace 6 silent, title:^(elite launcher)$,class:^(steam_app_359320)$"
         ];
 
         workspace = [

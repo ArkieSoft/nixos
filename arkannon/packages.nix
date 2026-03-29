@@ -7,6 +7,7 @@
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
     signal-desktop
+    r2modman
     unstable.noctalia-shell
     unstable.stoat-desktop
     element-desktop
