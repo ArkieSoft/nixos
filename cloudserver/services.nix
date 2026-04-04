@@ -47,7 +47,7 @@
       enable = true;
       settings = {
         PermitRootLogin = "no";
-        PasswordAuthentication = true;
+        PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
       };
     };
@@ -56,7 +56,7 @@
       openFirewall = true;
       user = "nextcloud";
       settings = {
-        MusicFolder = "/storage/Music";
+        MusicFolder = "/storage/media/music/";
         EnableSharing = "true";
       };
     };
