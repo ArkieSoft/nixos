@@ -7,6 +7,9 @@
 
   nixpkgs.config = {
     allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-38.8.4"
+    ];
   };
 
   # Bootloader.
