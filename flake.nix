@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +79,7 @@
               };
               programs.rsi-launcher = {
                 # Enables the star citizen module
-                enable = true;
+                enable = false;
                 # Additional commands before the game starts
                 preCommands = ''
                     export DXVK_HUD=compiler;

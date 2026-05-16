@@ -37,7 +37,6 @@
     wl-clipboard
     neofetch
     gimp
-    thunderbird
     nicotine-plus
     nwg-panel
     btop

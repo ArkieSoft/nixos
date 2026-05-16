@@ -76,7 +76,6 @@
     };
   };
   programs = {
-    adb.enable = true;
     chromium.enable = true;
     alvr = {
       enable = true;
@@ -309,7 +308,7 @@
     ];
     systemPackages = with pkgs; [
       gamescope
-      protontricks
+#protontricks
       cosmic-ext-applet-caffeine
       python3
       usbutils
