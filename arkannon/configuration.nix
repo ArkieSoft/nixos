@@ -347,6 +347,7 @@
       qogir-icon-theme
       virtiofsd
       clolcat
+      libarchive
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
