@@ -155,6 +155,7 @@
       jre
       screen
       curl
+      kepubify
     ];
     #etc."nextcloud-admin-pass".source = /home/wyatt/admin-pass;
     etc."nextcloud-admin-pass".text = builtins.readFile ../../../../home/wyatt/admin-pass;
