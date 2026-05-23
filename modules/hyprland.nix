@@ -31,7 +31,7 @@
         ];
 
         input = {
-          kb_layout = "us";
+          kb_layout = "us, shaw";
         };
 
         general = {
@@ -92,6 +92,7 @@
         "$mod" = "SUPER";
         bind = [
           "$mod, W, exec, chromium"
+          "$mod, TAB, exec, hyprctl switchkblayout current next"
           "$mod, B, exec, pypr toggle btop"
           "$mod, L, exec, hyprlock"
           "$mod, Return, exec, kitty"

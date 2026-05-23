@@ -9,16 +9,11 @@
     signal-desktop
     r2modman
     unstable.noctalia-shell
-    unstable.stoat-desktop
-    element-desktop
     memtester
     edhm-ui
     ed-odyssey-materials-helper
-    memtest_vulkan
     freecad
-    jellyfin-media-player
     min-ed-launcher
-    supersonic
     manix
     qbittorrent
     libreoffice
@@ -29,7 +24,6 @@
     rofi
     xfce.thunar
     gh
-    telegram-desktop
     ripgrep
     lutris
     steam
@@ -37,6 +31,7 @@
     wl-clipboard
     neofetch
     gimp
+    thunderbird
     nicotine-plus
     nwg-panel
     btop

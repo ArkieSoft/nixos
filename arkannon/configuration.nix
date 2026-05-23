@@ -348,6 +348,7 @@
       virtiofsd
       clolcat
       libarchive
+      inter-alia
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
