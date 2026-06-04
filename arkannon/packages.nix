@@ -6,6 +6,7 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    equibop
     signal-desktop
     r2modman
     unstable.noctalia-shell
@@ -29,7 +30,7 @@
     steam
     protonup-qt
     wl-clipboard
-    neofetch
+    hyfetch
     gimp
     thunderbird
     nicotine-plus

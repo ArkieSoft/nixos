@@ -5,8 +5,12 @@
       enable = true;
       xwayland.enable = true;
       systemd.enable = true;
+      configType = "hyprlang";
 
       settings = {
+        mod = {
+          _var = "SUPER";
+        };
         exec-once = [
           "pypr"
 #          "wayneko --layer overlay --follow-pointer true --sleepiness-night 1 --sleepiness 1"
@@ -31,7 +35,7 @@
         ];
 
         input = {
-          kb_layout = "us, shaw";
+          kb_layout = "us";
         };
 
         general = {
@@ -77,19 +81,17 @@
         };
 
         dwindle = {
-          pseudotile = true;
           preserve_split = true;
         };
 
         master = { };
 
         monitor = [
-          "DP-2, 2560x1440@144, 0x1080, 1"
-          "DP-1, 2560x1440@144, 2560x1080, 1"
+          "DP-1, 2560x1440@144, 0x1080, 1"
+          "DP-2, 2560x1440@144, 2560x1080, 1"
           "HDMI-A-2, 1920x1080@60, 2560x0, 1"
         ];
 
-        "$mod" = "SUPER";
         bind = [
           "$mod, W, exec, chromium"
           "$mod, TAB, exec, hyprctl switchkblayout current next"
@@ -103,7 +105,6 @@
           "$mod, T, exec, pypr toggle term"
           "$mod, N, exec, pypr toggle notes"
           "$mod, H, exec, toggle"
-          "$mod, J, togglesplit"
           "$mod, S, exec, grimblast --freeze copysave area ~/Pictures/screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
           "$mod, F, fullscreen"
           "$mod, G, togglefloating"
@@ -143,7 +144,7 @@
 
         decoration = { };
 
-        windowrulev2 = [
+        window_rule = [
           "stayfocused, title:^()$,class:^(steam)$"
           "minsize 1 1, title:^()$,class:^(steam)$"
           "stayfocused,class:(Rofi)"

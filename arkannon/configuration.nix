@@ -21,9 +21,9 @@
     initrd.kernelModules = [ "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "amd_iommu=on" ]; # Enables PCI-Passthrough
-    blacklistedKernelModules = [ "nvidia" "nouveau" ]; #Turns off Nvidia drivers
+    #blacklistedKernelModules = [ "nvidia" "nouveau" ]; #Turns off Nvidia drivers
     kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
-    extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
+    #extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
     kernel.sysctl = { "vm.max_map_count" = 16777216;
       "fs.file-max" = 524288;    
     }; #For Star Citizen
@@ -77,8 +77,9 @@
   };
   programs = {
     chromium.enable = true;
+    mangowc.enable = true;
     alvr = {
-      enable = true;
+      enable = false;
       openFirewall = true;
       package = pkgs.alvr.overrideAttrs (
         finalAttrs: prevAttrs: {
@@ -255,6 +256,10 @@
   };
 
   hardware = {
+#    nvidia = {
+#      open = false;
+#      package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
+#    };
     graphics = {
       enable = true;
       enable32Bit = true;
