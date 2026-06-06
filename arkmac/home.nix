@@ -10,8 +10,6 @@
     packages = with pkgs; [
       (callPackage ../modules/ass.nix { })
       moonlight-qt
-      nicotine-plus
-      crosswords
       dart-sass
       weechat
       flameshot
@@ -19,7 +17,6 @@
       hugo
       gh
       chafa
-      neofetch
       oh-my-posh
       btop
       rustup

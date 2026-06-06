@@ -20,7 +20,7 @@ in
     defaultEditor = true;
     colorscheme = "nightfox";
     colorschemes.nightfox.enable = true;
-    clipboard.providers.wl-copy.enable = true;
+    clipboard.providers.wl-copy.enable = pkgs.stdenv.isLinux;
 
     extraPlugins = with pkgs.vimplugins; [
       (fromGitHub "c7dfd2f9fc7108ef3832a02f40a76ab1b2d940ce" "main" "jim-fx/sudoku.nvim")

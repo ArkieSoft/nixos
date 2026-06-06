@@ -7,8 +7,6 @@
     allowUnfree = true;
   };
 
-  programs.bash.enable = true;
-
   nix.settings = {
     experimental-features = "nix-command flakes impure-derivations ca-derivations";
   };
@@ -19,7 +17,7 @@
 
 
   homebrew = {
-    enable = true;
+    enable = false;
     casks = [
       "chirp"
       "ukelele"

@@ -5,7 +5,6 @@
     bashrcExtra = "
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/Users/arkannon/Library/Python/3.9/bin:$PATH
-neofetch
 eval \"$(oh-my-posh init bash --config ~/.config/nix/assets/M365Princess.omp.json)\"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
