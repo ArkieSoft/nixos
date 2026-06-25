@@ -7,6 +7,8 @@
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
     equibop
+    fastfetch
+    wonderdraft
     signal-desktop
     r2modman
     unstable.noctalia-shell

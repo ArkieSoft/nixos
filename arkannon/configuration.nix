@@ -256,10 +256,6 @@
   };
 
   hardware = {
-#    nvidia = {
-#      open = false;
-#      package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
-#    };
     graphics = {
       enable = true;
       enable32Bit = true;

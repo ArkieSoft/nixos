@@ -7,15 +7,15 @@
         A=$(shuf -i 1-5 -n 1)
 
         if [ $A -eq 1 ]; then
-          neofetch
+          fastfetch
         elif [ $A -eq 2 ]; then
-          neofetch --kitty /etc/nixos/fetchart/2b.png --size 15%
+          fastfetch -c /etc/nixos/fetchart/fetchconfigs/2b.jsonc
         elif [ $A -eq 3 ]; then
-          neofetch --kitty /etc/nixos/fetchart/2b2.jpg --size 15%
+          fastfetch -c /etc/nixos/fetchart/fetchconfigs/2b2.jsonc
         elif [ $A -eq 4 ]; then 
-          neofetch --ascii /etc/nixos/fetchart/kisser
+          fastfetch -c /etc/nixos/fetchart/fetchconfigs/kisser.jsonc
         else
-          neofetch --ascii /etc/nixos/fetchart/Pentag
+          fastfetch -c /etc/nixos/fetchart/fetchconfigs/Pentag.jsonc
         fi
 
         [[ $- != *i* ]] && return
