@@ -319,6 +319,7 @@
       appimage-run
       gnome-disk-utility
       wayneko
+      bat
       pyprland
       hyprpaper
       catppuccin-sddm
@@ -350,6 +351,7 @@
       clolcat
       libarchive
       inter-alia
+      pay-respects
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

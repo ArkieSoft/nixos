@@ -11,6 +11,7 @@
     ../modules/hyprlock.nix
     ../modules/hypridle.nix
     ../modules/hyprpaper.nix
+    ./zsh.nix
   ];
 
 
@@ -24,6 +25,7 @@
     home-manager.enable = true;
     kitty = {
       enable = true;
+      shellIntegration.enableZshIntegration = true;
       settings = {
         background = "#181818";
         confirm_os_window_close = 0;
@@ -37,6 +39,7 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
+      enableZshIntegration = true;
     };
   };
 

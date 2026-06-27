@@ -6,6 +6,7 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    nushell
     equibop
     fastfetch
     wonderdraft
