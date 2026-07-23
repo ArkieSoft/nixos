@@ -6,6 +6,7 @@
     #inputs.nix-citizen.packages.${system}.star-citizen-helper
     #inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    firefox-bin
     nushell
     equibop
     fastfetch
@@ -31,7 +32,7 @@
     ripgrep
     lutris
     steam
-    protonup-qt
+    protonplus
     wl-clipboard
     hyfetch
     gimp

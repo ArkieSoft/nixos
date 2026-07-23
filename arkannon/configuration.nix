@@ -74,6 +74,7 @@
       qemu.swtpm.enable = true;
 
     };
+    docker.enable = true;
   };
   programs = {
     chromium.enable = true;
@@ -308,6 +309,10 @@
       cosmic-store
     ];
     systemPackages = with pkgs; [
+      bc
+      gettext
+      mokutil
+      winboat
       gamescope
 #protontricks
       cosmic-ext-applet-caffeine
@@ -319,7 +324,6 @@
       appimage-run
       gnome-disk-utility
       wayneko
-      bat
       pyprland
       hyprpaper
       catppuccin-sddm

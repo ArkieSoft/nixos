@@ -28,6 +28,10 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     sops-nix.url = "github:Mic92/sops-nix";
     pyprland.url = "github:hyprland-community/pyprland";
+#    edxd = {
+#      url = "github:Kepas-Beleglorn/EDXD";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
   };
 
   outputs =

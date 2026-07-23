@@ -31,6 +31,10 @@
           command ls "$@"
         fi
       }
+      
+      wttr() {
+        nu -l -c "curl wttr.in/Port+Orchard?m"
+      }
 
       cdls() {
         z "$@"
@@ -73,8 +77,7 @@
       alias gc='git commit -m'
       alias gp='git push'
       alias gl='git log'
-      alias wttr='curl wttr.in/Port+Orchard?m'
-      alias cat='bat'
+      alias wttr='wttr'
 
       PS1='[\u@\h \W]\$ '
     '';
@@ -177,6 +180,15 @@
           repo = "zsh-bat";
           rev = "4673376";
           sha256 = "sha256-TTuYZpev0xJPLgbhK5gWUeGut0h7Gi3b+e00SzFvSGo=";
+        };
+      }
+      {
+        name = "zwordle";
+        src = pkgs.fetchFromGitHub {
+          owner = "yertto";
+          repo = "zwordle";
+          rev = "201c3d5";
+          sha256 = "sha256-7qZum7oU4VIsQxWty0Mtz/yFhvvIH45ctCWaeYH1XjE=";
         };
       }
     ];
