@@ -23,8 +23,8 @@
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 25565];
-      allowedUDPPorts = [ 80 443 25565];
+      allowedTCPPorts = [ 80 443 25565 3000];
+      allowedUDPPorts = [ 80 443 25565 3000];
       enable = true;
     };
   };
