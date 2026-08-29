@@ -78,6 +78,7 @@
       alias gp='git push'
       alias gl='git log'
       alias wttr='wttr'
+      alias snake='nix-shell /etc/nixos/shells/python.nix'
 
       PS1='[\u@\h \W]\$ '
     '';
@@ -189,6 +190,15 @@
           repo = "zwordle";
           rev = "201c3d5";
           sha256 = "sha256-7qZum7oU4VIsQxWty0Mtz/yFhvvIH45ctCWaeYH1XjE=";
+        };
+      }
+      {
+        name = "flatpak-zsh-completion";
+        src = pkgs.fetchFromGitHub {
+          owner = "bilelmoussaoui";
+          repo = "flatpak-zsh-completion";
+          rev = "83ba8f1";
+          sha256 = "sha256-a31Bfzjf9TYO7entScJy/87VmWNpZdT6iml3uLJ3UTc=";
         };
       }
     ];

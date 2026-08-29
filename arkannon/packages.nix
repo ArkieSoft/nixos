@@ -2,22 +2,24 @@
 {
   home.packages = with pkgs; [
     (callPackage ../modules/ass.nix { })
-    #inputs.nix-citizen.packages.${system}.star-citizen
-    #inputs.nix-citizen.packages.${system}.star-citizen-helper
-    #inputs.nix-citizen.packages.${system}.lug-helper
+    inputs.nix-citizen.packages.${system}.star-citizen
+    inputs.nix-citizen.packages.${system}.lug-helper
     #unstable.teamspeak6-client
+    vesktop
+    vivaldi
+    gpu-screen-recorder-gtk
+    superfile
+    discord
+    obsidian
+    protontricks
     firefox-bin
     nushell
-    equibop
     fastfetch
     wonderdraft
     signal-desktop
-    r2modman
     unstable.noctalia-shell
-    memtester
     edhm-ui
     ed-odyssey-materials-helper
-    freecad
     min-ed-launcher
     manix
     qbittorrent
@@ -34,13 +36,11 @@
     steam
     protonplus
     wl-clipboard
-    hyfetch
     gimp
     thunderbird
     nicotine-plus
     nwg-panel
     btop
-#    signal-desktop
     vlc
     kdePackages.ark
     swww
@@ -50,10 +50,8 @@
     wine-staging
     wine
     grimblast
-    tmux
     mgba
     prusa-slicer
-    moonlight-qt
     picard
     librewolf
     kdePackages.kdenlive

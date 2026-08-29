@@ -8,7 +8,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "electron-38.8.4"
+      "electron-40.10.5"
     ];
   };
 
@@ -25,13 +25,23 @@
     kernelModules = [ "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ]; #Enables PCI Passthrough modules and 'v4l2loopback' for virtual cam on OBS
     #extraModprobeConfig = ''options vfio-pci ids=10de:1b06,10de:10ef''; #Links Virtual PCI drivers to Nvidia card and enables V4l2loopback drivers to make a camera
     kernel.sysctl = { "vm.max_map_count" = 16777216;
-      "fs.file-max" = 524288;    
+      "fs.file-max" = 524288;
+      "vm.swappiness" = 180;
+      "vm.watermark_boost_factor" = 0;
+      "vm.watermark_scale_factor" = 125;
+      "vm.page-cluster" = 0;
     }; #For Star Citizen
+  };
+  
+  #For when RAMn't
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
   };
 
   swapDevices = [{
     device = "/var/lib/swapfile";
-    size = 16 * 1024;
+    size = 32 * 1024;
   }];
 
   networking = {
@@ -158,6 +168,12 @@
   };
 
   services = {
+    udev = {
+      enable = true;
+      extraRules = ''
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", TAG+="uaccess"
+      '';
+    };
     usbmuxd = {
       enable = true;
       package = pkgs.usbmuxd2;
@@ -309,7 +325,16 @@
       cosmic-store
     ];
     systemPackages = with pkgs; [
+      tk
+      python313Packages.tkinter
+      wmctrl
+      xprop
+      xwininfo
+      libxcb
+      xcb-util-cursor
+      libxkbcommon
       bc
+      wayland-protocols
       gettext
       mokutil
       winboat
