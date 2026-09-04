@@ -4,7 +4,7 @@
     (callPackage ../modules/ass.nix { })
     inputs.nix-citizen.packages.${system}.star-citizen
     inputs.nix-citizen.packages.${system}.lug-helper
-    #unstable.teamspeak6-client
+    teamspeak6-client
     vesktop
     vivaldi
     gpu-screen-recorder-gtk
