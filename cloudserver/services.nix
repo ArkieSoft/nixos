@@ -11,6 +11,18 @@
         server.secret_key = "${config.services.searx.environmentFile}";
       };
     };
+    websurfx = {
+      enable = false;
+      package = pkgs.unstable.websurfx;
+      settings = {
+        http_cache_expiry_time = 60;
+        port = 5090;
+        upstream_search_engines = {
+          Qwant = false;
+          SepiaSearch = false;
+        };
+      };
+    };
     murmur = {
       enable = false;
       registerName = "Arkannon's Dungeon";
