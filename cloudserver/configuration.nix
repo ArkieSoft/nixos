@@ -23,8 +23,8 @@
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 25565 3000];
-      allowedUDPPorts = [ 80 443 25565 3000];
+      allowedTCPPorts = [ 80 443 25565 3000 9987 30033 10080];
+      allowedUDPPorts = [ 80 443 25565 3000 9987 30033 10080];
       enable = true;
     };
   };
@@ -47,7 +47,7 @@
   };
 
   virtualisation.docker.enable = true;
-
+  programs.nix-ld.enable = true;
   systemd.services = {
     qbittorrent = {
       enable = true;
@@ -73,6 +73,20 @@
         Type = "exec";
         User = "wyatt";
         ExecStart = "/run/current-system/sw/bin/bash /home/wyatt/monitor";
+      };
+    };
+    teamspeak = {
+      enable = true;
+      description = "TeamSpeak 6";
+      wants = [ "network-online.target" ];
+      after = [ "network_online.target" "nss-lookup.target" ];
+      path = [ "/teamspeak" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = { 
+        Type = "exec";
+        User = "wyatt";
+        WorkingDirectory = "/teamspeak";
+        ExecStart = "/teamspeak/tsserver --accept-license";
       };
     };
 #    minecraft = {

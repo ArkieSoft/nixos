@@ -36,6 +36,15 @@
         };
       };
 
+      "ts.arkannon.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:9987";
+          proxyWebsockets = true;
+        };
+      };
+
       "music.arkannon.com" = {
         forceSSL = true;
         enableACME = true;
