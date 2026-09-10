@@ -5,6 +5,7 @@
     inputs.nix-citizen.packages.${system}.star-citizen
     inputs.nix-citizen.packages.${system}.lug-helper
     teamspeak6-client
+    r2modman
     vesktop
     vivaldi
     gpu-screen-recorder-gtk
