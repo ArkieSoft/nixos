@@ -9,6 +9,7 @@
       url = "github:nix-community/nixvim/nixos-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     nixvim-unstable = {
       url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "unstable";
@@ -46,6 +47,7 @@
     , nix-gaming
     , nix-citizen
     , pyprland
+    , millennium
     , ...
     }:
     {
@@ -73,6 +75,7 @@
                     config = prev.config;
                   };
                 })
+                inputs.millennium.overlays.default
               ];
             }
             nix-citizen.nixosModules.default

@@ -34,7 +34,6 @@
     gh
     ripgrep
     lutris
-    steam
     protonplus
     wl-clipboard
     gimp

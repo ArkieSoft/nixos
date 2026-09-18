@@ -146,6 +146,7 @@
     };
     steam = {
       enable = true;
+      package = pkgs.millennium-steam;
       extest.enable = true;
       remotePlay.openFirewall = true;
     };
