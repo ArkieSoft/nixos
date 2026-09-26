@@ -75,6 +75,21 @@
         ExecStart = "/run/current-system/sw/bin/bash /home/wyatt/monitor";
       };
     };
+
+    food_remind = {
+      enable = true;
+      description = "Systems Monitor";
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" "nss-lookup.target" ];
+      path = [ "/run/current-system/sw/" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "exec";
+        User = "wyatt";
+        ExecStart = "/run/current-system/sw/bin/bash /home/wyatt/food_reminder";
+      };
+    };
+
     teamspeak = {
       enable = true;
       description = "TeamSpeak 6";
