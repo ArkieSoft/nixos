@@ -23,7 +23,7 @@
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     firewall = {
-      allowedTCPPorts = [ 80 443 25565 3000 9987 30033 10080];
+      allowedTCPPorts = [ 80 443 25565 3000 9987 30033 10080 5201];
       allowedUDPPorts = [ 80 443 25565 3000 9987 30033 10080];
       enable = true;
     };
@@ -91,7 +91,7 @@
     };
 
     teamspeak = {
-      enable = true;
+      enable = false;
       description = "TeamSpeak 6";
       wants = [ "network-online.target" ];
       after = [ "network_online.target" "nss-lookup.target" ];
@@ -124,6 +124,8 @@
     defaults.email = "certs@arkannon.com";
   };
 
+  hardware.graphics.enable = true;
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -136,6 +138,8 @@
     extraGroups = [ "ntfy-sh" "networkmanager" "wheel" "root" "dialout" "docker" "podman" ];
     packages = with pkgs; [ ];
   };
+
+  users.users.jellyfin.extraGroups = [ "render" "video" ];
 
   fileSystems."/storage" = {
     device = "/dev/disk/by-uuid/5f86d5fd-c05e-4332-b5b1-2fada5e5e045";
