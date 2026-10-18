@@ -60,6 +60,9 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
+    sudo.extraConfig = ''
+      Defaults env_keep += "DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_RUNTIME_DIR"
+    '';
     pam = {
       loginLimits = [
         { domain = "*"; type = "soft"; item = "nofile"; value = "1048576"; }
